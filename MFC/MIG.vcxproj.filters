@@ -1,0 +1,2918 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{0a7c0e26-456d-48af-a6c6-aec61e61bc5f}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Source Files\tool dependency compiled first">
+      <UniqueIdentifier>{0cb9e92d-f1c3-4cb5-87e1-ea54ba9f0efa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\assembler">
+      <UniqueIdentifier>{c305a55c-f6db-4100-a191-e54e24d7e267}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\3D">
+      <UniqueIdentifier>{a07f79c5-aa90-48e6-8b36-3dd6fe6bd965}</UniqueIdentifier>
+      <Extensions>.cpp</Extensions>
+    </Filter>
+    <Filter Include="Source Files\AI">
+      <UniqueIdentifier>{d4796475-8fdf-4700-8120-b1ba90f9a1a8}</UniqueIdentifier>
+      <Extensions>.cpp</Extensions>
+    </Filter>
+    <Filter Include="Source Files\AIRCRAFT">
+      <UniqueIdentifier>{4d0aff90-16b9-4113-ae76-a17bcb17fa87}</UniqueIdentifier>
+      <Extensions>.cpp</Extensions>
+    </Filter>
+    <Filter Include="Source Files\BFIELDS">
+      <UniqueIdentifier>{d7025136-d5bc-41b6-ba34-1611c1cd3a43}</UniqueIdentifier>
+      <Extensions>.cpp</Extensions>
+    </Filter>
+    <Filter Include="Source Files\FILES">
+      <UniqueIdentifier>{1c7d318b-000c-4b25-947c-89a6e5c7ed38}</UniqueIdentifier>
+      <Extensions>.cpp</Extensions>
+    </Filter>
+    <Filter Include="Source Files\GENERAL">
+      <UniqueIdentifier>{526dd204-bb39-4afb-9e4f-81ed046a62e7}</UniqueIdentifier>
+      <Extensions>.cpp</Extensions>
+    </Filter>
+    <Filter Include="Source Files\GRAPHICS">
+      <UniqueIdentifier>{c5abad7f-88a0-4eff-be87-c0ba31956915}</UniqueIdentifier>
+      <Extensions>.cpp</Extensions>
+    </Filter>
+    <Filter Include="Source Files\HARDWARE">
+      <UniqueIdentifier>{a085b018-2b22-471d-8afa-4eeafe75135a}</UniqueIdentifier>
+      <Extensions>.cpp</Extensions>
+    </Filter>
+    <Filter Include="Source Files\INPUT">
+      <UniqueIdentifier>{c7b795b7-7294-4faf-a2da-374b772fff4d}</UniqueIdentifier>
+      <Extensions>.cpp</Extensions>
+    </Filter>
+    <Filter Include="Source Files\MATH">
+      <UniqueIdentifier>{2657080c-699f-422d-ad3f-225170e73b19}</UniqueIdentifier>
+      <Extensions>.cpp</Extensions>
+    </Filter>
+    <Filter Include="Source Files\MISSMAN">
+      <UniqueIdentifier>{58a411eb-883c-4703-be41-3f179a9887ff}</UniqueIdentifier>
+      <Extensions>.cpp</Extensions>
+    </Filter>
+    <Filter Include="Source Files\MODEL">
+      <UniqueIdentifier>{d543fd22-d18b-4dfa-be2b-8fed481f777a}</UniqueIdentifier>
+      <Extensions>.cpp</Extensions>
+    </Filter>
+    <Filter Include="Source Files\MOVECODE">
+      <UniqueIdentifier>{cc6916fc-d99e-4e28-aa62-73ed1caf33bd}</UniqueIdentifier>
+      <Extensions>.cpp</Extensions>
+    </Filter>
+    <Filter Include="Source Files\TEXT">
+      <UniqueIdentifier>{ee6708b3-e327-45d4-ac3e-0d414148ac04}</UniqueIdentifier>
+      <Extensions>.cpp</Extensions>
+    </Filter>
+    <Filter Include="Source Files\COMMS">
+      <UniqueIdentifier>{5dc310ed-410e-48ca-baa6-3c45e522a0e3}</UniqueIdentifier>
+      <Extensions>.cpp</Extensions>
+    </Filter>
+    <Filter Include="Source Files\MFCSTUFF">
+      <UniqueIdentifier>{d815094b-61e4-4747-a89e-799f66d1a222}</UniqueIdentifier>
+      <Extensions>.cpp</Extensions>
+    </Filter>
+    <Filter Include="Source Files\AFXSTUB">
+      <UniqueIdentifier>{813b3239-da98-4aaf-8d59-14eb16e2d9fb}</UniqueIdentifier>
+      <Extensions>.cpp</Extensions>
+    </Filter>
+    <Filter Include="Source Files\SHEETS">
+      <UniqueIdentifier>{0199e03d-81b4-4d92-9d78-58af84299efd}</UniqueIdentifier>
+      <Extensions>.cpp</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{c9832477-2504-4316-b9d8-17d393fbb774}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl</Extensions>
+    </Filter>
+    <Filter Include="Header Files\New Headers Trap">
+      <UniqueIdentifier>{71b65290-a0e7-4669-8167-f67284f8fa1b}</UniqueIdentifier>
+      <Extensions>h</Extensions>
+    </Filter>
+    <Filter Include="Header Files\0-9">
+      <UniqueIdentifier>{12a388ee-a4ba-4379-ade6-1b1dc9ddda67}</UniqueIdentifier>
+      <Extensions>h</Extensions>
+    </Filter>
+    <Filter Include="Header Files\A">
+      <UniqueIdentifier>{b92d7eca-5ece-4797-8510-63c1167a10cd}</UniqueIdentifier>
+      <Extensions>h</Extensions>
+    </Filter>
+    <Filter Include="Header Files\A\Astub">
+      <UniqueIdentifier>{f0c8876d-c0f3-4349-ac9f-298b68f68899}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\B">
+      <UniqueIdentifier>{0a5278d6-2ffc-4c4c-ba31-70bca7709e5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\B\Bstub">
+      <UniqueIdentifier>{74ab355a-56ff-4092-8835-1aec32cd3dde}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\C">
+      <UniqueIdentifier>{9196b6c5-5517-47fa-b19a-9ef02ea5bccf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\C\Cstub">
+      <UniqueIdentifier>{7896a11f-ecda-4f35-9f45-7e01b590b1fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\D">
+      <UniqueIdentifier>{d7463102-694d-4c0e-9689-0698c24c353a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\D\Dstub">
+      <UniqueIdentifier>{cc88b0ff-e402-4acb-b686-1421665516ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\E">
+      <UniqueIdentifier>{2ec205ad-ba08-4072-9b5e-9646e3155319}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\F">
+      <UniqueIdentifier>{1a327f83-8176-4f4f-a841-7a122b772335}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\G">
+      <UniqueIdentifier>{60be1ac4-6e52-45a8-b27a-a879aab98b00}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\H">
+      <UniqueIdentifier>{478efe44-edeb-4c8a-834d-63b6fb864ece}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\I">
+      <UniqueIdentifier>{cd148528-3c9b-4504-9902-2c0c0e023b2d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\J">
+      <UniqueIdentifier>{9ed51dec-78d9-4aa0-bfd0-c2ba96bd9ade}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\K">
+      <UniqueIdentifier>{1a04faea-5856-4cf6-911a-93b5dcde13d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\L">
+      <UniqueIdentifier>{2f9d03f2-7c65-4806-adea-cf9761f795a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\M">
+      <UniqueIdentifier>{15ae972d-ad18-4862-8c18-666ad0bb7e95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\M\Mstub">
+      <UniqueIdentifier>{34b03abf-c60a-4029-acfc-77e5c805da87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\M\MY">
+      <UniqueIdentifier>{2c3ebfa5-d1b2-4200-bf50-2cb8205f30b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\M\Mig">
+      <UniqueIdentifier>{dfd4f245-a892-4791-a573-34c984f4dd54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\N">
+      <UniqueIdentifier>{bb0c050c-64ea-453c-b358-29143de2cef1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\O">
+      <UniqueIdentifier>{614ab04c-b9c9-4e48-8ac9-e05dad91c034}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\P">
+      <UniqueIdentifier>{ff3cb08a-a185-4299-92cf-c0de0ba2d289}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Q">
+      <UniqueIdentifier>{f8a4b619-0fd5-410a-99be-22aed5defe0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\R">
+      <UniqueIdentifier>{a4f84877-3071-4dba-ae5b-f0f266b74057}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\S">
+      <UniqueIdentifier>{62afcb60-3396-48dd-8eaa-2c602fa62f6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\S\Sstub">
+      <UniqueIdentifier>{99d5bd03-f5d5-4bbd-941e-da0a4a94c8f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\T">
+      <UniqueIdentifier>{7034abf9-0736-42ec-8a36-8246aad2fd33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\U">
+      <UniqueIdentifier>{37fda60e-6984-46cf-8038-ece0c1667a12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\V">
+      <UniqueIdentifier>{5dc2a08b-77f6-484f-ab01-e29df508bf26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\W">
+      <UniqueIdentifier>{5578a52e-0e48-4ad9-a963-390671091682}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\W\Wstub">
+      <UniqueIdentifier>{ebfebc23-f40b-492a-96c5-c4bdfc7a6e77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\__">
+      <UniqueIdentifier>{b56cab76-eac0-4801-a4a4-a77049ae6234}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{15370b74-065c-4528-94f6-c2a97f761f87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{fa51a99f-289b-4901-beab-b78af4e6ae69}</UniqueIdentifier>
+      <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;cnt;rtf;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+    <Filter Include="Resource Files\Source">
+      <UniqueIdentifier>{1537cd62-fe78-44e0-b723-580154a12753}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\BMP %28res%29">
+      <UniqueIdentifier>{9abab9b3-2929-41f8-a55c-0859cb49aafe}</UniqueIdentifier>
+      <Extensions>.bmp</Extensions>
+    </Filter>
+    <Filter Include="Help Files">
+      <UniqueIdentifier>{6d0c28c3-b8d3-4f13-8b42-ed751c8ed780}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Help Files\Source">
+      <UniqueIdentifier>{fcc80c7e-8248-4cc4-a928-bd2bb0ba5f78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Help Files\RTF">
+      <UniqueIdentifier>{de31fb5c-8eeb-476b-a8c7-51536850467e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Help Files\BMP %28help%29">
+      <UniqueIdentifier>{ec751efc-543c-449b-ad63-39e552391c2f}</UniqueIdentifier>
+      <Extensions>.bmp</Extensions>
+    </Filter>
+    <Filter Include="Utilities">
+      <UniqueIdentifier>{51027f19-3525-4236-9ff7-c2ac44f7e593}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utilities\Add all targets as dependencies of fmake.dep">
+      <UniqueIdentifier>{624b7f13-8633-4174-b8f9-4defb45b5276}</UniqueIdentifier>
+      <Extensions>.dep</Extensions>
+    </Filter>
+    <Filter Include="Utilities\Utility programs generate 1 target">
+      <UniqueIdentifier>{9213d812-edf2-4210-b84f-d30d3ef78ad0}</UniqueIdentifier>
+      <Extensions>.dep</Extensions>
+    </Filter>
+    <Filter Include="Utilities\associated files">
+      <UniqueIdentifier>{75577448-65f4-4ca7-8626-c9165893bc62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Removed stuff">
+      <UniqueIdentifier>{04635dde-4043-4ecb-9e66-4c1e1258cac9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="000tools.cpp">
+      <Filter>Source Files\tool dependency compiled first</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files\tool dependency compiled first</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3D\3dcode.cpp">
+      <Filter>Source Files\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3D\3dcom.cpp">
+      <Filter>Source Files\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3D\_3D.CPP">
+      <Filter>Source Files\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3d\Anmradio.cpp">
+      <Filter>Source Files\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3D\Btree.cpp">
+      <Filter>Source Files\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3D\Collided.cpp">
+      <Filter>Source Files\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3d\Decomp.cpp">
+      <Filter>Source Files\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3D\Imagemap.cpp">
+      <Filter>Source Files\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3D\Jimcol.cpp">
+      <Filter>Source Files\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3d\Jimtri.cpp">
+      <Filter>Source Files\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3D\Landscap.cpp">
+      <Filter>Source Files\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3D\Lstream.cpp">
+      <Filter>Source Files\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3D\Migland.cpp">
+      <Filter>Source Files\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3D\Overlay.cpp">
+      <Filter>Source Files\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3D\particle.cpp">
+      <Filter>Source Files\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3D\Shapes.cpp">
+      <Filter>Source Files\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3D\Shpbld.cpp">
+      <Filter>Source Files\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3d\Tilemake.cpp">
+      <Filter>Source Files\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3D\Transite.cpp">
+      <Filter>Source Files\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3D\Viewsel.cpp">
+      <Filter>Source Files\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3d\Weappak.cpp">
+      <Filter>Source Files\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3D\World.cpp">
+      <Filter>Source Files\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="..\AI\_AI.CPP">
+      <Filter>Source Files\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\AI\Aaa.cpp">
+      <Filter>Source Files\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\AI\Msgai.cpp">
+      <Filter>Source Files\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\AI\Spotted.cpp">
+      <Filter>Source Files\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Ai\Usermsg.cpp">
+      <Filter>Source Files\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\AIRCRAFT\_AIRC.CPP">
+      <Filter>Source Files\AIRCRAFT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Aircraft\Ai_f4u5.cpp">
+      <Filter>Source Files\AIRCRAFT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Aircraft\Ai_f51d.cpp">
+      <Filter>Source Files\AIRCRAFT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Aircraft\Ai_f8.cpp">
+      <Filter>Source Files\AIRCRAFT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Aircraft\Ai_f80c.cpp">
+      <Filter>Source Files\AIRCRAFT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Aircraft\Ai_f82g.cpp">
+      <Filter>Source Files\AIRCRAFT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Aircraft\Ai_f84e.cpp">
+      <Filter>Source Files\AIRCRAFT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Aircraft\Ai_f86e.cpp">
+      <Filter>Source Files\AIRCRAFT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Aircraft\Ai_f9f2.cpp">
+      <Filter>Source Files\AIRCRAFT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Aircraft\Ai_ffly.cpp">
+      <Filter>Source Files\AIRCRAFT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Aircraft\Ai_mig15.cpp">
+      <Filter>Source Files\AIRCRAFT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Aircraft\Ai_sfury.cpp">
+      <Filter>Source Files\AIRCRAFT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Aircraft\Ai_yak9.cpp">
+      <Filter>Source Files\AIRCRAFT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\AIRCRAFT\Cd_a1.cpp">
+      <Filter>Source Files\AIRCRAFT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\AIRCRAFT\Cd_atmos.cpp">
+      <Filter>Source Files\AIRCRAFT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\AIRCRAFT\Cd_comm.cpp">
+      <Filter>Source Files\AIRCRAFT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\AIRCRAFT\Cd_f4u5.cpp">
+      <Filter>Source Files\AIRCRAFT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\AIRCRAFT\Cd_f51d.cpp">
+      <Filter>Source Files\AIRCRAFT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\AIRCRAFT\Cd_f8.cpp">
+      <Filter>Source Files\AIRCRAFT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\AIRCRAFT\Cd_f80c.cpp">
+      <Filter>Source Files\AIRCRAFT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\AIRCRAFT\Cd_f82g.cpp">
+      <Filter>Source Files\AIRCRAFT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\AIRCRAFT\Cd_f84e.cpp">
+      <Filter>Source Files\AIRCRAFT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\AIRCRAFT\Cd_f86e.cpp">
+      <Filter>Source Files\AIRCRAFT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\AIRCRAFT\Cd_f94a.cpp">
+      <Filter>Source Files\AIRCRAFT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\AIRCRAFT\Cd_f9f2.cpp">
+      <Filter>Source Files\AIRCRAFT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\AIRCRAFT\Cd_ffly.cpp">
+      <Filter>Source Files\AIRCRAFT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\AIRCRAFT\Cd_mig15.cpp">
+      <Filter>Source Files\AIRCRAFT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\AIRCRAFT\Cd_sfury.cpp">
+      <Filter>Source Files\AIRCRAFT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\AIRCRAFT\Cd_yak9.cpp">
+      <Filter>Source Files\AIRCRAFT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\AIRCRAFT\Dt_f4u5.cpp">
+      <Filter>Source Files\AIRCRAFT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\AIRCRAFT\Dt_f51d.cpp">
+      <Filter>Source Files\AIRCRAFT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\AIRCRAFT\Dt_f8.cpp">
+      <Filter>Source Files\AIRCRAFT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\AIRCRAFT\Dt_f80c.cpp">
+      <Filter>Source Files\AIRCRAFT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\AIRCRAFT\Dt_f82g.cpp">
+      <Filter>Source Files\AIRCRAFT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\AIRCRAFT\Dt_f84e.cpp">
+      <Filter>Source Files\AIRCRAFT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\AIRCRAFT\Dt_f86e.cpp">
+      <Filter>Source Files\AIRCRAFT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\AIRCRAFT\Dt_f9f2.cpp">
+      <Filter>Source Files\AIRCRAFT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\AIRCRAFT\Dt_ffly.cpp">
+      <Filter>Source Files\AIRCRAFT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\AIRCRAFT\Dt_mig15.cpp">
+      <Filter>Source Files\AIRCRAFT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Aircraft\Dt_other.cpp">
+      <Filter>Source Files\AIRCRAFT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\AIRCRAFT\Dt_sfury.cpp">
+      <Filter>Source Files\AIRCRAFT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\AIRCRAFT\Dt_yak9.cpp">
+      <Filter>Source Files\AIRCRAFT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\BFIELDS\_BFIE.CPP">
+      <Filter>Source Files\BFIELDS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\BFIELDS\Globrefs.cpp">
+      <Filter>Source Files\BFIELDS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\BFIELDS\Mapcode.cpp">
+      <Filter>Source Files\BFIELDS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\BFIELDS\Messages.cpp">
+      <Filter>Source Files\BFIELDS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\BFIELDS\Persons2.cpp">
+      <Filter>Source Files\BFIELDS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\BFIELDS\Persons3.cpp">
+      <Filter>Source Files\BFIELDS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\BFIELDS\Persons4.cpp">
+      <Filter>Source Files\BFIELDS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\BFIELDS\Persons7.cpp">
+      <Filter>Source Files\BFIELDS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\BFIELDS\qmiss.cpp">
+      <Filter>Source Files\BFIELDS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\BFIELDS\Savebin.cpp">
+      <Filter>Source Files\BFIELDS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\BFIELDS\Tank.cpp">
+      <Filter>Source Files\BFIELDS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FILES\_FILE.CPP">
+      <Filter>Source Files\FILES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FILES\Fileman.cpp">
+      <Filter>Source Files\FILES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FILES\Loadlib.cpp">
+      <Filter>Source Files\FILES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FILES\Loadlist.cpp">
+      <Filter>Source Files\FILES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FILES\Winfile.cpp">
+      <Filter>Source Files\FILES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GENERAL\_GENE.CPP">
+      <Filter>Source Files\GENERAL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GENERAL\Malloc.cpp">
+      <Filter>Source Files\GENERAL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GENERAL\Static.cpp">
+      <Filter>Source Files\GENERAL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GENERAL\Winerror.cpp">
+      <Filter>Source Files\GENERAL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GRAPHICS\_GRAP.CPP">
+      <Filter>Source Files\GRAPHICS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GRAPHICS\Grafprim.cpp">
+      <Filter>Source Files\GRAPHICS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GRAPHICS\Lbm.cpp">
+      <Filter>Source Files\GRAPHICS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GRAPHICS\Polygon.cpp">
+      <Filter>Source Files\GRAPHICS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GRAPHICS\Tga.cpp">
+      <Filter>Source Files\GRAPHICS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Graphics\Winsmack.cpp">
+      <Filter>Source Files\GRAPHICS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GRAPHICS\Wrapper.cpp">
+      <Filter>Source Files\GRAPHICS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\HARDWARE\_HARD.CPP">
+      <Filter>Source Files\HARDWARE</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Hardware\Config.cpp">
+      <Filter>Source Files\HARDWARE</Filter>
+    </ClCompile>
+    <ClCompile Include="..\HARDWARE\Ddrwinit.cpp">
+      <Filter>Source Files\HARDWARE</Filter>
+    </ClCompile>
+    <ClCompile Include="..\HARDWARE\Hardpub.cpp">
+      <Filter>Source Files\HARDWARE</Filter>
+    </ClCompile>
+    <ClCompile Include="..\HARDWARE\Hardwin.cpp">
+      <Filter>Source Files\HARDWARE</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Hardware\Messengn.cpp">
+      <Filter>Source Files\HARDWARE</Filter>
+    </ClCompile>
+    <ClCompile Include="..\HARDWARE\Miles.cpp">
+      <Filter>Source Files\HARDWARE</Filter>
+    </ClCompile>
+    <ClCompile Include="..\HARDWARE\Rchatter.cpp">
+      <Filter>Source Files\HARDWARE</Filter>
+    </ClCompile>
+    <ClCompile Include="..\HARDWARE\Sfonts.cpp">
+      <Filter>Source Files\HARDWARE</Filter>
+    </ClCompile>
+    <ClCompile Include="..\HARDWARE\Win3d.cpp">
+      <Filter>Source Files\HARDWARE</Filter>
+    </ClCompile>
+    <ClCompile Include="..\INPUT\_INPU.CPP">
+      <Filter>Source Files\INPUT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\INPUT\Analogue.cpp">
+      <Filter>Source Files\INPUT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MATH\_MATH.CPP">
+      <Filter>Source Files\MATH</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MATH\Math.cpp">
+      <Filter>Source Files\MATH</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MATH\Matrix.cpp">
+      <Filter>Source Files\MATH</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MISSMAN\_MISS.CPP">
+      <Filter>Source Files\MISSMAN</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MISSMAN\Formatn.cpp">
+      <Filter>Source Files\MISSMAN</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MISSMAN\Intrmiss.cpp">
+      <Filter>Source Files\MISSMAN</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MISSMAN\Missinit.cpp">
+      <Filter>Source Files\MISSMAN</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MISSMAN\Node.cpp">
+      <Filter>Source Files\MISSMAN</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Missman\Noderev.cpp">
+      <Filter>Source Files\MISSMAN</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MISSMAN\Onemiss.cpp">
+      <Filter>Source Files\MISSMAN</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MISSMAN\packages.cpp">
+      <Filter>Source Files\MISSMAN</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MISSMAN\Peacmiss.cpp">
+      <Filter>Source Files\MISSMAN</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MISSMAN\Savegame.cpp">
+      <Filter>Source Files\MISSMAN</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MISSMAN\So51miss.cpp">
+      <Filter>Source Files\MISSMAN</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MODEL\_MODE.CPP">
+      <Filter>Source Files\MODEL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MODEL\Acmai.cpp">
+      <Filter>Source Files\MODEL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MODEL\Acmman.cpp">
+      <Filter>Source Files\MODEL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MODEL\Acmmodel.cpp">
+      <Filter>Source Files\MODEL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MODEL\Acmsimpl.cpp">
+      <Filter>Source Files\MODEL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MODEL\Aerodev.cpp">
+      <Filter>Source Files\MODEL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MODEL\Cdat.cpp">
+      <Filter>Source Files\MODEL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MODEL\Ctrl.cpp">
+      <Filter>Source Files\MODEL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MODEL\Curves.cpp">
+      <Filter>Source Files\MODEL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MODEL\Dervs.cpp">
+      <Filter>Source Files\MODEL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MODEL\Elmt.cpp">
+      <Filter>Source Files\MODEL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MODEL\Engine.cpp">
+      <Filter>Source Files\MODEL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MODEL\Gear.cpp">
+      <Filter>Source Files\MODEL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MODEL\Model.cpp">
+      <Filter>Source Files\MODEL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MODEL\Modint.cpp">
+      <Filter>Source Files\MODEL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MODEL\Modvec.cpp">
+      <Filter>Source Files\MODEL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MODEL\Sky.cpp">
+      <Filter>Source Files\MODEL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MOVECODE\_MOVE.CPP">
+      <Filter>Source Files\MOVECODE</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MOVECODE\Automove.cpp">
+      <Filter>Source Files\MOVECODE</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MOVECODE\Flyinit.cpp">
+      <Filter>Source Files\MOVECODE</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MOVECODE\Flymodel.cpp">
+      <Filter>Source Files\MOVECODE</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MOVECODE\Keyfly.cpp">
+      <Filter>Source Files\MOVECODE</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MOVECODE\Moveall.cpp">
+      <Filter>Source Files\MOVECODE</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MOVECODE\Wpaction.cpp">
+      <Filter>Source Files\MOVECODE</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TEXT\_TEXT.CPP">
+      <Filter>Source Files\TEXT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TEXT\Textinit.cpp">
+      <Filter>Source Files\TEXT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TEXT\Textref.cpp">
+      <Filter>Source Files\TEXT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\COMMS\_COMM.CPP">
+      <Filter>Source Files\COMMS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\COMMS\Aggrgtor.cpp">
+      <Filter>Source Files\COMMS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\COMMS\Comms.cpp">
+      <Filter>Source Files\COMMS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\COMMS\Replay.cpp">
+      <Filter>Source Files\COMMS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\COMMS\Winmove.cpp">
+      <Filter>Source Files\COMMS</Filter>
+    </ClCompile>
+    <ClCompile Include="_MFC.CPP">
+      <Filter>Source Files\MFCSTUFF</Filter>
+    </ClCompile>
+    <ClCompile Include="CntrItem.cpp">
+      <Filter>Source Files\MFCSTUFF</Filter>
+    </ClCompile>
+    <ClCompile Include="custbb.cpp">
+      <Filter>Source Files\MFCSTUFF</Filter>
+    </ClCompile>
+    <ClCompile Include="Fullpane.cpp">
+      <Filter>Source Files\MFCSTUFF</Filter>
+    </ClCompile>
+    <ClCompile Include="Hintbox.cpp">
+      <Filter>Source Files\MFCSTUFF</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Input\Keystub.cpp">
+      <Filter>Source Files\MFCSTUFF</Filter>
+    </ClCompile>
+    <ClCompile Include="Listbx.cpp">
+      <Filter>Source Files\MFCSTUFF</Filter>
+    </ClCompile>
+    <ClCompile Include="MainFrm.cpp">
+      <Filter>Source Files\MFCSTUFF</Filter>
+    </ClCompile>
+    <ClCompile Include="Maintbar.cpp">
+      <Filter>Source Files\MFCSTUFF</Filter>
+    </ClCompile>
+    <ClCompile Include="MapDlg.cpp">
+      <Filter>Source Files\MFCSTUFF</Filter>
+    </ClCompile>
+    <ClCompile Include="MIG.cpp">
+      <Filter>Source Files\MFCSTUFF</Filter>
+    </ClCompile>
+    <ClCompile Include="MIGDoc.cpp">
+      <Filter>Source Files\MFCSTUFF</Filter>
+    </ClCompile>
+    <ClCompile Include="MIGView.cpp">
+      <Filter>Source Files\MFCSTUFF</Filter>
+    </ClCompile>
+    <ClCompile Include="..\3d\Monotxt.cpp">
+      <Filter>Source Files\MFCSTUFF</Filter>
+    </ClCompile>
+    <ClCompile Include="Msctlbr.cpp">
+      <Filter>Source Files\MFCSTUFF</Filter>
+    </ClCompile>
+    <ClCompile Include="RDEmptyD.cpp">
+      <Filter>Source Files\MFCSTUFF</Filter>
+    </ClCompile>
+    <ClCompile Include="RDEmptyP.cpp">
+      <Filter>Source Files\MFCSTUFF</Filter>
+    </ClCompile>
+    <ClCompile Include="rdiallog.cpp">
+      <Filter>Source Files\MFCSTUFF</Filter>
+    </ClCompile>
+    <ClCompile Include="RDialog.cpp">
+      <Filter>Source Files\MFCSTUFF</Filter>
+    </ClCompile>
+    <ClCompile Include="Rdlgbar.cpp">
+      <Filter>Source Files\MFCSTUFF</Filter>
+    </ClCompile>
+    <ClCompile Include="RowTasks.cpp">
+      <Filter>Source Files\MFCSTUFF</Filter>
+    </ClCompile>
+    <ClCompile Include="Stub3d.cpp">
+      <Filter>Source Files\MFCSTUFF</Filter>
+    </ClCompile>
+    <ClCompile Include="sysbox.cpp">
+      <Filter>Source Files\MFCSTUFF</Filter>
+    </ClCompile>
+    <ClCompile Include="thumnail.cpp">
+      <Filter>Source Files\MFCSTUFF</Filter>
+    </ClCompile>
+    <ClCompile Include="Titlebar.cpp">
+      <Filter>Source Files\MFCSTUFF</Filter>
+    </ClCompile>
+    <ClCompile Include="_AFX.CPP">
+      <Filter>Source Files\AFXSTUB</Filter>
+    </ClCompile>
+    <ClCompile Include="afxstub.cpp">
+      <Filter>Source Files\AFXSTUB</Filter>
+    </ClCompile>
+    <ClCompile Include="font.cpp">
+      <Filter>Source Files\AFXSTUB</Filter>
+    </ClCompile>
+    <ClCompile Include="picture.cpp">
+      <Filter>Source Files\AFXSTUB</Filter>
+    </ClCompile>
+    <ClCompile Include="rbutton.cpp">
+      <Filter>Source Files\AFXSTUB</Filter>
+    </ClCompile>
+    <ClCompile Include="rcombo.cpp">
+      <Filter>Source Files\AFXSTUB</Filter>
+    </ClCompile>
+    <ClCompile Include="RComboX.cpp">
+      <Filter>Source Files\AFXSTUB</Filter>
+    </ClCompile>
+    <ClCompile Include="redit.cpp">
+      <Filter>Source Files\AFXSTUB</Filter>
+    </ClCompile>
+    <ClCompile Include="redtbt.cpp">
+      <Filter>Source Files\AFXSTUB</Filter>
+    </ClCompile>
+    <ClCompile Include="rjoycfg.cpp">
+      <Filter>Source Files\AFXSTUB</Filter>
+    </ClCompile>
+    <ClCompile Include="rlistbox.cpp">
+      <Filter>Source Files\AFXSTUB</Filter>
+    </ClCompile>
+    <ClCompile Include="rscrlbar.cpp">
+      <Filter>Source Files\AFXSTUB</Filter>
+    </ClCompile>
+    <ClCompile Include="Rspinbut.cpp">
+      <Filter>Source Files\AFXSTUB</Filter>
+    </ClCompile>
+    <ClCompile Include="rspltbar.cpp">
+      <Filter>Source Files\AFXSTUB</Filter>
+    </ClCompile>
+    <ClCompile Include="rstatic.cpp">
+      <Filter>Source Files\AFXSTUB</Filter>
+    </ClCompile>
+    <ClCompile Include="rtabs.cpp">
+      <Filter>Source Files\AFXSTUB</Filter>
+    </ClCompile>
+    <ClCompile Include="rtitle.cpp">
+      <Filter>Source Files\AFXSTUB</Filter>
+    </ClCompile>
+    <ClCompile Include="_SHEETS.CPP">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="AC_view.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="AFields.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Apilot.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Army.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Army_dos.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="ArmyDetl.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Armyrqst.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Author.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Bases.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Basest.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Battdetl.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Campback.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Camplist.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Campwar.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Career.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Choke.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="ChSquad.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Cmbtview.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Comit_e.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Commsac.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Commspnt.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="credits.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Currembl.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Damage.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Dbrftlbr.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Directs2.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="DIS.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Dis_note.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="DosBut.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Dossier.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Filing.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Flt_Task.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Footage.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Frag.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="FragPilt.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="General.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Grndview.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="JoyConfg.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="JoyError.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Load.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Loadprof.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Locker.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Lstmsnlg.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="MapFltrs.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="MapFrag.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Misn_log.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Misntext.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Missfldr.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="MResult.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Msndebrf.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="MTChild.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="nose_art.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Notes.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Overview.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Paint.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="personal.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Pilots.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Plyr_log.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Prof_lib.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Profile.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Quikmisn.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Radio.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Ready.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="RIP_List.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Rmdldlg.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Route.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Rradio.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Rtestsh1.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Rtoolbar.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Sairclms.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Save.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Saveprof.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Scalebar.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Scamp.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Scontrol.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Sdetail.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Selects.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="service.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="session.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Sflight.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Sgame.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Sgrdclms.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Smkdlg.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Sqdnlb.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Sqdnlbut.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Sqdnlist.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Squads.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Squick1.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Squick2.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Squickp.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Squickun.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Sqview.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Sreplay.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Ssound.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Stores.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Supply.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Sviewer.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Task.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Tasktabs.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Traffic.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Userinst.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Variants.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Visitors.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Vwqlist.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Wave.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Waveins.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="WaveTabs.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Weapons.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Weather.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="WPBut.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="Wpdetail.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="WPGround.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="WPShare.cpp">
+      <Filter>Source Files\SHEETS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Bfields\Makebf.cxx">
+      <Filter>Utilities\associated files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\H\000tools.h">
+      <Filter>Source Files\tool dependency compiled first</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\animptr.h">
+      <Filter>Header Files\New Headers Trap</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\3dcode.h">
+      <Filter>Header Files\0-9</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\3dcom.h">
+      <Filter>Header Files\0-9</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\3ddefs.h">
+      <Filter>Header Files\0-9</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\3dinstr.h">
+      <Filter>Header Files\0-9</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Aaa.h">
+      <Filter>Header Files\A</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Ac_view.h">
+      <Filter>Header Files\A</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Acmmodel.h">
+      <Filter>Header Files\A</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Aerodev.h">
+      <Filter>Header Files\A</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Afields.h">
+      <Filter>Header Files\A</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Aggrgtor.h">
+      <Filter>Header Files\A</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Ai.h">
+      <Filter>Header Files\A</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Analogue.h">
+      <Filter>Header Files\A</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Animdata.h">
+      <Filter>Header Files\A</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Anmradio.h">
+      <Filter>Header Files\A</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Apilot.h">
+      <Filter>Header Files\A</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Areatype.h">
+      <Filter>Header Files\A</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Army.h">
+      <Filter>Header Files\A</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Army_dos.h">
+      <Filter>Header Files\A</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Armydetl.h">
+      <Filter>Header Files\A</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Armyrqst.h">
+      <Filter>Header Files\A</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Author.h">
+      <Filter>Header Files\A</Filter>
+    </ClInclude>
+    <ClInclude Include="AC_view.h">
+      <Filter>Header Files\A\Astub</Filter>
+    </ClInclude>
+    <ClInclude Include="AFields.h">
+      <Filter>Header Files\A\Astub</Filter>
+    </ClInclude>
+    <ClInclude Include="Apilot.h">
+      <Filter>Header Files\A\Astub</Filter>
+    </ClInclude>
+    <ClInclude Include="Army.h">
+      <Filter>Header Files\A\Astub</Filter>
+    </ClInclude>
+    <ClInclude Include="Army_dos.h">
+      <Filter>Header Files\A\Astub</Filter>
+    </ClInclude>
+    <ClInclude Include="ArmyDetl.h">
+      <Filter>Header Files\A\Astub</Filter>
+    </ClInclude>
+    <ClInclude Include="Armyrqst.h">
+      <Filter>Header Files\A\Astub</Filter>
+    </ClInclude>
+    <ClInclude Include="Author.h">
+      <Filter>Header Files\A\Astub</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Bases.h">
+      <Filter>Header Files\B</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Basest.h">
+      <Filter>Header Files\B</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Batnode.h">
+      <Filter>Header Files\B</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Battdetl.h">
+      <Filter>Header Files\B</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Bfcommon.h">
+      <Filter>Header Files\B</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Bfenum.h">
+      <Filter>Header Files\B</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Bfnumber.h">
+      <Filter>Header Files\B</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Bitcount.h">
+      <Filter>Header Files\B</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Bitfield.h">
+      <Filter>Header Files\B</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Boxcol.h">
+      <Filter>Header Files\B</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Briefing.h">
+      <Filter>Header Files\B</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Bstream.h">
+      <Filter>Header Files\B</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Btree.h">
+      <Filter>Header Files\B</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Butonbar.h">
+      <Filter>Header Files\B</Filter>
+    </ClInclude>
+    <ClInclude Include="Bases.h">
+      <Filter>Header Files\B\Bstub</Filter>
+    </ClInclude>
+    <ClInclude Include="Basest.h">
+      <Filter>Header Files\B\Bstub</Filter>
+    </ClInclude>
+    <ClInclude Include="Battdetl.h">
+      <Filter>Header Files\B\Bstub</Filter>
+    </ClInclude>
+    <ClInclude Include="Butonbar.h">
+      <Filter>Header Files\B\Bstub</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Campback.h">
+      <Filter>Header Files\C</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Camplist.h">
+      <Filter>Header Files\C</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Campwar.h">
+      <Filter>Header Files\C</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Career.h">
+      <Filter>Header Files\C</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Cbuffer.h">
+      <Filter>Header Files\C</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Chain.h">
+      <Filter>Header Files\C</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Choke.h">
+      <Filter>Header Files\C</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Chsquad.h">
+      <Filter>Header Files\C</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Cmbtview.h">
+      <Filter>Header Files\C</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Cntritem.h">
+      <Filter>Header Files\C</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Collided.h">
+      <Filter>Header Files\C</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Comit_e.h">
+      <Filter>Header Files\C</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Comms.h">
+      <Filter>Header Files\C</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Commsac.h">
+      <Filter>Header Files\C</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Commspnt.h">
+      <Filter>Header Files\C</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Config.h">
+      <Filter>Header Files\C</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Contlist.h">
+      <Filter>Header Files\C</Filter>
+    </ClInclude>
+    <ClInclude Include="Credits.h">
+      <Filter>Header Files\C</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Credits.h">
+      <Filter>Header Files\C</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Cstring.h">
+      <Filter>Header Files\C</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Ctimeout.h">
+      <Filter>Header Files\C</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Ctrl.h">
+      <Filter>Header Files\C</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Currembl.h">
+      <Filter>Header Files\C</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Curves.h">
+      <Filter>Header Files\C</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Custbb.h">
+      <Filter>Header Files\C</Filter>
+    </ClInclude>
+    <ClInclude Include="Campback.h">
+      <Filter>Header Files\C\Cstub</Filter>
+    </ClInclude>
+    <ClInclude Include="Camplist.h">
+      <Filter>Header Files\C\Cstub</Filter>
+    </ClInclude>
+    <ClInclude Include="Campwar.h">
+      <Filter>Header Files\C\Cstub</Filter>
+    </ClInclude>
+    <ClInclude Include="Career.h">
+      <Filter>Header Files\C\Cstub</Filter>
+    </ClInclude>
+    <ClInclude Include="Chain.h">
+      <Filter>Header Files\C\Cstub</Filter>
+    </ClInclude>
+    <ClInclude Include="Choke.h">
+      <Filter>Header Files\C\Cstub</Filter>
+    </ClInclude>
+    <ClInclude Include="ChSquad.h">
+      <Filter>Header Files\C\Cstub</Filter>
+    </ClInclude>
+    <ClInclude Include="Cmbtview.h">
+      <Filter>Header Files\C\Cstub</Filter>
+    </ClInclude>
+    <ClInclude Include="Comit_e.h">
+      <Filter>Header Files\C\Cstub</Filter>
+    </ClInclude>
+    <ClInclude Include="Commsac.h">
+      <Filter>Header Files\C\Cstub</Filter>
+    </ClInclude>
+    <ClInclude Include="Commspnt.h">
+      <Filter>Header Files\C\Cstub</Filter>
+    </ClInclude>
+    <ClInclude Include="Currembl.h">
+      <Filter>Header Files\C\Cstub</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\D3dmacs.h">
+      <Filter>Header Files\D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Damage.h">
+      <Filter>Header Files\D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Dbrftlbr.h">
+      <Filter>Header Files\D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Debrief.h">
+      <Filter>Header Files\D</Filter>
+    </ClInclude>
+    <ClInclude Include="Debrief.h">
+      <Filter>Header Files\D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Dinput.h">
+      <Filter>Header Files\D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Directs.h">
+      <Filter>Header Files\D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Directs1.h">
+      <Filter>Header Files\D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Directs2.h">
+      <Filter>Header Files\D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Dis.h">
+      <Filter>Header Files\D</Filter>
+    </ClInclude>
+    <ClInclude Include="Dis_note.h">
+      <Filter>Header Files\D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Dis_note.h">
+      <Filter>Header Files\D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Disnotes.h">
+      <Filter>Header Files\D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Display.h">
+      <Filter>Header Files\D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Dosbut.h">
+      <Filter>Header Files\D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Dosdefs.h">
+      <Filter>Header Files\D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Dossier.h">
+      <Filter>Header Files\D</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Dplobby.h">
+      <Filter>Header Files\D</Filter>
+    </ClInclude>
+    <ClInclude Include="Damage.h">
+      <Filter>Header Files\D\Dstub</Filter>
+    </ClInclude>
+    <ClInclude Include="Dbrftlbr.h">
+      <Filter>Header Files\D\Dstub</Filter>
+    </ClInclude>
+    <ClInclude Include="Directs.h">
+      <Filter>Header Files\D\Dstub</Filter>
+    </ClInclude>
+    <ClInclude Include="Directs1.h">
+      <Filter>Header Files\D\Dstub</Filter>
+    </ClInclude>
+    <ClInclude Include="Directs2.h">
+      <Filter>Header Files\D\Dstub</Filter>
+    </ClInclude>
+    <ClInclude Include="DIS.h">
+      <Filter>Header Files\D\Dstub</Filter>
+    </ClInclude>
+    <ClInclude Include="disnotes.h">
+      <Filter>Header Files\D\Dstub</Filter>
+    </ClInclude>
+    <ClInclude Include="DosBut.h">
+      <Filter>Header Files\D\Dstub</Filter>
+    </ClInclude>
+    <ClInclude Include="Dossier.h">
+      <Filter>Header Files\D\Dstub</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Elmt.h">
+      <Filter>Header Files\E</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Engine.h">
+      <Filter>Header Files\E</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Fileman.h">
+      <Filter>Header Files\F</Filter>
+    </ClInclude>
+    <ClInclude Include="Filing.h">
+      <Filter>Header Files\F</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Filing.h">
+      <Filter>Header Files\F</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Filters.h">
+      <Filter>Header Files\F</Filter>
+    </ClInclude>
+    <ClInclude Include="Filters.h">
+      <Filter>Header Files\F</Filter>
+    </ClInclude>
+    <ClInclude Include="Flt_Task.h">
+      <Filter>Header Files\F</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\flt_task.h">
+      <Filter>Header Files\F</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Flyinit.h">
+      <Filter>Header Files\F</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Flymodel.h">
+      <Filter>Header Files\F</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Font.h">
+      <Filter>Header Files\F</Filter>
+    </ClInclude>
+    <ClInclude Include="Font.h">
+      <Filter>Header Files\F</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Fonts.h">
+      <Filter>Header Files\F</Filter>
+    </ClInclude>
+    <ClInclude Include="Footage.h">
+      <Filter>Header Files\F</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Footage.h">
+      <Filter>Header Files\F</Filter>
+    </ClInclude>
+    <ClInclude Include="Frag.h">
+      <Filter>Header Files\F</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Frag.h">
+      <Filter>Header Files\F</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Fragpilt.h">
+      <Filter>Header Files\F</Filter>
+    </ClInclude>
+    <ClInclude Include="FragPilt.h">
+      <Filter>Header Files\F</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Frontmap.h">
+      <Filter>Header Files\F</Filter>
+    </ClInclude>
+    <ClInclude Include="Fullpane.h">
+      <Filter>Header Files\F</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Fullpane.h">
+      <Filter>Header Files\F</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Gameset.h">
+      <Filter>Header Files\G</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Gear.h">
+      <Filter>Header Files\G</Filter>
+    </ClInclude>
+    <ClInclude Include="General.h">
+      <Filter>Header Files\G</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\General.h">
+      <Filter>Header Files\G</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Getset.h">
+      <Filter>Header Files\G</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Globdefs.h">
+      <Filter>Header Files\G</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\globrefs.h">
+      <Filter>Header Files\G</Filter>
+    </ClInclude>
+    <ClInclude Include="Grndview.h">
+      <Filter>Header Files\G</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Grndview.h">
+      <Filter>Header Files\G</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Groupitt.h">
+      <Filter>Header Files\G</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Hardpasm.h">
+      <Filter>Header Files\H</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Hdata.h">
+      <Filter>Header Files\H</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Hdata2.h">
+      <Filter>Header Files\H</Filter>
+    </ClInclude>
+    <ClInclude Include="Hintbox.h">
+      <Filter>Header Files\H</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Hintbox.h">
+      <Filter>Header Files\H</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Hotkeys.h">
+      <Filter>Header Files\H</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Imagemap.h">
+      <Filter>Header Files\I</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Infoitem.h">
+      <Filter>Header Files\I</Filter>
+    </ClInclude>
+    <ClInclude Include="JoyConfg.h">
+      <Filter>Header Files\J</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Joyconfg.h">
+      <Filter>Header Files\J</Filter>
+    </ClInclude>
+    <ClInclude Include="JoyError.h">
+      <Filter>Header Files\J</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Joyerror.h">
+      <Filter>Header Files\J</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Keymaps.h">
+      <Filter>Header Files\K</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Keytest.h">
+      <Filter>Header Files\K</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Landscap.h">
+      <Filter>Header Files\L</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Lbm.h">
+      <Filter>Header Files\L</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Lbmcpp.h">
+      <Filter>Header Files\L</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Lghtshad.h">
+      <Filter>Header Files\L</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Libdefs.h">
+      <Filter>Header Files\L</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Link.h">
+      <Filter>Header Files\L</Filter>
+    </ClInclude>
+    <ClInclude Include="Listbx.h">
+      <Filter>Header Files\L</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Listbx.h">
+      <Filter>Header Files\L</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Lnchrdat.h">
+      <Filter>Header Files\L</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Load.h">
+      <Filter>Header Files\L</Filter>
+    </ClInclude>
+    <ClInclude Include="Load.h">
+      <Filter>Header Files\L</Filter>
+    </ClInclude>
+    <ClInclude Include="Loadprof.h">
+      <Filter>Header Files\L</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Loadprof.h">
+      <Filter>Header Files\L</Filter>
+    </ClInclude>
+    <ClInclude Include="Locker.h">
+      <Filter>Header Files\L</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Locker.h">
+      <Filter>Header Files\L</Filter>
+    </ClInclude>
+    <ClInclude Include="Lstmsnlg.h">
+      <Filter>Header Files\L</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Lstmsnlg.h">
+      <Filter>Header Files\L</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Lstream.h">
+      <Filter>Header Files\L</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Mainfrm.h">
+      <Filter>Header Files\M</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\maintbar.h">
+      <Filter>Header Files\M</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Makebf.h">
+      <Filter>Header Files\M</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\MapDlg.h">
+      <Filter>Header Files\M</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Mapfltrs.h">
+      <Filter>Header Files\M</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Mathasm.h">
+      <Filter>Header Files\M</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Matrix.h">
+      <Filter>Header Files\M</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Messages.h">
+      <Filter>Header Files\M</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Messengn.h">
+      <Filter>Header Files\M</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Migland.h">
+      <Filter>Header Files\M</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Miles.h">
+      <Filter>Header Files\M</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Milesxtr.h">
+      <Filter>Header Files\M</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Misn_log.h">
+      <Filter>Header Files\M</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Misntext.h">
+      <Filter>Header Files\M</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\missfldr.h">
+      <Filter>Header Files\M</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Missman2.h">
+      <Filter>Header Files\M</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Misssub.h">
+      <Filter>Header Files\M</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Model.h">
+      <Filter>Header Files\M</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Modfile.h">
+      <Filter>Header Files\M</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Modinst.h">
+      <Filter>Header Files\M</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Modint.h">
+      <Filter>Header Files\M</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Modvec.h">
+      <Filter>Header Files\M</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Monotxt.h">
+      <Filter>Header Files\M</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Mouse.h">
+      <Filter>Header Files\M</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Movement.h">
+      <Filter>Header Files\M</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Mresult.h">
+      <Filter>Header Files\M</Filter>
+    </ClInclude>
+    <ClInclude Include="MResult.h">
+      <Filter>Header Files\M</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Mscdex.h">
+      <Filter>Header Files\M</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Msctlbr.h">
+      <Filter>Header Files\M</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Msn_ctrl.h">
+      <Filter>Header Files\M</Filter>
+    </ClInclude>
+    <ClInclude Include="Msndebrf.h">
+      <Filter>Header Files\M</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Msndebrf.h">
+      <Filter>Header Files\M</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Mssw.h">
+      <Filter>Header Files\M</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Mtchild.h">
+      <Filter>Header Files\M</Filter>
+    </ClInclude>
+    <ClInclude Include="Maintbar.h">
+      <Filter>Header Files\M\Mstub</Filter>
+    </ClInclude>
+    <ClInclude Include="MapFltrs.h">
+      <Filter>Header Files\M\Mstub</Filter>
+    </ClInclude>
+    <ClInclude Include="Misn_log.h">
+      <Filter>Header Files\M\Mstub</Filter>
+    </ClInclude>
+    <ClInclude Include="Misntext.h">
+      <Filter>Header Files\M\Mstub</Filter>
+    </ClInclude>
+    <ClInclude Include="Missfldr.h">
+      <Filter>Header Files\M\Mstub</Filter>
+    </ClInclude>
+    <ClInclude Include="Msctlbr.h">
+      <Filter>Header Files\M\Mstub</Filter>
+    </ClInclude>
+    <ClInclude Include="MTChild.h">
+      <Filter>Header Files\M\Mstub</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Myangles.h">
+      <Filter>Header Files\M\MY</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Myerror.h">
+      <Filter>Header Files\M\MY</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Mymath.h">
+      <Filter>Header Files\M\MY</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Mystack.h">
+      <Filter>Header Files\M\MY</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Mytime.h">
+      <Filter>Header Files\M\MY</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Myvector.h">
+      <Filter>Header Files\M\MY</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Mig.h">
+      <Filter>Header Files\M\Mig</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Migdoc.h">
+      <Filter>Header Files\M\Mig</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Migview.h">
+      <Filter>Header Files\M\Mig</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Node.h">
+      <Filter>Header Files\N</Filter>
+    </ClInclude>
+    <ClInclude Include="Nose_art.h">
+      <Filter>Header Files\N</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Nose_art.h">
+      <Filter>Header Files\N</Filter>
+    </ClInclude>
+    <ClInclude Include="Notes.h">
+      <Filter>Header Files\N</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Notes.h">
+      <Filter>Header Files\N</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Overlay.h">
+      <Filter>Header Files\O</Filter>
+    </ClInclude>
+    <ClInclude Include="Overview.h">
+      <Filter>Header Files\O</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Overview.h">
+      <Filter>Header Files\O</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\package.h">
+      <Filter>Header Files\P</Filter>
+    </ClInclude>
+    <ClInclude Include="Paint.h">
+      <Filter>Header Files\P</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Paint.h">
+      <Filter>Header Files\P</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Palette.h">
+      <Filter>Header Files\P</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Payload.h">
+      <Filter>Header Files\P</Filter>
+    </ClInclude>
+    <ClInclude Include="Payload.h">
+      <Filter>Header Files\P</Filter>
+    </ClInclude>
+    <ClInclude Include="personal.h">
+      <Filter>Header Files\P</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Personal.h">
+      <Filter>Header Files\P</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Persons2.h">
+      <Filter>Header Files\P</Filter>
+    </ClInclude>
+    <ClInclude Include="picture.h">
+      <Filter>Header Files\P</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Picture.h">
+      <Filter>Header Files\P</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Pilots.h">
+      <Filter>Header Files\P</Filter>
+    </ClInclude>
+    <ClInclude Include="Pilots.h">
+      <Filter>Header Files\P</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Planetyp.h">
+      <Filter>Header Files\P</Filter>
+    </ClInclude>
+    <ClInclude Include="Plyr_log.h">
+      <Filter>Header Files\P</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Plyr_log.h">
+      <Filter>Header Files\P</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Polygon.h">
+      <Filter>Header Files\P</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Prof.h">
+      <Filter>Header Files\P</Filter>
+    </ClInclude>
+    <ClInclude Include="Prof_lib.h">
+      <Filter>Header Files\P</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Prof_lib.h">
+      <Filter>Header Files\P</Filter>
+    </ClInclude>
+    <ClInclude Include="Profile.h">
+      <Filter>Header Files\P</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\profile.h">
+      <Filter>Header Files\P</Filter>
+    </ClInclude>
+    <ClInclude Include="Quikmisn.h">
+      <Filter>Header Files\Q</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Quikmisn.h">
+      <Filter>Header Files\Q</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\rad.h">
+      <Filter>Header Files\R</Filter>
+    </ClInclude>
+    <ClInclude Include="Radio.h">
+      <Filter>Header Files\R</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Radio.h">
+      <Filter>Header Files\R</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Ranges.h">
+      <Filter>Header Files\R</Filter>
+    </ClInclude>
+    <ClInclude Include="rbutton.h">
+      <Filter>Header Files\R</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Rbutton.h">
+      <Filter>Header Files\R</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Rchatter.h">
+      <Filter>Header Files\R</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Rchatxtr.h">
+      <Filter>Header Files\R</Filter>
+    </ClInclude>
+    <ClInclude Include="rcombo.h">
+      <Filter>Header Files\R</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Rcombo.h">
+      <Filter>Header Files\R</Filter>
+    </ClInclude>
+    <ClInclude Include="RComboX.h">
+      <Filter>Header Files\R</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\RComboX.h">
+      <Filter>Header Files\R</Filter>
+    </ClInclude>
+    <ClInclude Include="Rcstmbtn.h">
+      <Filter>Header Files\R</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Rcstmbtn.h">
+      <Filter>Header Files\R</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Rdemptyd.h">
+      <Filter>Header Files\R</Filter>
+    </ClInclude>
+    <ClInclude Include="RDEmptyD.h">
+      <Filter>Header Files\R</Filter>
+    </ClInclude>
+    <ClInclude Include="RDEmptyP.h">
+      <Filter>Header Files\R</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Rdemptyp.h">
+      <Filter>Header Files\R</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Rdialog.h">
+      <Filter>Header Files\R</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\rdlgbar.h">
+      <Filter>Header Files\R</Filter>
+    </ClInclude>
+    <ClInclude Include="Ready.h">
+      <Filter>Header Files\R</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Ready.h">
+      <Filter>Header Files\R</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\redit.h">
+      <Filter>Header Files\R</Filter>
+    </ClInclude>
+    <ClInclude Include="Redit.h">
+      <Filter>Header Files\R</Filter>
+    </ClInclude>
+    <ClInclude Include="Redtbt.h">
+      <Filter>Header Files\R</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\redtbt.h">
+      <Filter>Header Files\R</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Replay.h">
+      <Filter>Header Files\R</Filter>
+    </ClInclude>
+    <ClInclude Include="RIP_List.h">
+      <Filter>Header Files\R</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Rip_list.h">
+      <Filter>Header Files\R</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Rjoycfg.h">
+      <Filter>Header Files\R</Filter>
+    </ClInclude>
+    <ClInclude Include="rjoycfg.h">
+      <Filter>Header Files\R</Filter>
+    </ClInclude>
+    <ClInclude Include="rlistbox.h">
+      <Filter>Header Files\R</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\rlistbox.h">
+      <Filter>Header Files\R</Filter>
+    </ClInclude>
+    <ClInclude Include="Rmdldlg.h">
+      <Filter>Header Files\R</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Rmdldlg.h">
+      <Filter>Header Files\R</Filter>
+    </ClInclude>
+    <ClInclude Include="Route.h">
+      <Filter>Header Files\R</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Route.h">
+      <Filter>Header Files\R</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Rowtasks.h">
+      <Filter>Header Files\R</Filter>
+    </ClInclude>
+    <ClInclude Include="RowTasks.h">
+      <Filter>Header Files\R</Filter>
+    </ClInclude>
+    <ClInclude Include="Rradio.h">
+      <Filter>Header Files\R</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Rradio.h">
+      <Filter>Header Files\R</Filter>
+    </ClInclude>
+    <ClInclude Include="rscrlbar.h">
+      <Filter>Header Files\R</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Rscrlbar.h">
+      <Filter>Header Files\R</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Rsheets.h">
+      <Filter>Header Files\R</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Rspinbut.h">
+      <Filter>Header Files\R</Filter>
+    </ClInclude>
+    <ClInclude Include="Rspinbut.h">
+      <Filter>Header Files\R</Filter>
+    </ClInclude>
+    <ClInclude Include="Rspltbar.h">
+      <Filter>Header Files\R</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Rspltbar.h">
+      <Filter>Header Files\R</Filter>
+    </ClInclude>
+    <ClInclude Include="rstatic.h">
+      <Filter>Header Files\R</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Rstatic.h">
+      <Filter>Header Files\R</Filter>
+    </ClInclude>
+    <ClInclude Include="Rtabs.h">
+      <Filter>Header Files\R</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Rtabs.h">
+      <Filter>Header Files\R</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Rtest1.h">
+      <Filter>Header Files\R</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Rtestsh1.h">
+      <Filter>Header Files\R</Filter>
+    </ClInclude>
+    <ClInclude Include="Rtickbox.h">
+      <Filter>Header Files\R</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Rtickbox.h">
+      <Filter>Header Files\R</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Rtitle.h">
+      <Filter>Header Files\R</Filter>
+    </ClInclude>
+    <ClInclude Include="Rtoolbar.h">
+      <Filter>Header Files\R</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Rtoolbar.h">
+      <Filter>Header Files\R</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Sairclms.h">
+      <Filter>Header Files\S</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Savegame.h">
+      <Filter>Header Files\S</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Saveprof.h">
+      <Filter>Header Files\S</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Saverep.h">
+      <Filter>Header Files\S</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Scalebar.h">
+      <Filter>Header Files\S</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Scamp.h">
+      <Filter>Header Files\S</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Scontrol.h">
+      <Filter>Header Files\S</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Screenxy.h">
+      <Filter>Header Files\S</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Sdetail.h">
+      <Filter>Header Files\S</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Selects.h">
+      <Filter>Header Files\S</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Service.h">
+      <Filter>Header Files\S</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Session.h">
+      <Filter>Header Files\S</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Sflight.h">
+      <Filter>Header Files\S</Filter>
+    </ClInclude>
+    <ClInclude Include="Sflight.h">
+      <Filter>Header Files\S</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Sfman.h">
+      <Filter>Header Files\S</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Sg2combo.h">
+      <Filter>Header Files\S</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Sgame.h">
+      <Filter>Header Files\S</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Sgrdclms.h">
+      <Filter>Header Files\S</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Shapenam.h">
+      <Filter>Header Files\S</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Shapes.h">
+      <Filter>Header Files\S</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Shpbld.h">
+      <Filter>Header Files\S</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Shpinstr.h">
+      <Filter>Header Files\S</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Shpweap.h">
+      <Filter>Header Files\S</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Sky.h">
+      <Filter>Header Files\S</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Smack.h">
+      <Filter>Header Files\S</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Smkdlg.h">
+      <Filter>Header Files\S</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Sndfonts.h">
+      <Filter>Header Files\S</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Speed.h">
+      <Filter>Header Files\S</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Sqdnlb.h">
+      <Filter>Header Files\S</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Sqdnlbut.h">
+      <Filter>Header Files\S</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Sqdnlist.h">
+      <Filter>Header Files\S</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Squads.h">
+      <Filter>Header Files\S</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\SQUICK1.H">
+      <Filter>Header Files\S</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Squick2.h">
+      <Filter>Header Files\S</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Squickp.h">
+      <Filter>Header Files\S</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Squickun.h">
+      <Filter>Header Files\S</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Sqview.h">
+      <Filter>Header Files\S</Filter>
+    </ClInclude>
+    <ClInclude Include="Sreplay.h">
+      <Filter>Header Files\S</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Sreplay.h">
+      <Filter>Header Files\S</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Ssound.h">
+      <Filter>Header Files\S</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Stack.h">
+      <Filter>Header Files\S</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Stdafx.h">
+      <Filter>Header Files\S</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Stitle.h">
+      <Filter>Header Files\S</Filter>
+    </ClInclude>
+    <ClInclude Include="Stores.h">
+      <Filter>Header Files\S</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Strike.h">
+      <Filter>Header Files\S</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Stub3d.h">
+      <Filter>Header Files\S</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Supply.h">
+      <Filter>Header Files\S</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Sviewer.h">
+      <Filter>Header Files\S</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Sw_error.hpp">
+      <Filter>Header Files\S</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Sw_force.h">
+      <Filter>Header Files\S</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Sw_guid.hpp">
+      <Filter>Header Files\S</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\sysbox.h">
+      <Filter>Header Files\S</Filter>
+    </ClInclude>
+    <ClInclude Include="Sairclms.h">
+      <Filter>Header Files\S\Sstub</Filter>
+    </ClInclude>
+    <ClInclude Include="Saveprof.h">
+      <Filter>Header Files\S\Sstub</Filter>
+    </ClInclude>
+    <ClInclude Include="Saverep.h">
+      <Filter>Header Files\S\Sstub</Filter>
+    </ClInclude>
+    <ClInclude Include="Scalebar.h">
+      <Filter>Header Files\S\Sstub</Filter>
+    </ClInclude>
+    <ClInclude Include="Scamp.h">
+      <Filter>Header Files\S\Sstub</Filter>
+    </ClInclude>
+    <ClInclude Include="Scontrol.h">
+      <Filter>Header Files\S\Sstub</Filter>
+    </ClInclude>
+    <ClInclude Include="Sdetail.h">
+      <Filter>Header Files\S\Sstub</Filter>
+    </ClInclude>
+    <ClInclude Include="Selects.h">
+      <Filter>Header Files\S\Sstub</Filter>
+    </ClInclude>
+    <ClInclude Include="service.h">
+      <Filter>Header Files\S\Sstub</Filter>
+    </ClInclude>
+    <ClInclude Include="session.h">
+      <Filter>Header Files\S\Sstub</Filter>
+    </ClInclude>
+    <ClInclude Include="Sgame.h">
+      <Filter>Header Files\S\Sstub</Filter>
+    </ClInclude>
+    <ClInclude Include="Sgrdclms.h">
+      <Filter>Header Files\S\Sstub</Filter>
+    </ClInclude>
+    <ClInclude Include="Smkdlg.h">
+      <Filter>Header Files\S\Sstub</Filter>
+    </ClInclude>
+    <ClInclude Include="Sqdnlb.h">
+      <Filter>Header Files\S\Sstub</Filter>
+    </ClInclude>
+    <ClInclude Include="Sqdnlbut.h">
+      <Filter>Header Files\S\Sstub</Filter>
+    </ClInclude>
+    <ClInclude Include="Sqdnlist.h">
+      <Filter>Header Files\S\Sstub</Filter>
+    </ClInclude>
+    <ClInclude Include="Squads.h">
+      <Filter>Header Files\S\Sstub</Filter>
+    </ClInclude>
+    <ClInclude Include="Squick1.h">
+      <Filter>Header Files\S\Sstub</Filter>
+    </ClInclude>
+    <ClInclude Include="Squick2.h">
+      <Filter>Header Files\S\Sstub</Filter>
+    </ClInclude>
+    <ClInclude Include="Squickp.h">
+      <Filter>Header Files\S\Sstub</Filter>
+    </ClInclude>
+    <ClInclude Include="Squickun.h">
+      <Filter>Header Files\S\Sstub</Filter>
+    </ClInclude>
+    <ClInclude Include="Sqview.h">
+      <Filter>Header Files\S\Sstub</Filter>
+    </ClInclude>
+    <ClInclude Include="Ssound.h">
+      <Filter>Header Files\S\Sstub</Filter>
+    </ClInclude>
+    <ClInclude Include="Stitle.h">
+      <Filter>Header Files\S\Sstub</Filter>
+    </ClInclude>
+    <ClInclude Include="Strike.h">
+      <Filter>Header Files\S\Sstub</Filter>
+    </ClInclude>
+    <ClInclude Include="Supply.h">
+      <Filter>Header Files\S\Sstub</Filter>
+    </ClInclude>
+    <ClInclude Include="Sviewer.h">
+      <Filter>Header Files\S\Sstub</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Targets.h">
+      <Filter>Header Files\T</Filter>
+    </ClInclude>
+    <ClInclude Include="Task.h">
+      <Filter>Header Files\T</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Task.h">
+      <Filter>Header Files\T</Filter>
+    </ClInclude>
+    <ClInclude Include="Tasktabs.h">
+      <Filter>Header Files\T</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Tasktabs.h">
+      <Filter>Header Files\T</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Text.h">
+      <Filter>Header Files\T</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Textfixd.h">
+      <Filter>Header Files\T</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Textref.h">
+      <Filter>Header Files\T</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Textrefl.h">
+      <Filter>Header Files\T</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Tga.h">
+      <Filter>Header Files\T</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\thumnail.h">
+      <Filter>Header Files\T</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Tilemake.h">
+      <Filter>Header Files\T</Filter>
+    </ClInclude>
+    <ClInclude Include="Title.h">
+      <Filter>Header Files\T</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Title.h">
+      <Filter>Header Files\T</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Titlebar.h">
+      <Filter>Header Files\T</Filter>
+    </ClInclude>
+    <ClInclude Include="Titlebar.h">
+      <Filter>Header Files\T</Filter>
+    </ClInclude>
+    <ClInclude Include="Traffic.h">
+      <Filter>Header Files\T</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Traffic.h">
+      <Filter>Header Files\T</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Transite.h">
+      <Filter>Header Files\T</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Tstatic.h">
+      <Filter>Header Files\T</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Ui.h">
+      <Filter>Header Files\U</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Uniqueid.h">
+      <Filter>Header Files\U</Filter>
+    </ClInclude>
+    <ClInclude Include="Userinst.h">
+      <Filter>Header Files\U</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Userinst.h">
+      <Filter>Header Files\U</Filter>
+    </ClInclude>
+    <ClInclude Include="Variants.h">
+      <Filter>Header Files\V</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Variants.h">
+      <Filter>Header Files\V</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Vector.h">
+      <Filter>Header Files\V</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Vertex.h">
+      <Filter>Header Files\V</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Viewsel.h">
+      <Filter>Header Files\V</Filter>
+    </ClInclude>
+    <ClInclude Include="Visitors.h">
+      <Filter>Header Files\V</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Visitors.h">
+      <Filter>Header Files\V</Filter>
+    </ClInclude>
+    <ClInclude Include="Vwqlist.h">
+      <Filter>Header Files\V</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Vwqlist.h">
+      <Filter>Header Files\V</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Wail.h">
+      <Filter>Header Files\W</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Wave.h">
+      <Filter>Header Files\W</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Waveins.h">
+      <Filter>Header Files\W</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\WaveTabs.h">
+      <Filter>Header Files\W</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Weapons.h">
+      <Filter>Header Files\W</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Weappak.h">
+      <Filter>Header Files\W</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Weather.h">
+      <Filter>Header Files\W</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Win3d.h">
+      <Filter>Header Files\W</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Winfile.h">
+      <Filter>Header Files\W</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Winmain.h">
+      <Filter>Header Files\W</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Winmove.h">
+      <Filter>Header Files\W</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\World.h">
+      <Filter>Header Files\W</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Worldinc.h">
+      <Filter>Header Files\W</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Wpaaa.h">
+      <Filter>Header Files\W</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Wpair.h">
+      <Filter>Header Files\W</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Wpbut.h">
+      <Filter>Header Files\W</Filter>
+    </ClInclude>
+    <ClInclude Include="WPBut.h">
+      <Filter>Header Files\W</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Wpdetail.h">
+      <Filter>Header Files\W</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\Wpground.h">
+      <Filter>Header Files\W</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\wpshare.h">
+      <Filter>Header Files\W</Filter>
+    </ClInclude>
+    <ClInclude Include="Waveins.h">
+      <Filter>Header Files\W\Wstub</Filter>
+    </ClInclude>
+    <ClInclude Include="Weapons.h">
+      <Filter>Header Files\W\Wstub</Filter>
+    </ClInclude>
+    <ClInclude Include="Weather.h">
+      <Filter>Header Files\W\Wstub</Filter>
+    </ClInclude>
+    <ClInclude Include="WPaaa.h">
+      <Filter>Header Files\W\Wstub</Filter>
+    </ClInclude>
+    <ClInclude Include="WPAir.h">
+      <Filter>Header Files\W\Wstub</Filter>
+    </ClInclude>
+    <ClInclude Include="Wpdetail.h">
+      <Filter>Header Files\W\Wstub</Filter>
+    </ClInclude>
+    <ClInclude Include="WPGround.h">
+      <Filter>Header Files\W\Wstub</Filter>
+    </ClInclude>
+    <ClInclude Include="WPShare.h">
+      <Filter>Header Files\W\Wstub</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\_3d.h">
+      <Filter>Header Files\__</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\_ai.h">
+      <Filter>Header Files\__</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\_airc.h">
+      <Filter>Header Files\__</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\_bfie.h">
+      <Filter>Header Files\__</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\_comm.h">
+      <Filter>Header Files\__</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\_file.h">
+      <Filter>Header Files\__</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\_gene.h">
+      <Filter>Header Files\__</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\_grap.h">
+      <Filter>Header Files\__</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\_hard.h">
+      <Filter>Header Files\__</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\_inpu.h">
+      <Filter>Header Files\__</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\_math.h">
+      <Filter>Header Files\__</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\_mfc.h">
+      <Filter>Header Files\__</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\_miss.h">
+      <Filter>Header Files\__</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\_mode.h">
+      <Filter>Header Files\__</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\_move.h">
+      <Filter>Header Files\__</Filter>
+    </ClInclude>
+    <ClInclude Include="..\H\_text.h">
+      <Filter>Header Files\__</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Resource Files\Source</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\H\Enumbits.m">
+      <Filter>Header Files\E</Filter>
+    </None>
+    <None Include="..\H\Stub.m">
+      <Filter>Header Files\S</Filter>
+    </None>
+    <None Include="..\H\Addr00.g">
+      <Filter>Generated Files</Filter>
+    </None>
+    <None Include="..\H\Bfrefs.g">
+      <Filter>Generated Files</Filter>
+    </None>
+    <None Include="..\H\Const00.g">
+      <Filter>Generated Files</Filter>
+    </None>
+    <None Include="..\H\Deathnum.g">
+      <Filter>Generated Files</Filter>
+    </None>
+    <None Include="..\H\F_battle.g">
+      <Filter>Generated Files</Filter>
+    </None>
+    <None Include="..\H\F_common.g">
+      <Filter>Generated Files</Filter>
+    </None>
+    <None Include="..\H\F_grafix.g">
+      <Filter>Generated Files</Filter>
+    </None>
+    <None Include="..\H\F_sounds.g">
+      <Filter>Generated Files</Filter>
+    </None>
+    <None Include="..\H\Files.g">
+      <Filter>Generated Files</Filter>
+    </None>
+    <None Include="..\H\Imagemap.g">
+      <Filter>Generated Files</Filter>
+    </None>
+    <None Include="..\H\Offs00.g">
+      <Filter>Generated Files</Filter>
+    </None>
+    <None Include="..\H\Radio.g">
+      <Filter>Generated Files</Filter>
+    </None>
+    <None Include="..\H\Radioxtr.g">
+      <Filter>Generated Files</Filter>
+    </None>
+    <None Include="..\H\Shapenum.g">
+      <Filter>Generated Files</Filter>
+    </None>
+    <None Include="..\H\smktrl.g">
+      <Filter>Generated Files</Filter>
+    </None>
+    <None Include="..\H\Textenum.g">
+      <Filter>Generated Files</Filter>
+    </None>
+    <None Include="..\H\Uidvals.g">
+      <Filter>Generated Files</Filter>
+    </None>
+    <None Include="Arrow.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Arrowcop.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\MIG.rc2">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Nodrop.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\bfields\battle.inc">
+      <Filter>Utilities\associated files</Filter>
+    </None>
+    <None Include="..\bfieldsA.fil">
+      <Filter>Utilities\associated files</Filter>
+    </None>
+    <None Include="..\bfieldsM.fil">
+      <Filter>Utilities\associated files</Filter>
+    </None>
+    <None Include="..\Bfields\Initial.typ">
+      <Filter>Utilities\associated files</Filter>
+    </None>
+    <None Include="..\..\game\Keyboard\keyb3d.bin">
+      <Filter>Utilities\associated files</Filter>
+    </None>
+    <None Include="..\Bfields\Mainmig.bfi">
+      <Filter>Utilities\associated files</Filter>
+    </None>
+    <None Include="..\..\debug\exe\makebf.exe">
+      <Filter>Utilities\associated files</Filter>
+    </None>
+    <None Include="..\Bfields\Paths.bfi">
+      <Filter>Utilities\associated files</Filter>
+    </None>
+    <None Include="..\Roots.dir">
+      <Filter>Utilities\associated files</Filter>
+    </None>
+    <None Include="..\Mycmds\Rowanu.dsm">
+      <Filter>Utilities\associated files</Filter>
+    </None>
+    <None Include="..\Mycmds\rowanu.flg">
+      <Filter>Utilities\associated files</Filter>
+    </None>
+    <None Include="..\Bfields\Scramble.inc">
+      <Filter>Utilities\associated files</Filter>
+    </None>
+    <None Include="..\Textseq.fil">
+      <Filter>Utilities\associated files</Filter>
+    </None>
+    <None Include="..\..\backup\history.lst" />
+    <None Include="..\..\src" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Res\Bitmap9.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Res\Button.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Res\Canclb.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Res\close.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Res\Close1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Res\close1.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Res\gobig.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Res\gonormal.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\MIG.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\MIGDoc.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Res\Rspltb.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Res\Toolside.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Res\Tooltop.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Res\Airstrip.bmp">
+      <Filter>Resource Files\BMP %28res%29</Filter>
+    </Image>
+    <Image Include="Res\Bmp00001.bmp">
+      <Filter>Resource Files\BMP %28res%29</Filter>
+    </Image>
+    <Image Include="Res\grip.bmp">
+      <Filter>Resource Files\BMP %28res%29</Filter>
+    </Image>
+    <Image Include="Res\Image1d.bmp">
+      <Filter>Resource Files\BMP %28res%29</Filter>
+    </Image>
+    <Image Include="Res\Image1f.bmp">
+      <Filter>Resource Files\BMP %28res%29</Filter>
+    </Image>
+    <Image Include="Res\Image1u.bmp">
+      <Filter>Resource Files\BMP %28res%29</Filter>
+    </Image>
+    <Image Include="Res\Tick.bmp">
+      <Filter>Resource Files\BMP %28res%29</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="MIG.rc">
+      <Filter>Resource Files\Source</Filter>
+    </ResourceCompile>
+    <ResourceCompile Include="Release.rc">
+      <Filter>Resource Files\Source</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\bfields\globrefs.txt">
+      <Filter>Utilities\associated files</Filter>
+    </Text>
+    <Text Include="..\..\macros.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\Graphics\Grafpasm.asm">
+      <Filter>Source Files\assembler</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\3d\Lstrasm.asm">
+      <Filter>Source Files\assembler</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\Math\Matrasm.asm">
+      <Filter>Source Files\assembler</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Afxauto.h">
+      <Filter>Source Files\AFXSTUB</Filter>
+    </CustomBuild>
+    <CustomBuild Include="MIG.reg">
+      <Filter>Help Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ReadMe.txt">
+      <Filter>Help Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="MakeHelp.bat">
+      <Filter>Help Files\Source</Filter>
+    </CustomBuild>
+    <CustomBuild Include="hlp\MIG.cnt">
+      <Filter>Help Files\Source</Filter>
+    </CustomBuild>
+    <CustomBuild Include="hlp\MIG.hpj">
+      <Filter>Help Files\Source</Filter>
+    </CustomBuild>
+    <CustomBuild Include="hlp\AfxCore.rtf">
+      <Filter>Help Files\RTF</Filter>
+    </CustomBuild>
+    <CustomBuild Include="hlp\AfxOleCl.rtf">
+      <Filter>Help Files\RTF</Filter>
+    </CustomBuild>
+    <CustomBuild Include="hlp\AppExit.bmp">
+      <Filter>Help Files\BMP %28help%29</Filter>
+    </CustomBuild>
+    <CustomBuild Include="hlp\Bullet.bmp">
+      <Filter>Help Files\BMP %28help%29</Filter>
+    </CustomBuild>
+    <CustomBuild Include="hlp\CurArw2.bmp">
+      <Filter>Help Files\BMP %28help%29</Filter>
+    </CustomBuild>
+    <CustomBuild Include="hlp\CurArw4.bmp">
+      <Filter>Help Files\BMP %28help%29</Filter>
+    </CustomBuild>
+    <CustomBuild Include="hlp\CurHelp.bmp">
+      <Filter>Help Files\BMP %28help%29</Filter>
+    </CustomBuild>
+    <CustomBuild Include="hlp\EditCopy.bmp">
+      <Filter>Help Files\BMP %28help%29</Filter>
+    </CustomBuild>
+    <CustomBuild Include="hlp\EditCut.bmp">
+      <Filter>Help Files\BMP %28help%29</Filter>
+    </CustomBuild>
+    <CustomBuild Include="hlp\EditPast.bmp">
+      <Filter>Help Files\BMP %28help%29</Filter>
+    </CustomBuild>
+    <CustomBuild Include="hlp\EditUndo.bmp">
+      <Filter>Help Files\BMP %28help%29</Filter>
+    </CustomBuild>
+    <CustomBuild Include="hlp\FileNew.bmp">
+      <Filter>Help Files\BMP %28help%29</Filter>
+    </CustomBuild>
+    <CustomBuild Include="hlp\FileOpen.bmp">
+      <Filter>Help Files\BMP %28help%29</Filter>
+    </CustomBuild>
+    <CustomBuild Include="hlp\FilePrnt.bmp">
+      <Filter>Help Files\BMP %28help%29</Filter>
+    </CustomBuild>
+    <CustomBuild Include="hlp\FileSave.bmp">
+      <Filter>Help Files\BMP %28help%29</Filter>
+    </CustomBuild>
+    <CustomBuild Include="hlp\HlpSBar.bmp">
+      <Filter>Help Files\BMP %28help%29</Filter>
+    </CustomBuild>
+    <CustomBuild Include="hlp\HlpTBar.bmp">
+      <Filter>Help Files\BMP %28help%29</Filter>
+    </CustomBuild>
+    <CustomBuild Include="hlp\RecFirst.bmp">
+      <Filter>Help Files\BMP %28help%29</Filter>
+    </CustomBuild>
+    <CustomBuild Include="hlp\RecLast.bmp">
+      <Filter>Help Files\BMP %28help%29</Filter>
+    </CustomBuild>
+    <CustomBuild Include="hlp\RecNext.bmp">
+      <Filter>Help Files\BMP %28help%29</Filter>
+    </CustomBuild>
+    <CustomBuild Include="hlp\RecPrev.bmp">
+      <Filter>Help Files\BMP %28help%29</Filter>
+    </CustomBuild>
+    <CustomBuild Include="hlp\Scmax.bmp">
+      <Filter>Help Files\BMP %28help%29</Filter>
+    </CustomBuild>
+    <CustomBuild Include="hlp\ScMenu.bmp">
+      <Filter>Help Files\BMP %28help%29</Filter>
+    </CustomBuild>
+    <CustomBuild Include="hlp\Scmin.bmp">
+      <Filter>Help Files\BMP %28help%29</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\debug\obj\fmake.dep">
+      <Filter>Utilities\Add all targets as dependencies of fmake.dep</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\Bfields\Battle.src">
+      <Filter>Utilities\Utility programs generate 1 target</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\Master.fil">
+      <Filter>Utilities\Utility programs generate 1 target</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\Mycmds\Rowanx.dsm">
+      <Filter>Utilities\Utility programs generate 1 target</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\Debug\exe\Ukeylist.exe">
+      <Filter>Utilities\Utility programs generate 1 target</Filter>
+    </CustomBuild>
+  </ItemGroup>
+</Project>
