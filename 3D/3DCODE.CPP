@@ -798,8 +798,6 @@ void ThreeDee::add_cockpit(rotitem& viewpoint,PitTypes pittype,ANGLES h,ANGLES p
 
 	bDoingHardware3D = current_screen->DoingHardware3D();
 
-//DEAD	current_screen->LockBackScreen(TRUE,MIDLOCK);							//AMM 30Apr97
-
 	rotitem	tempitem,
 			*tempitemptr;
 
@@ -815,8 +813,8 @@ void ThreeDee::add_cockpit(rotitem& viewpoint,PitTypes pittype,ANGLES h,ANGLES p
 	{
 		//Inside normal views
 
-		zoffset =
-			yoffset = 0;
+		zoffset = 0;
+		yoffset = 0;
 
 		if (pittype==UNMASKED)
 			shape = clstyp->cockpit1;
@@ -839,7 +837,6 @@ void ThreeDee::add_cockpit(rotitem& viewpoint,PitTypes pittype,ANGLES h,ANGLES p
 	tempitemptr = &tempitem;
 
 	bt->Clear3DArea();
-//TempCode PD 04Feb99 	aircraft_tree->Clear3DArea();
 
 	if (bDoingHardware3D)
 		current_screen->DoSetPlayerTextures(TRUE);
@@ -866,61 +863,13 @@ void ThreeDee::add_cockpit(rotitem& viewpoint,PitTypes pittype,ANGLES h,ANGLES p
 	deltapitch = viewpoint.pitch + tempitem.pitch;
 	deltaroll = viewpoint.roll + tempitem.roll;
 
-//DEAD 	if(POLYGON.UpdateYList(deltahdg,deltapitch,deltaroll) || pittype!=MASKED)
  	if(pittype!=MASKED)
 	{
 		animptr	adptr = Manual_Pilot.ControlledAC2->Anim;		//RJS 21Apr99
 		PolyPitAnimData*	ppitanim = (PolyPitAnimData*) adptr;
 		ULong	detailshift = ppitanim->detailmask;
 
-//Removed music testing keypresses...										//RJS 15Apr99
-/*		if (Key_Tests.KeyPress3d(DETAILDIALS))
-		{
-//			SHAPE.ForceDamage(Manual_Pilot.ControlledAC2,&((AircraftAnimData*)adptr)->RIGHTWINGIN,BS_DEAD);
-//			SHAPE.ForceDamage(Manual_Pilot.ControlledAC2,&((AircraftAnimData*)adptr)->LEFTWINGIN,BS_DEAD);
-
-			_Miles.SequenceAudible(MOOD_NEUTRAL);
-		}
-
-		if (Key_Tests.KeyPress3d(DETAILCANOPY))
-		{
-			detailshift >>= COCK3D_PANELGLASSFRONT;
-			detailshift &= 1;
-
-			if (!detailshift)
-				ppitanim->detailmask |= (1 << COCK3D_PANELGLASSFRONT);//RJS 25Mar98
-			else
-				ppitanim->detailmask &= (0xFFFFFFFF - (1 << COCK3D_PANELGLASSFRONT));
-
-
-//			_Miles.SequenceAudible(MOOD_HERO);
-
-
-		}
-
-		if (Key_Tests.KeyPress3d(DETAILPANEL))
-		{
-
-			_Miles.SequenceAudible(MOOD_TENSE);
-
-
-		}
-
-		if (Key_Tests.KeyPress3d(DETAILSIDES))
-		{
-
-			_Miles.SequenceAudible(MOOD_DESPERATE);
-
-
-		}
-
-		if (Key_Tests.KeyPress3d(DETAILSIGHT))
-		{
-			_Miles.SequenceAudible(FIL_MUSIC_SAD);
-
-
-		}*/
-
+		buffetData.delta.Z = 400; //NHV test, move pilot view a bit back
 		if (buffetData.delta.X==0 && 
 			buffetData.delta.Y==0 &&
 			buffetData.delta.Z==0)
@@ -931,20 +880,14 @@ void ThreeDee::add_cockpit(rotitem& viewpoint,PitTypes pittype,ANGLES h,ANGLES p
 		{
 			FPMATRIX bufMat;
 
-//DEAD			wx.i = SLong(Float(buffetData.delta.X)*clstyp->cockscale);
-//DEAD			wy.i = SLong(Float(buffetData.delta.Y)*clstyp->cockscale);
-//DEAD			wz.i = SLong(Float(buffetData.delta.Z)*clstyp->cockscale);
 			wx.i = buffetData.delta.X;
 			wy.i = buffetData.delta.Y;
 			wz.i = buffetData.delta.Z;
 
-//Dead			_matrix.Generate2(tempitemptr->hdg,tempitemptr->pitch,tempitemptr->roll,1,&bufMat);
 			_matrix.Generate2(tempitemptr->hdg,tempitemptr->pitch,tempitemptr->roll,clstyp->cockscale,&bufMat);
 			_matrix.multiply(&bufMat,fpviewer_matrix);
 			_matrix.transform(&bufMat,wx,wy,wz);
 		}
-
-//		UByteP	adptr = (UByteP )Manual_Pilot.ControlledAC2->Anim;//RJS 21Feb97
 
 		if (resetpit)
 		{
@@ -979,16 +922,11 @@ void ThreeDee::add_cockpit(rotitem& viewpoint,PitTypes pittype,ANGLES h,ANGLES p
 		current_screen->DoSetZUpdate(oldState);
 		current_screen->DoSetMipMap(oldState2);
 
-//DEAD  		if(pittype==MASKED)											//PD 20Jun96
-//DEAD  			POLYGON.FillYList();
 	}
 	bt->Clear3DArea();
-//TempCode PD 04Feb99 	aircraft_tree->Clear3DArea();								//PD 28Oct98
 
 	tempitem.Anim=NULL;	//This stops the item delete code from freeing animation//PD 16Apr96
 						//data that doesn't really belong to this item//PD 16Apr96
-
-//DEAD 	current_screen->UnLockBackScreen(MIDLOCK);							//AMM 30Apr97
 }
 
 //------------------------------------------------------------------------------
@@ -1345,20 +1283,7 @@ SLong ThreeDee::AddVapourObject(ShapeNum	shape,
 //------------------------------------------------------------------------------
 void ThreeDee::render_scene()
 {
-//DEAD	current_screen->LockBackScreen(TRUE,MIDLOCK);							//AMM 30Apr97
-
-//DEAD	POLYGON.SetPixelWidth(1);									//PD 20Feb96
 	bt->draw_object(current_screen,View_Point);							//PD 20Dec95
-
-	//temp waiting for a proper fix!
-//TempCode PD 05Feb99 	bool fOldVal=current_screen->DoSetEdgeTest(true);
-
-//TempCode PD 04Feb99 	aircraft_tree->nz_draw_object(current_screen,View_Point);		//PD 28Oct98
-
-	//temp waiting for a proper fix!
-//TempCode PD 05Feb99 	current_screen->DoSetEdgeTest(fOldVal);
-
-//DEAD 	current_screen->UnLockBackScreen(MIDLOCK);							//AMM 30Apr97
 }
 
 //------------------------------------------------------------------------------
@@ -2170,222 +2095,6 @@ void ThreeDee::do_object_grp(itemptr tempitemptr)
 //------------------------------------------------------------------------------
 void ThreeDee::PaletteBlender(SLong time)
 {
-//DeadCode RJS 15Jun99 	ImageMapNumber	imapno;
-//DeadCode RJS 15Jun99 	ULong			red,green,blue;
-//DeadCode RJS 15Jun99 	ULong			red2,green2,blue2;
-//DeadCode RJS 15Jun99 	ULong			rtot,gtot,btot;
-//DeadCode RJS 15Jun99 	RGBINFO_PTR		src,dest,paloffset;
-//DeadCode RJS 15Jun99 	UByte			nextpal,bias1,bias2;
-//DeadCode RJS 15Jun99 	SWord			count;
-//DeadCode RJS 15Jun99 	SLong			timedif,palpos;
-//DeadCode RJS 15Jun99 	SWord			bigcount;
-//DeadCode RJS 15Jun99 	SLong			newtime_minutes;
-//DeadCode RJS 15Jun99 
-//DeadCode RJS 15Jun99 	paloffset = NewPalettePtr;									//RJS 24Feb98
-//DeadCode RJS 15Jun99 
-//DeadCode RJS 15Jun99 	time /= 100;							// To seconds
-//DeadCode RJS 15Jun99 	newtime_minutes = time/60;									//RJS 23Apr98
-//DeadCode RJS 15Jun99 	if (newtime_minutes != time_minutes)						//RJS 23Apr98
-//DeadCode RJS 15Jun99 	{
-//DeadCode RJS 15Jun99 		time_minutes = newtime_minutes;							//RJS 23Apr98
-//DeadCode RJS 15Jun99 
-//DeadCode RJS 15Jun99 		Land_Scape.SetLighting(time);
-//DeadCode RJS 15Jun99 
-//DeadCode RJS 15Jun99 		Bool	lightson = FALSE;
-//DeadCode RJS 15Jun99 		Bool	timetochange = FALSE;							//RJS 30Oct96
-//DeadCode RJS 15Jun99 		WorldStuff*	worldptr = mobileitem::currworld;			//RJS 23Mar98
-//DeadCode RJS 15Jun99 
-//DeadCode RJS 15Jun99 		if (oldtime > -2)
-//DeadCode RJS 15Jun99 		{
-//DeadCode RJS 15Jun99 			lightson = TRUE;									//RJS 23Mar98
-//DeadCode RJS 15Jun99 
-//DeadCode RJS 15Jun99 			timedif = time - Miss_Man.camp.dawntime;		
-//DeadCode RJS 15Jun99 			if ((timedif >= -1800) && (timedif <= 1800))
-//DeadCode RJS 15Jun99 			{
-//DeadCode RJS 15Jun99 				palpos = 0;
-//DeadCode RJS 15Jun99 
-//DeadCode RJS 15Jun99 				if (timedif < 0)
-//DeadCode RJS 15Jun99 				{
-//DeadCode RJS 15Jun99 					whichpal = PAL_NIGHT;						//RJS 02Sep97
-//DeadCode RJS 15Jun99 					palpos = 16;
-//DeadCode RJS 15Jun99 				}
-//DeadCode RJS 15Jun99 				else
-//DeadCode RJS 15Jun99 					whichpal = PAL_DAWN;						//RJS 02Sep97
-//DeadCode RJS 15Jun99 
-//DeadCode RJS 15Jun99 				palpos += ((timedif<<4) / 1800);
-//DeadCode RJS 15Jun99 
-//DeadCode RJS 15Jun99 				if (palpos != whereinpal)
-//DeadCode RJS 15Jun99 				{
-//DeadCode RJS 15Jun99 					whereinpal = palpos;
-//DeadCode RJS 15Jun99 					timetochange = TRUE;
-//DeadCode RJS 15Jun99 					if ((whereinpal > 8) && (whichpal == PAL_DAWN))//RJS 01Sep97
-//DeadCode RJS 15Jun99 					{
-//DeadCode RJS 15Jun99 						lightson = FALSE;
-//DeadCode RJS 15Jun99 					}
-//DeadCode RJS 15Jun99 				}
-//DeadCode RJS 15Jun99 			}
-//DeadCode RJS 15Jun99 			else
-//DeadCode RJS 15Jun99 			{
-//DeadCode RJS 15Jun99 				lightson = FALSE;
-//DeadCode RJS 15Jun99 
-//DeadCode RJS 15Jun99 				timedif = time - Miss_Man.camp.dusktime;
-//DeadCode RJS 15Jun99 				if ((timedif >= -1800) && (timedif <= 1800))
-//DeadCode RJS 15Jun99 				{
-//DeadCode RJS 15Jun99 					palpos = 0;
-//DeadCode RJS 15Jun99 
-//DeadCode RJS 15Jun99 					if (timedif < 0)
-//DeadCode RJS 15Jun99 					{
-//DeadCode RJS 15Jun99 						whichpal = PAL_DAY;						//RJS 02Sep97
-//DeadCode RJS 15Jun99 						palpos = 16;
-//DeadCode RJS 15Jun99 					}
-//DeadCode RJS 15Jun99 					else
-//DeadCode RJS 15Jun99 					{
-//DeadCode RJS 15Jun99 						whichpal = PAL_DUSK;					//RJS 01Sep97
-//DeadCode RJS 15Jun99 					}
-//DeadCode RJS 15Jun99 
-//DeadCode RJS 15Jun99 					palpos += ((timedif<<4) / 1800);
-//DeadCode RJS 15Jun99 
-//DeadCode RJS 15Jun99 					if (palpos != whereinpal)
-//DeadCode RJS 15Jun99 					{
-//DeadCode RJS 15Jun99 						whereinpal = palpos;
-//DeadCode RJS 15Jun99 						if ((whereinpal > 7) && (whichpal == PAL_DUSK))//RJS 01Sep97
-//DeadCode RJS 15Jun99 						{
-//DeadCode RJS 15Jun99 							lightson = TRUE;
-//DeadCode RJS 15Jun99 						}
-//DeadCode RJS 15Jun99 
-//DeadCode RJS 15Jun99 						timetochange = TRUE;
-//DeadCode RJS 15Jun99 					}
-//DeadCode RJS 15Jun99 				}
-//DeadCode RJS 15Jun99 			}
-//DeadCode RJS 15Jun99 
-//DeadCode RJS 15Jun99 			if ((timetochange == FALSE) && (oldtime == -1))
-//DeadCode RJS 15Jun99 			{
-//DeadCode RJS 15Jun99 				SLong	daytimelow,daytimehigh;
-//DeadCode RJS 15Jun99 
-//DeadCode RJS 15Jun99 				daytimelow = Miss_Man.camp.dawntime + 1800;
-//DeadCode RJS 15Jun99 				daytimehigh = Miss_Man.camp.dusktime - 1800;
-//DeadCode RJS 15Jun99 				whereinpal = 0;
-//DeadCode RJS 15Jun99 				timetochange = TRUE;
-//DeadCode RJS 15Jun99 
-//DeadCode RJS 15Jun99 				if ((time > daytimelow) && (time < daytimehigh))
-//DeadCode RJS 15Jun99 				{
-//DeadCode RJS 15Jun99 					whichpal = PAL_DAY;							//RJS 02Sep97
-//DeadCode RJS 15Jun99 					lightson = FALSE;
-//DeadCode RJS 15Jun99 				}
-//DeadCode RJS 15Jun99 				else
-//DeadCode RJS 15Jun99 				{
-//DeadCode RJS 15Jun99 					whichpal = PAL_NIGHT;						//RJS 02Sep97
-//DeadCode RJS 15Jun99 					lightson = TRUE;
-//DeadCode RJS 15Jun99 				}
-//DeadCode RJS 15Jun99 			}
-//DeadCode RJS 15Jun99 
-//DeadCode RJS 15Jun99 			oldtime = time_minutes;
-//DeadCode RJS 15Jun99 		}
-//DeadCode RJS 15Jun99 		else
-//DeadCode RJS 15Jun99 		{
-//DeadCode RJS 15Jun99 			timetochange = TRUE;
-//DeadCode RJS 15Jun99 			whereinpal = 0;
-//DeadCode RJS 15Jun99 			whichpal = PAL_DAY;									//RJS 02Sep97
-//DeadCode RJS 15Jun99 			lightson = FALSE;
-//DeadCode RJS 15Jun99 		}
-//DeadCode RJS 15Jun99 
-//DeadCode RJS 15Jun99 		if ((timetochange) && (oldtime != -3))					//RJS 13Nov96
-//DeadCode RJS 15Jun99 		{
-//DeadCode RJS 15Jun99 			Bool	boffweather = FALSE;
-//DeadCode RJS 15Jun99 			ULong	redl,greenl,bluel;
-//DeadCode RJS 15Jun99 
-//DeadCode RJS 15Jun99 			if (newpalettes == NULL)							//RJS 24Feb98
-//DeadCode RJS 15Jun99 			{													//RJS 24Feb98
-//DeadCode RJS 15Jun99 				LandMapNum lmn=LandMapNum(FIL_PALCLUSTMAP_NUM);	//RJS 24Feb98
-//DeadCode RJS 15Jun99 												  					//RJS 24Feb98
-//DeadCode RJS 15Jun99 				newpalettes = lmn.GetLandMapPtr();				//RJS 24Feb98
-//DeadCode RJS 15Jun99 				MasterPalettePtr = newpalettes->palette;		//RJS 24Feb98
-//DeadCode RJS 15Jun99 			}													//RJS 24Feb98
-//DeadCode RJS 15Jun99 
-//DeadCode RJS 15Jun99 			if (whereinpal == 16)								//RJS 24Feb98
-//DeadCode RJS 15Jun99 			{
-//DeadCode RJS 15Jun99 				whereinpal = 0;
-//DeadCode RJS 15Jun99 				whichpal++;
-//DeadCode RJS 15Jun99 
-//DeadCode RJS 15Jun99 				if (whichpal > PAL_DAWN)						//RJS 02Sep97
-//DeadCode RJS 15Jun99 					whichpal = PAL_DAY;							//RJS 02Sep97
-//DeadCode RJS 15Jun99 			}
-//DeadCode RJS 15Jun99 
-//DeadCode RJS 15Jun99 			nextpal = whichpal + 1;
-//DeadCode RJS 15Jun99 			if (nextpal > PAL_DAWN)								//RJS 02Sep97
-//DeadCode RJS 15Jun99 				nextpal = PAL_DAY;								//RJS 02Sep97
-//DeadCode RJS 15Jun99 
-//DeadCode RJS 15Jun99 			src = (RGBINFO_PTR) (MasterPalettePtr + (whichpal*768));//RJS 24Feb98
-//DeadCode RJS 15Jun99 			dest = (RGBINFO_PTR) (MasterPalettePtr + (nextpal*768));//RJS 24Feb98
-//DeadCode RJS 15Jun99 																	//RJS 24Feb98
-//DeadCode RJS 15Jun99 			for (bigcount = 0; bigcount < 8; bigcount++)		//RJS 12Mar98
-//DeadCode RJS 15Jun99 			{
-//DeadCode RJS 15Jun99 				count = 0;											//RJS 24Feb98
-//DeadCode RJS 15Jun99 				bias1 = 16 - whereinpal;
-//DeadCode RJS 15Jun99 				bias2 = whereinpal;
-//DeadCode RJS 15Jun99 
-//DeadCode RJS 15Jun99 				redl = src[250].rval << 16;
-//DeadCode RJS 15Jun99 				greenl = src[250].gval << 16;
-//DeadCode RJS 15Jun99 				bluel = src[250].bval << 16;
-//DeadCode RJS 15Jun99 
-//DeadCode RJS 15Jun99 				while (count < 256)
-//DeadCode RJS 15Jun99 				{
-//DeadCode RJS 15Jun99 					red = src->rval << 16;
-//DeadCode RJS 15Jun99 					green = src->gval << 16;
-//DeadCode RJS 15Jun99 					blue = src->bval << 16;
-//DeadCode RJS 15Jun99 
-//DeadCode RJS 15Jun99 					red2 = dest->rval << 16;
-//DeadCode RJS 15Jun99 					green2 = dest->gval << 16;
-//DeadCode RJS 15Jun99 					blue2 = dest->bval << 16;
-//DeadCode RJS 15Jun99 					if (count == 255)
-//DeadCode RJS 15Jun99 					{
-//DeadCode RJS 15Jun99 			 			if (lightson)
-//DeadCode RJS 15Jun99 						{
-//DeadCode RJS 15Jun99 							rtot = redl << 4;
-//DeadCode RJS 15Jun99 							gtot = greenl << 4;
-//DeadCode RJS 15Jun99 							btot = bluel << 4;
-//DeadCode RJS 15Jun99 						}
-//DeadCode RJS 15Jun99 						else
-//DeadCode RJS 15Jun99 						{
-//DeadCode RJS 15Jun99 							rtot = 0;
-//DeadCode RJS 15Jun99 							gtot = 0;
-//DeadCode RJS 15Jun99 							btot = 0;
-//DeadCode RJS 15Jun99 						}
-//DeadCode RJS 15Jun99 					}
-//DeadCode RJS 15Jun99 					else
-//DeadCode RJS 15Jun99 					{
-//DeadCode RJS 15Jun99 						rtot = (red * bias1) + (red2 * bias2);
-//DeadCode RJS 15Jun99 						gtot = (green * bias1) + (green2 * bias2);
-//DeadCode RJS 15Jun99 						btot = (blue * bias1) + (blue2 * bias2);
-//DeadCode RJS 15Jun99 					}
-//DeadCode RJS 15Jun99 
-//DeadCode RJS 15Jun99 					rtot >>= 20;
-//DeadCode RJS 15Jun99 					gtot >>= 20;
-//DeadCode RJS 15Jun99 					btot >>= 20;
-//DeadCode RJS 15Jun99 
-//DeadCode RJS 15Jun99 					paloffset->rval = gtot;									//RJS 25Feb98
-//DeadCode RJS 15Jun99 					paloffset->gval = btot;
-//DeadCode RJS 15Jun99 					paloffset->bval = rtot;
-//DeadCode RJS 15Jun99 
-//DeadCode RJS 15Jun99 					src++;
-//DeadCode RJS 15Jun99 					dest++;
-//DeadCode RJS 15Jun99 					paloffset++;
-//DeadCode RJS 15Jun99 					count++;
-//DeadCode RJS 15Jun99 				}
-//DeadCode RJS 15Jun99 
-//DeadCode RJS 15Jun99 				// Next palette...
-//DeadCode RJS 15Jun99 				src += 768;
-//DeadCode RJS 15Jun99 				dest += 768;
-//DeadCode RJS 15Jun99 			}
-//DeadCode RJS 15Jun99 
-//DeadCode RJS 15Jun99 			current_screen->RegisterPalette((UByteP)NewPalettePtr,(256*3*8)+1);
-//DeadCode RJS 15Jun99 			current_screen->UseNewPal=TRUE;
-//DeadCode RJS 15Jun99 
-//DeadCode RJS 15Jun99 			if (oldtime == -2)
-//DeadCode RJS 15Jun99 				oldtime = -3;									//RJS 13Nov96
-//DeadCode RJS 15Jun99 		}
-//DeadCode RJS 15Jun99 	}
-
 	SLong			newtime_minutes;
 
 	time /= 100;						
@@ -2587,7 +2296,6 @@ void ThreeDee::CalcLightsOn(SLong	time)
 //------------------------------------------------------------------------------
 void ThreeDee::InitialiseCache()
 {
-//	PaletteBlender(0);
 	if (pMigLand==NULL) pMigLand=new CMigLand(/*NULL*/);
 	if (pTMake==NULL) pTMake=new TMake;
 }
@@ -2851,14 +2559,6 @@ void	ThreeDee::DoFlyBySound(AirStrucPtr	ac,SLong	distance)
 {
 	if (!IsPaused())
 	{
-//DeadCode RJS 10May99 		SLong	ann,bnn,cnn;
-//DeadCode RJS 10May99 		SLong	dvx,dvy,dvz;
-//DeadCode RJS 10May99 		SLong	magVelAC;//RJS 06Oct98
-//DeadCode RJS 10May99 
-//DeadCode RJS 10May99 		ann = ac->velx;
-//DeadCode RJS 10May99 		bnn = ac->vely;
-//DeadCode RJS 10May99 		cnn = ac->velz;
-//DeadCode RJS 10May99 		magVelAC = (ann*ann) + (bnn*bnn) + (cnn*cnn);
 		if (ac->vel && !ac->Status.deadtime)		//Other AC must not be at standstill
 		{
 			SLong	dvx,dvy,dvz;
@@ -2962,8 +2662,6 @@ void ThreeDee::add_map(rotitem& viewpoint,Bool	isZoomed)
 {
 	Bool	bDoingHardware3D = current_screen->DoingHardware3D();
 
-//	current_screen->LockBackScreen(TRUE,MIDLOCK);					
-
 	item	tempitem,
 			*tempitemptr;
 
@@ -2988,50 +2686,6 @@ void ThreeDee::add_map(rotitem& viewpoint,Bool	isZoomed)
 	tempitem.World.Y = viewpoint.World.Y;
 	tempitem.World.Z = viewpoint.World.Z;
 	tempitemptr->Anim = Manual_Pilot.ControlledAC2->Anim;
-
-//TempCode PD 07Apr99  	if (isZoomed == FALSE)
-//TempCode PD 07Apr99   	{
-//TempCode PD 07Apr99  		sdptr = SHAPESTUFF.GetShapePtr(MAPZ);
-//TempCode PD 07Apr99  		SLong	properdistz = (sdptr->sx << 4)*4;
-//TempCode PD 07Apr99  		SLong	minzoom = properdistz >> 2;
-//TempCode PD 07Apr99  
-//TempCode PD 07Apr99  		tempitem.shape = MAP;
-//TempCode PD 07Apr99  
-//TempCode PD 07Apr99  		if (Key_Tests.KeyPress3d(ZOOMIN) || Key_Tests.KeyHeld3d(ZOOMIN))
-//TempCode PD 07Apr99  		{
-//TempCode PD 07Apr99  			if (mapdistz < properdistz)
-//TempCode PD 07Apr99  			{
-//TempCode PD 07Apr99  				mapdistz = properdistz;
-//TempCode PD 07Apr99  				mapoffx = mapoffy = 0;
-//TempCode PD 07Apr99  			}
-//TempCode PD 07Apr99  		}
-//TempCode PD 07Apr99  
-//TempCode PD 07Apr99  		if (Key_Tests.KeyPress3d(ZOOMOUT) || Key_Tests.KeyHeld3d(ZOOMOUT))
-//TempCode PD 07Apr99  		{
-//TempCode PD 07Apr99  			if (mapdistz > (minzoom+16))
-//TempCode PD 07Apr99  				mapdistz -= 16;
-//TempCode PD 07Apr99  		}
-//TempCode PD 07Apr99  
-//TempCode PD 07Apr99  		SLong	zoomoffset = (properdistz - mapdistz)>>1;
-//TempCode PD 07Apr99  		SLong	yoffset;
-//TempCode PD 07Apr99  		SLong	distgap = properdistz - minzoom;
-//TempCode PD 07Apr99  
-//TempCode PD 07Apr99  		wx.f = mapoffx + zoomoffset;								
-//TempCode PD 07Apr99  		wy.f = mapoffy;													
-//TempCode PD 07Apr99  		wz.f = mapdistz;										
-//TempCode PD 07Apr99  
-//TempCode PD 07Apr99  		obj3dptr = (Obj3DPtr )bt->Get3DArea(STATIC_OBJECT);
-//TempCode PD 07Apr99  
-//TempCode PD 07Apr99  		bzoffset.f=0;
-//TempCode PD 07Apr99  		tempitemptr->Anim = Manual_Pilot.ControlledAC2->Anim;
-//TempCode PD 07Apr99  
-//TempCode PD 07Apr99  		SetObj3D(obj3dptr,tempitemptr,wx,wy,wz,bzoffset);
-//TempCode PD 07Apr99  
-//TempCode PD 07Apr99  		obj3dptr->objtype = STATIC_OBJECT;
-//TempCode PD 07Apr99  		obj3dptr->AnimPtr= (UByteP) Manual_Pilot.ControlledAC2->Anim;								
-//TempCode PD 07Apr99  
-//TempCode PD 07Apr99  		bt->insert_object2(obj3dptr);
-//TempCode PD 07Apr99  	}
 
 	sdptr = SHAPESTUFF.GetShapePtr(MAPZ);
 
@@ -3092,10 +2746,6 @@ static SWord curTime=0;
 		curTime=8;
 		screen->DoCaptureScreen();
 	}
-
-//Dead	SHAPE.GenerateProbeTrails();								//AMM 26Mar99
-//Dead	SHAPE.KillVapourStreamDeadList();							//RJS 11Nov98
-//DeadCode AMM 14Apr99 	SHAPE.safeTrail = TRUE;
 }
 
 //------------------------------------------------------------------------------

@@ -1897,13 +1897,6 @@ void shape::dopolygon(UByte *& instr_ptr)
 		dp1.intensity=dp1.specFlip=dp1.specular=-1;
 		dp2.intensity=dp2.specFlip=dp2.specular=-1;
 		dp3.intensity=dp3.specFlip=dp3.specular=-1;
-//		if (!doingHW3D)												//PD 19Jun98
-//		{															//PD 19Jun98
-//			_matrix.body2screen(dp0);			
-//			_matrix.body2screen(dp1);			
-//			_matrix.body2screen(dp2);			
-//			_matrix.body2screen(dp3);
-//		}
 
 		POLYGON.createpoly((ImageMapNumber )ptr->imagemap);
 		POLYGON.createvert(dp0,minx,miny);										//RJS 21Apr98
@@ -1932,98 +1925,45 @@ void shape::dopolygon(UByte *& instr_ptr)
 //
 //Externals
 //------------------------------------------------------------------------------
-//------------------------------------------------------------------------------
- void shape::dodot(UByte *& instr_ptr)
+void shape::dodot(UByte *& instr_ptr)
 {
 	DODOT_PTR	ddptr = (DODOT_PTR )instr_ptr;
 	SLong	glintrange = (SLong)object_obj3d->Body.Z.f;			//DAW 01Sep98
 	SetLineAndDotShade(object_obj3d->ItemPtr,View_Point);
-//	if (glintrange < RANGE_AIRCRAFT)							//DAW 01Sep98
+
+	UWord	vertex;
+
+	vertex = (UWord )ddptr->vertex;								//RJS 10Mar97
+
+	Colour	clr = (Colour )(ddptr->colour);
+
+	if (object_obj3d->Shape==BULLET)							//PD 26Jul96
+		clr = YELLOW;											//PD 26Jul96
+
+	if (doingHW3D)
 	{
- 		UWord	vertex;
- 
- 		vertex = (UWord )ddptr->vertex;								//RJS 10Mar97
- 
- 		Colour	clr = (Colour )(ddptr->colour);
- 
- 		if (object_obj3d->Shape==BULLET)							//PD 26Jul96
- 			clr = YELLOW;											//PD 26Jul96
- 
-		if (doingHW3D)
+		POINTTYPE	ptPointType;
+		struct		vertex	pVertex;
+		ptPointType.lpVertex= &pVertex;
+
+		Float maxDotZ=200000;	//Float(Land_Scape.view_range)*.5;
+		pVertex.bx.f		= newco[vertex].bodyx.f;
+		pVertex.by.f		= newco[vertex].bodyy.f;
+		pVertex.bz.f		= newco[vertex].bodyz.f;
+		pVertex.intensity	= dotNLineFadeValue;
+		if (pVertex.bz.f>maxDotZ)
 		{
-			POINTTYPE	ptPointType;
-			struct		vertex	pVertex;
-			ptPointType.lpVertex= &pVertex;
-
-			Float maxDotZ=200000;	//Float(Land_Scape.view_range)*.5;
-			pVertex.bx.f		= newco[vertex].bodyx.f;
-			pVertex.by.f		= newco[vertex].bodyy.f;
-			pVertex.bz.f		= newco[vertex].bodyz.f;
-			pVertex.intensity	= dotNLineFadeValue;
-			if (pVertex.bz.f>maxDotZ)
-			{
-			 	Float xyDiv=maxDotZ/pVertex.bz.f;
-				pVertex.bz.f=maxDotZ;
-				pVertex.bx.f*=xyDiv;
-				pVertex.by.f*=xyDiv;
-			}
-			pVertex.clipFlags	= newco[vertex].clipFlags&~CF3D_PASTFARZ;
-			ptPointType.ptType	= PointType::PT_PlainColour;
-			ptPointType.colour	= clr;
-			current_screen->DoHardPoint(&ptPointType);
+		 	Float xyDiv=maxDotZ/pVertex.bz.f;
+			pVertex.bz.f=maxDotZ;
+			pVertex.bx.f*=xyDiv;
+			pVertex.by.f*=xyDiv;
 		}
-//		else
-//		{
-//	 		SWord 	intense;
- //
- //			SLong	dist = object_dist;									//PD 19Dec96
- //		
- //			intense = Three_Dee.IntensFromRange(dist,fade_start,fade_end);//PD 24Jul96
- //
-//	 		intense = intense>>4;
- //			
-//			if (intense)												//RJS 27Jun97
-//			{
-//	 			SLong	temp1,temp2;
- //
- //				temp1 = (SLong )clr;
-//		 		temp1 &= 0x0FF;
- //
-//	 			temp2 = intense;
- //
-//	 			temp1 = ASM_GetFadeColour(temp1,temp2);
- //			
-//		 		clr = (Colour )temp1;
-//			}
-
-//	 		Float	temp;												//RJS 26Feb97
- 
- //			SLong	abstemp;
- //
-//			temp = newco[vertex].screenx.f;								//RJS 22Aug97
- //
- //			abstemp = (temp<0)?-temp:temp;
-
- //			if (abstemp<=0x07FFF)
-//	 		{
- //				SWord	xcoord = (SWord )temp;
- //
-//				temp = newco[vertex].screeny.f;
- //
- //				abstemp = (temp<0)?-temp:temp;
- //
-//	 			if (abstemp<=0x07FFF)
- //				{
- //					SWord ycoord = (SWord )temp;
- //
-//					current_screen->PlotLogicalPixel(xcoord,ycoord,clr);
-//	 			}
- //			}
-//		}
+		pVertex.clipFlags	= newco[vertex].clipFlags&~CF3D_PASTFARZ;
+		ptPointType.ptType	= PointType::PT_PlainColour;
+		ptPointType.colour	= clr;
+		current_screen->DoHardPoint(&ptPointType);
 	}
 
-//DeadCode DAW 01Sep98 	else
-//DeadCode DAW 01Sep98 	{
 	// Do glint....
 	if (	(Three_Dee.lightson == FALSE)						//RJS 10May99
 		&& 	ddptr->imagemap										//RJS 10May99
@@ -2137,7 +2077,6 @@ void shape::dopolygon(UByte *& instr_ptr)
 void shape::doscalesize(UByte *& instr_ptr)
 {
 	DOSCALESIZE_PTR	ptr = (DOSCALESIZE_PTR) instr_ptr;
-//DeadCode RJS 21Apr99 	UByteP	adptr = (UByteP) object_obj3d->AnimPtr;
 	SLong	frameno = GlobalAdptr[ptr->animoffsrc];				//RJS 16Apr99
 	UByte	animscale = ptr->animscale;
 
@@ -2204,31 +2143,6 @@ void shape::dogunsight(UByte *& instr_ptr)
 
 	minix = miniy = 1;
 	maxix = maxiy = 2;
-	
-//DeadCode RDH 29Nov98 	gs_x = SHAPE.GunSightPos.X;
-//DeadCode RDH 29Nov98 	gs_y = SHAPE.GunSightPos.Y;
-//DeadCode RDH 29Nov98 	gs_z = SHAPE.GunSightPos.Z;
-//DeadCode RDH 29Nov98 
-//DeadCode RDH 29Nov98 	if (	(SHAPE.ClosestGap != 1000000)
-//DeadCode RDH 29Nov98 		&&	(SHAPE.ClosestGap2 != 1000000)	)
-//DeadCode RDH 29Nov98 	{
-//DeadCode RDH 29Nov98 		SLong	dx = SHAPE.GunSightPos2.X - SHAPE.GunSightPos.X;
-//DeadCode RDH 29Nov98 		SLong	dy = SHAPE.GunSightPos2.Y - SHAPE.GunSightPos.Y;
-//DeadCode RDH 29Nov98 		SLong	dz = SHAPE.GunSightPos2.Z - SHAPE.GunSightPos.Z;
-//DeadCode RDH 29Nov98 		SLong	totgap = SHAPE.ClosestGap + SHAPE.ClosestGap2;
-//DeadCode RDH 29Nov98 		SLong	frac_x,frac_y,frac_z;
-//DeadCode RDH 29Nov98 
-//DeadCode RDH 29Nov98 		if (totgap)
-//DeadCode RDH 29Nov98 		{
-//DeadCode RDH 29Nov98 			frac_x = (dx << 8)/totgap;
-//DeadCode RDH 29Nov98 			frac_y = (dy << 8)/totgap;
-//DeadCode RDH 29Nov98 			frac_z = (dz << 8)/totgap;
-//DeadCode RDH 29Nov98 
-//DeadCode RDH 29Nov98 			gs_x += (frac_x * SHAPE.ClosestGap)>>8;
-//DeadCode RDH 29Nov98 			gs_y += (frac_y * SHAPE.ClosestGap)>>8;
-//DeadCode RDH 29Nov98 			gs_z += (frac_z * SHAPE.ClosestGap)>>8;
-//DeadCode RDH 29Nov98 		}
-//DeadCode RDH 29Nov98 	}
 
 //Calc gunsight pos.....
 // default range = 500m
@@ -2239,227 +2153,269 @@ void shape::dogunsight(UByte *& instr_ptr)
 	SLong	usexpos, useypos, usezpos;
 	SLong	xpos, ypos, zpos;
 	SLong	index, wpcnt;
-//DeadCode DAW 25Jun99 	WeapAnimData*	weapon;
-//DeadCode DAW 25Jun99 	UWord	mvel,mdelay,mburst;						//RDH 31Jul98
-//DeadCode DAW 25Jun99 	rotitem	*tmpplane = new rotitem;
-//DeadCode DAW 25Jun99 
-//DeadCode DAW 25Jun99 	if (tmpplane)
-//DeadCode DAW 25Jun99 	{
-//DeadCode DAW 25Jun99 		usexpos = 0;
-//DeadCode DAW 25Jun99 		useypos = 0;
-//DeadCode DAW 25Jun99 		usezpos = 0;
-//DeadCode DAW 25Jun99 		wpcnt = 0;
-//DeadCode DAW 25Jun99 
-//DeadCode DAW 25Jun99 		tmpplane->shape = Manual_Pilot.ControlledAC2->shape;
-//DeadCode DAW 25Jun99 		tmpplane->Anim =  Manual_Pilot.ControlledAC2->Anim;
-//DeadCode DAW 25Jun99 		tmpplane->World = SHAPE.GunSightPos;
-//DeadCode DAW 25Jun99 
-//DeadCode DAW 25Jun99 		index = 0;
-//DeadCode DAW 25Jun99 		while (index < 3)
-//DeadCode DAW 25Jun99 		{
-//DeadCode DAW 25Jun99 			weapon = SHAPE.GetWeaponLauncher(tmpplane,index,xpos,ypos,zpos,mvel,mdelay,mburst,LT_BULLET);//RDH 31Jul98
-//DeadCode DAW 25Jun99 			if (weapon)
-//DeadCode DAW 25Jun99 			{
-//DeadCode DAW 25Jun99 				usexpos += xpos;
-//DeadCode DAW 25Jun99 				useypos += ypos;
-//DeadCode DAW 25Jun99 				usezpos += zpos;
-//DeadCode DAW 25Jun99 
-//DeadCode DAW 25Jun99 				wpcnt++;
-//DeadCode DAW 25Jun99  			}
-//DeadCode DAW 25Jun99 			index++;
-//DeadCode DAW 25Jun99  		}
-//DeadCode DAW 25Jun99 
-//DeadCode DAW 25Jun99 		if (wpcnt)
-//DeadCode DAW 25Jun99 		{
-//DeadCode DAW 25Jun99 			time = (SHAPE.RequiredRange*100) / mvel;
-//DeadCode DAW 28Jun99 			time = (SHAPE.RequiredRange*100) / gunsightmvel;	//AMM 25Jun99
 
-//DeadCode DAW 25Jun99 			gs_x = usexpos/wpcnt;
-//DeadCode DAW 25Jun99 			gs_y = useypos/wpcnt;
-//DeadCode DAW 25Jun99 			gs_z = usezpos/wpcnt;
-			gs_x = gunsightX;									//AMM 25Jun99
-			gs_y = gunsightY;									//AMM 25Jun99
-			gs_z = gunsightZ;									//AMM 25Jun99
+	gs_x = gunsightX;									//AMM 25Jun99
+	gs_y = gunsightY;									//AMM 25Jun99
+	gs_z = gunsightZ;									//AMM 25Jun99
 
-//DeadCode CSB 03/06/99				Manual_Pilot.ControlledAC2->fly.pModel->CalcLauncherVel(mvel,vx,vy,vz);//RJS 27Nov98
-//DeadCode CSB 03/06/99	
-//DeadCode CSB 03/06/99				sx = (vx * time)/100;
-//DeadCode CSB 03/06/99				sz = (vz * time)/100;
-//DeadCode CSB 03/06/99				sy = (vy * time)/100;
-//DeadCode CSB 03/06/99				sy -= (time*time*5)/10000;
-//DeadCode DAW 25Jun99 			Manual_Pilot.ControlledAC2->fly.pModel->CalcGunsightPos(SHAPE.RequiredRange, mvel, sx, sy, sz);
-			Manual_Pilot.ControlledAC2->fly.pModel->CalcGunsightPos(SHAPE.RequiredRange, gunsightmvel, sx, sy, sz);
+	Manual_Pilot.ControlledAC2->fly.pModel->CalcGunsightPos(SHAPE.RequiredRange, gunsightmvel, sx, sy, sz);
 
-
-			gs_x += sx;
-			gs_y += sy;
-			gs_z += sz;
+	gs_x += sx;
+	gs_y += sy;
+	gs_z += sz;
 
 	//....Calced gunsight pos
 
-//DeadCode RDH 29Nov98 
-//DeadCode RDH 29Nov98 			realpitch = View_Point->pitch;
-//DeadCode RDH 29Nov98 			realhdg = View_Point->hdg;
-//DeadCode RDH 29Nov98 
-//DeadCode RDH 29Nov98 			SHAPE.ClosestGap = 1000000;
-//DeadCode RDH 29Nov98 			SHAPE.ClosestGap2 = 1000000;
+	instr_ptr += sizeof(DOGUNSIGHT);
 
-			instr_ptr += sizeof(DOGUNSIGHT);
+	_matrix.inverseMobileMatrix((Angles)SHAPE.GunSightHdg,
+								(Angles)SHAPE.GunSightPitch,
+								(Angles)SHAPE.GunSightRoll,
+								omat	);
 
-//DeadCode RDH 29Nov98 	if (	((realpitch > ANGLES_315Deg) || (realpitch < ANGLES_45Deg))
-//DeadCode RDH 29Nov98 		&&	((realhdg > ANGLES_315Deg) || (realhdg < ANGLES_45Deg))		)
-//DeadCode RDH 29Nov98 	{
-			_matrix.inverseMobileMatrix((Angles)SHAPE.GunSightHdg,
-										(Angles)SHAPE.GunSightPitch,
-										(Angles)SHAPE.GunSightRoll,
-										omat	);
+		px = gs_x - SHAPE.GunSightPos.X;							//RDH 29Nov98
+		py = gs_y - SHAPE.GunSightPos.Y;							//RDH 29Nov98
+		pz = gs_z - SHAPE.GunSightPos.Z;							//RDH 29Nov98
 
-			px = gs_x - SHAPE.GunSightPos.X;							//RDH 29Nov98
-			py = gs_y - SHAPE.GunSightPos.Y;							//RDH 29Nov98
-			pz = gs_z - SHAPE.GunSightPos.Z;							//RDH 29Nov98
+		px2 = ptr->posx;
+		py2 = ptr->posy;
+		pz2 = ptr->posz;									//RJS 08May98
+		pzclip = (ptr->posz-60);								//RJS 08May98
 
-			px2 = ptr->posx;
-			py2 = ptr->posy;
-			pz2 = ptr->posz;									//RJS 08May98
-			pzclip = (ptr->posz-60);								//RJS 08May98
+		dp1.bodyx.i = px;
+		dp1.bodyy.i = py;
+		dp1.bodyz.i = pz;
 
- 			dp1.bodyx.i = px;
-			dp1.bodyy.i = py;
-			dp1.bodyz.i = pz;
+		_matrix.transformNC(matptr,&dp1);
 
-			_matrix.transformNC(matptr,&dp1);
+		px = (SLong) dp1.bodyx.f;
+		py = (SLong) dp1.bodyy.f;
+		pz = (SLong) dp1.bodyz.f;
 
-			px = (SLong) dp1.bodyx.f;
-			py = (SLong) dp1.bodyy.f;
-			pz = (SLong) dp1.bodyz.f;
+		px = (px*pz2)/pz;
+		py = (py*pz2)/pz;
+		pz = pz2;
 
-			px = (px*pz2)/pz;
-			py = (py*pz2)/pz;
-			pz = pz2;
+		radius = (SHAPE.WingSpan*pz2*256)/SHAPE.RequiredRange;		//RJS 10May99
+		radius >>= 1;
 
-			radius = (SHAPE.WingSpan*pz2*256)/SHAPE.RequiredRange;		//RJS 10May99
-			radius >>= 1;
+		//Scale to f86 distance from eye to get small diamonds...
+		radius2 = radius + ((2560*ptr->posz)/930);		//10 * 256
+		radius3 = ((1280*ptr->posz)/930);					//5 * 256
 
-			//Scale to f86 distance from eye to get small diamonds...
-			radius2 = radius + ((2560*ptr->posz)/930);		//10 * 256
-			radius3 = ((1280*ptr->posz)/930);					//5 * 256
+		dpc.bodyx.i = px2;
+		dpc.bodyy.i = py2;
+		dpc.bodyz.i = pz2;
+		_matrix.transformNC(fpobject_matrix,&dpc);
+		_matrix.body2screen(dpc);
 
-			dpc.bodyx.i = px2;
-			dpc.bodyy.i = py2;
-			dpc.bodyz.i = pz2;
-			_matrix.transformNC(fpobject_matrix,&dpc);
-			_matrix.body2screen(dpc);
+		plist_ptr = psave_ptr = instr_ptr;
+		instr_ptr+= ptr->nopoints*sizeof(UByte);
 
-			plist_ptr = psave_ptr = instr_ptr;
-			instr_ptr+= ptr->nopoints*sizeof(UByte);
+		if (pz > pzclip)
+		{
+			SLong	xoff, yoff;
 
-			if (pz > pzclip)
+			SLong	donecnt = 0;							//RJS 11Jun99
+
+			CentreX = (Float)dpc.screenx.f;
+			CentreY = (Float)-dpc.screeny.f;
+
+			// Clip and draw diamonds...
+			for (count2 = 0; count2 < 6; count2++)
 			{
-				SLong	xoff, yoff;
+				Math_Lib.high_sin_cos((Angles) theangle,sin_ang,cos_ang);
+				xoff = (radius * sin_ang) >> 15;
+				yoff = (radius * cos_ang) >> 15;
 
-//DeadCode RJS 11Jun99 				xoff = (256*ptr->posz)/930;
-//DeadCode RJS 11Jun99 
-//DeadCode RJS 11Jun99 				dp1.bodyx.i = (px<<8)-xoff;
-//DeadCode RJS 11Jun99 				dp1.bodyy.i = (py<<8);
-//DeadCode RJS 11Jun99 				dp1.bodyz.i = (pz<<8);
-//DeadCode RJS 11Jun99 				_matrix.transformNC(fpobject_matrix,&dp1);
-//DeadCode RJS 11Jun99 				dp1.bodyx.f *=0.00390625;
-//DeadCode RJS 11Jun99 				dp1.bodyy.f *=0.00390625;
-//DeadCode RJS 11Jun99 				dp1.bodyz.f *=0.00390625;
-//DeadCode RJS 11Jun99 				dp1.bodyx.f +=object_obj3d->Body.X.f;
-//DeadCode RJS 11Jun99 				dp1.bodyy.f +=object_obj3d->Body.Y.f;
-//DeadCode RJS 11Jun99 				dp1.bodyz.f +=object_obj3d->Body.Z.f;
-//DeadCode RJS 11Jun99 
-//DeadCode RJS 11Jun99 				dp2.bodyx.i = (px<<8);
-//DeadCode RJS 11Jun99 				dp2.bodyy.i = (py<<8)-xoff;
-//DeadCode RJS 11Jun99 				dp2.bodyz.i = (pz<<8);
-//DeadCode RJS 11Jun99 				_matrix.transformNC(fpobject_matrix,&dp2);
-//DeadCode RJS 11Jun99 				dp2.bodyx.f *=0.00390625;
-//DeadCode RJS 11Jun99 				dp2.bodyy.f *=0.00390625;
-//DeadCode RJS 11Jun99 				dp2.bodyz.f *=0.00390625;
-//DeadCode RJS 11Jun99 				dp2.bodyx.f +=object_obj3d->Body.X.f;
-//DeadCode RJS 11Jun99 				dp2.bodyy.f +=object_obj3d->Body.Y.f;
-//DeadCode RJS 11Jun99 				dp2.bodyz.f +=object_obj3d->Body.Z.f;
-//DeadCode RJS 11Jun99 
-//DeadCode RJS 11Jun99 				dp3.bodyx.i = (px<<8)+xoff;
-//DeadCode RJS 11Jun99 				dp3.bodyy.i = (py<<8);
-//DeadCode RJS 11Jun99 				dp3.bodyz.i = (pz<<8);
-//DeadCode RJS 11Jun99 				_matrix.transformNC(fpobject_matrix,&dp3);
-//DeadCode RJS 11Jun99 				dp3.bodyx.f *=0.00390625;
-//DeadCode RJS 11Jun99 				dp3.bodyy.f *=0.00390625;
-//DeadCode RJS 11Jun99 				dp3.bodyz.f *=0.00390625;
-//DeadCode RJS 11Jun99 				dp3.bodyx.f +=object_obj3d->Body.X.f;
-//DeadCode RJS 11Jun99 				dp3.bodyy.f +=object_obj3d->Body.Y.f;
-//DeadCode RJS 11Jun99 				dp3.bodyz.f +=object_obj3d->Body.Z.f;
-//DeadCode RJS 11Jun99 
-//DeadCode RJS 11Jun99 				dp4.bodyx.i = (px<<8);
-//DeadCode RJS 11Jun99 				dp4.bodyy.i = (py<<8)+xoff;
-//DeadCode RJS 11Jun99 				dp4.bodyz.i = (pz<<8);
-//DeadCode RJS 11Jun99 				_matrix.transformNC(fpobject_matrix,&dp4);
-//DeadCode RJS 11Jun99 				dp4.bodyx.f *=0.00390625;
-//DeadCode RJS 11Jun99 				dp4.bodyy.f *=0.00390625;
-//DeadCode RJS 11Jun99 				dp4.bodyz.f *=0.00390625;
-//DeadCode RJS 11Jun99 				dp4.bodyx.f +=object_obj3d->Body.X.f;
-//DeadCode RJS 11Jun99 				dp4.bodyy.f +=object_obj3d->Body.Y.f;
-//DeadCode RJS 11Jun99 				dp4.bodyz.f +=object_obj3d->Body.Z.f;
-//DeadCode RJS 11Jun99 
-//DeadCode RJS 11Jun99 				andedFlags=CF3D_ALL;
-//DeadCode RJS 11Jun99 
-//DeadCode RJS 11Jun99 				// Clip and draw central dot....
-//DeadCode RJS 11Jun99 				_matrix.SetClipFlags(dp1);
-//DeadCode RJS 11Jun99 				_matrix.SetClipFlags(dp2);
-//DeadCode RJS 11Jun99 				_matrix.SetClipFlags(dp3);
-//DeadCode RJS 11Jun99 				_matrix.SetClipFlags(dp4);
-//DeadCode RJS 11Jun99 
-//DeadCode RJS 11Jun99 				andedFlags&=dp1.clipFlags;
-//DeadCode RJS 11Jun99 				andedFlags&=dp2.clipFlags;
-//DeadCode RJS 11Jun99 				andedFlags&=dp3.clipFlags;
-//DeadCode RJS 11Jun99 				andedFlags&=dp4.clipFlags;
-//DeadCode RJS 11Jun99 
-//DeadCode RJS 11Jun99 				if (andedFlags == 0)
-//DeadCode RJS 11Jun99 				{
-//DeadCode RJS 11Jun99 					_matrix.body2screen(dp1);
-//DeadCode RJS 11Jun99 					_matrix.body2screen(dp2);
-//DeadCode RJS 11Jun99 					_matrix.body2screen(dp3);
-//DeadCode RJS 11Jun99 					_matrix.body2screen(dp4);
-//DeadCode RJS 11Jun99 
-//DeadCode RJS 11Jun99 					if (!ptr->imap)								//RJS 24Mar99
-//DeadCode RJS 11Jun99 					{
-//DeadCode RJS 11Jun99  						POLYGON.createpoly(shape::colour);				
-//DeadCode RJS 11Jun99  						POLYGON.createvert(dp4);
-//DeadCode RJS 11Jun99  						POLYGON.createvert(dp3);
-//DeadCode RJS 11Jun99  						POLYGON.createvert(dp2);
-//DeadCode RJS 11Jun99 	 					POLYGON.createvert(dp1);
-//DeadCode RJS 11Jun99 					}
-//DeadCode RJS 11Jun99 					else
-//DeadCode RJS 11Jun99 					{
-//DeadCode RJS 11Jun99 						POLYGON.createpoly((ImageMapNumber)ptr->imap);//RJS 24Mar99
-//DeadCode RJS 11Jun99 						POLYGON.createvert(dp4,minix,miniy);				//RJS 24Mar99
-//DeadCode RJS 11Jun99 						POLYGON.createvert(dp3,minix,maxiy);				//RJS 24Mar99
-//DeadCode RJS 11Jun99 						POLYGON.createvert(dp2,maxix,maxiy);				//RJS 24Mar99
-//DeadCode RJS 11Jun99 						POLYGON.createvert(dp1,maxix,miniy);				//RJS 24Mar99
-//DeadCode RJS 11Jun99 					}
-//DeadCode RJS 11Jun99 
-//DeadCode RJS 11Jun99 					POLYGON.drawpoly();
-//DeadCode RJS 11Jun99 				}
+				bpx = (px<<8) + xoff;
+				bpy = (py<<8) + yoff;
 
-				SLong	donecnt = 0;							//RJS 11Jun99
+				dp1.bodyx.i = bpx;
+				dp1.bodyy.i = bpy;
+				dp1.bodyz.i = (pz<<8);
+				_matrix.transformNC(fpobject_matrix,&dp1);
+				dp1.bodyx.f *=0.00390625;
+				dp1.bodyy.f *=0.00390625;
+				dp1.bodyz.f *=0.00390625;
+				dp1.bodyx.f +=object_obj3d->Body.X.f;
+				dp1.bodyy.f +=object_obj3d->Body.Y.f;
+				dp1.bodyz.f +=object_obj3d->Body.Z.f;
+				_matrix.SetClipFlags(dp1);
+				_matrix.body2screen(dp1);
 
-				CentreX = (Float)dpc.screenx.f;
-				CentreY = (Float)-dpc.screeny.f;
+				xoff = (radius2 * sin_ang) >> 15;
+				yoff = (radius2 * cos_ang) >> 15;
 
-				// Clip and draw diamonds...
-				for (count2 = 0; count2 < 6; count2++)
+				dp3.bodyx.i = (px<<8) + xoff;
+				dp3.bodyy.i = (py<<8) + yoff;
+				dp3.bodyz.i = (pz<<8);
+				_matrix.transformNC(fpobject_matrix,&dp3);
+				dp3.bodyx.f *=0.00390625;
+				dp3.bodyy.f *=0.00390625;
+				dp3.bodyz.f *=0.00390625;
+				dp3.bodyx.f +=object_obj3d->Body.X.f;
+				dp3.bodyy.f +=object_obj3d->Body.Y.f;
+				dp3.bodyz.f +=object_obj3d->Body.Z.f;
+				_matrix.SetClipFlags(dp3);
+				_matrix.body2screen(dp3);
+
+				testPointX = (Float)dp3.screenx.f;
+				testPointY = (Float)-dp3.screeny.f;
+
+				// is it within box.....
+
+				doclip = TRUE;
+				if (testPointX > CentreX)
+ 				{
+ 					// Test for right hand side clip...
+ 					plist_ptr = psave_ptr;
+					_matrix.body2screen(newco[*plist_ptr]);
+ 					for (count=0; count < (ptr->nopoints-1); count++)
+ 					{
+ 						dpptr = &newco[*plist_ptr];
+						plist_ptr++;
+						dpptr2 = &newco[*plist_ptr];
+						_matrix.body2screen(*dpptr2);
+
+						TopX = (Float)dpptr->screenx.f;
+						BotX = (Float)dpptr2->screenx.f;
+						TopY = (Float)-dpptr->screeny.f;
+						BotY = (Float)-dpptr2->screeny.f;
+
+						if (	(TopX > CentreX)
+							||	(BotX > CentreX)	)
+						{
+							if (	(testPointY < TopY)
+								&&	(testPointY > BotY)	)
+							{
+								ddy = TopY - BotY;
+								ddxscaled = BotX;
+								if (ddy != 0)
+								{
+									ddx = TopX - BotX;
+
+									ddxscaled = (testPointY - BotY)*ddx;
+									ddxscaled /= ddy;
+									ddxscaled += BotX;
+								}
+
+								if (testPointX < ddxscaled)
+									doclip = FALSE;
+							}
+						}
+ 					}
+ 				}
+ 				else
+ 				{
+ 					// Test for left hand clip...
+ 					plist_ptr = psave_ptr;
+					_matrix.body2screen(newco[*plist_ptr]);
+ 					for (count=0; count < (ptr->nopoints-1); count++)
+ 					{
+						dpptr = &newco[*plist_ptr];
+						plist_ptr++;
+						dpptr2 = &newco[*plist_ptr];
+						_matrix.body2screen(*dpptr2);
+
+						TopX = (Float)dpptr->screenx.f;
+						BotX = (Float)dpptr2->screenx.f;
+						TopY = (Float)-dpptr->screeny.f;
+						BotY = (Float)-dpptr2->screeny.f;
+
+						if (	(TopX < CentreX)
+							||	(BotX < CentreX)	)
+						{
+							if (	(testPointY < BotY)
+								&&	(testPointY > TopY)	)
+							{
+								ddy = BotY - TopY;
+								ddxscaled = TopX;
+								if (ddy != 0)
+								{
+									ddx = BotX - TopX;
+
+									ddxscaled = (testPointY - TopY)*ddx;
+									ddxscaled /= ddy;
+									ddxscaled = TopX - ddxscaled;
+								}
+
+								if (testPointX > ddxscaled)
+									doclip = FALSE;
+							}
+						}
+ 					}
+ 				}
+
+				if (!doclip)
 				{
-					Math_Lib.high_sin_cos((Angles) theangle,sin_ang,cos_ang);
-					xoff = (radius * sin_ang) >> 15;
-					yoff = (radius * cos_ang) >> 15;
+					Math_Lib.high_sin_cos((Angles) (theangle-ANGLES_45Deg),sin_ang,cos_ang);
+					xoff = (radius3 * sin_ang) >> 15;
+					yoff = (radius3 * cos_ang) >> 15;
 
-					bpx = (px<<8) + xoff;
-					bpy = (py<<8) + yoff;
+					dp2.bodyx.i = bpx + xoff;
+					dp2.bodyy.i = bpy + yoff;
+					dp2.bodyz.i = (pz<<8);
+					_matrix.transformNC(fpobject_matrix,&dp2);
+					dp2.bodyx.f *=0.00390625;
+					dp2.bodyy.f *=0.00390625;
+					dp2.bodyz.f *=0.00390625;
+					dp2.bodyx.f +=object_obj3d->Body.X.f;
+					dp2.bodyy.f +=object_obj3d->Body.Y.f;
+					dp2.bodyz.f +=object_obj3d->Body.Z.f;
+					_matrix.SetClipFlags(dp2);
+					_matrix.body2screen(dp2);
 
-					dp1.bodyx.i = bpx;
-					dp1.bodyy.i = bpy;
+					Math_Lib.high_sin_cos((Angles) (theangle+ANGLES_45Deg),sin_ang,cos_ang);
+					xoff = (radius3 * sin_ang) >> 15;
+					yoff = (radius3 * cos_ang) >> 15;
+
+					dp4.bodyx.i = bpx + xoff;
+					dp4.bodyy.i = bpy + yoff;
+					dp4.bodyz.i = (pz<<8);
+					_matrix.transformNC(fpobject_matrix,&dp4);
+					dp4.bodyx.f *=0.00390625;
+					dp4.bodyy.f *=0.00390625;
+					dp4.bodyz.f *=0.00390625;
+					dp4.bodyx.f +=object_obj3d->Body.X.f;
+					dp4.bodyy.f +=object_obj3d->Body.Y.f;
+					dp4.bodyz.f +=object_obj3d->Body.Z.f;
+					_matrix.SetClipFlags(dp4);
+					_matrix.body2screen(dp4);
+
+					if (!ptr->imap)
+					{
+						POLYGON.createpoly(shape::colour);				
+						POLYGON.createvert(dp1);
+						POLYGON.createvert(dp2);
+						POLYGON.createvert(dp3);
+ 						POLYGON.createvert(dp4);
+					}
+					else
+					{
+						POLYGON.createpoly((ImageMapNumber)ptr->imap);				
+						POLYGON.createvert(dp1,minix,miniy);
+						POLYGON.createvert(dp2,minix,maxiy);
+						POLYGON.createvert(dp3,maxix,maxiy);
+						POLYGON.createvert(dp4,maxix,miniy);
+					}
+					POLYGON.drawpoly();
+
+					donecnt++;
+				}
+
+				theangle += angstep;
+			}
+
+			//Centre dot...
+			if (donecnt)
+			{
+				if (donecnt > 4)	//most likely we'll not need to clip!
+				{
+					xoff = (ptr->posz<<8)/930;
+
+					dp1.bodyx.i = (px<<8)-xoff;
+					dp1.bodyy.i = (py<<8);
 					dp1.bodyz.i = (pz<<8);
 					_matrix.transformNC(fpobject_matrix,&dp1);
 					dp1.bodyx.f *=0.00390625;
@@ -2468,14 +2424,20 @@ void shape::dogunsight(UByte *& instr_ptr)
 					dp1.bodyx.f +=object_obj3d->Body.X.f;
 					dp1.bodyy.f +=object_obj3d->Body.Y.f;
 					dp1.bodyz.f +=object_obj3d->Body.Z.f;
-					_matrix.SetClipFlags(dp1);
-					_matrix.body2screen(dp1);
 
-					xoff = (radius2 * sin_ang) >> 15;
-					yoff = (radius2 * cos_ang) >> 15;
+					dp2.bodyx.i = (px<<8);
+					dp2.bodyy.i = (py<<8)-xoff;
+					dp2.bodyz.i = (pz<<8);
+					_matrix.transformNC(fpobject_matrix,&dp2);
+					dp2.bodyx.f *=0.00390625;
+					dp2.bodyy.f *=0.00390625;
+					dp2.bodyz.f *=0.00390625;
+					dp2.bodyx.f +=object_obj3d->Body.X.f;
+					dp2.bodyy.f +=object_obj3d->Body.Y.f;
+					dp2.bodyz.f +=object_obj3d->Body.Z.f;
 
-					dp3.bodyx.i = (px<<8) + xoff;
-					dp3.bodyy.i = (py<<8) + yoff;
+					dp3.bodyx.i = (px<<8)+xoff;
+					dp3.bodyy.i = (py<<8);
 					dp3.bodyz.i = (pz<<8);
 					_matrix.transformNC(fpobject_matrix,&dp3);
 					dp3.bodyx.f *=0.00390625;
@@ -2484,264 +2446,60 @@ void shape::dogunsight(UByte *& instr_ptr)
 					dp3.bodyx.f +=object_obj3d->Body.X.f;
 					dp3.bodyy.f +=object_obj3d->Body.Y.f;
 					dp3.bodyz.f +=object_obj3d->Body.Z.f;
+
+					dp4.bodyx.i = (px<<8);
+					dp4.bodyy.i = (py<<8)+xoff;
+					dp4.bodyz.i = (pz<<8);
+					_matrix.transformNC(fpobject_matrix,&dp4);
+					dp4.bodyx.f *=0.00390625;
+					dp4.bodyy.f *=0.00390625;
+					dp4.bodyz.f *=0.00390625;
+					dp4.bodyx.f +=object_obj3d->Body.X.f;
+					dp4.bodyy.f +=object_obj3d->Body.Y.f;
+					dp4.bodyz.f +=object_obj3d->Body.Z.f;
+
+					andedFlags=CF3D_ALL;
+
+					// Clip and draw central dot....
+					_matrix.SetClipFlags(dp1);
+					_matrix.SetClipFlags(dp2);
 					_matrix.SetClipFlags(dp3);
-					_matrix.body2screen(dp3);
+					_matrix.SetClipFlags(dp4);
 
-					testPointX = (Float)dp3.screenx.f;
-					testPointY = (Float)-dp3.screeny.f;
+					andedFlags&=dp1.clipFlags;
+					andedFlags&=dp2.clipFlags;
+					andedFlags&=dp3.clipFlags;
+					andedFlags&=dp4.clipFlags;
 
-					// is it within box.....
-
-					doclip = TRUE;
- 					if (testPointX > CentreX)
-	 				{
-	 					// Test for right hand side clip...
-	 					plist_ptr = psave_ptr;
-						_matrix.body2screen(newco[*plist_ptr]);
-	 					for (count=0; count < (ptr->nopoints-1); count++)
-	 					{
-	 						dpptr = &newco[*plist_ptr];
-							plist_ptr++;
- 							dpptr2 = &newco[*plist_ptr];
-							_matrix.body2screen(*dpptr2);
-
-							TopX = (Float)dpptr->screenx.f;
-							BotX = (Float)dpptr2->screenx.f;
-							TopY = (Float)-dpptr->screeny.f;
-							BotY = (Float)-dpptr2->screeny.f;
-
-							if (	(TopX > CentreX)
-								||	(BotX > CentreX)	)
-							{
-								if (	(testPointY < TopY)
-									&&	(testPointY > BotY)	)
-								{
-									ddy = TopY - BotY;
-									ddxscaled = BotX;
-									if (ddy != 0)
-									{
-										ddx = TopX - BotX;
-
-										ddxscaled = (testPointY - BotY)*ddx;
-										ddxscaled /= ddy;
-										ddxscaled += BotX;
-									}
-
-									if (testPointX < ddxscaled)
-										doclip = FALSE;
-								}
-							}
-	 					}
-	 				}
-	 				else
-	 				{
-	 					// Test for left hand clip...
-	 					plist_ptr = psave_ptr;
-						_matrix.body2screen(newco[*plist_ptr]);
-	 					for (count=0; count < (ptr->nopoints-1); count++)
-	 					{
-							dpptr = &newco[*plist_ptr];
-							plist_ptr++;
-							dpptr2 = &newco[*plist_ptr];
-							_matrix.body2screen(*dpptr2);
-
-							TopX = (Float)dpptr->screenx.f;
-							BotX = (Float)dpptr2->screenx.f;
-							TopY = (Float)-dpptr->screeny.f;
-							BotY = (Float)-dpptr2->screeny.f;
-
-							if (	(TopX < CentreX)
-								||	(BotX < CentreX)	)
-							{
-								if (	(testPointY < BotY)
-									&&	(testPointY > TopY)	)
-								{
-									ddy = BotY - TopY;
-									ddxscaled = TopX;
-									if (ddy != 0)
-									{
-										ddx = BotX - TopX;
-
-										ddxscaled = (testPointY - TopY)*ddx;
-										ddxscaled /= ddy;
-										ddxscaled = TopX - ddxscaled;
-									}
-
-									if (testPointX > ddxscaled)
-										doclip = FALSE;
-								}
-							}
-	 					}
-	 				}
-
-					if (!doclip)
+					if (andedFlags == 0)
 					{
-						Math_Lib.high_sin_cos((Angles) (theangle-ANGLES_45Deg),sin_ang,cos_ang);
-						xoff = (radius3 * sin_ang) >> 15;
-						yoff = (radius3 * cos_ang) >> 15;
-
-						dp2.bodyx.i = bpx + xoff;
-						dp2.bodyy.i = bpy + yoff;
-						dp2.bodyz.i = (pz<<8);
-						_matrix.transformNC(fpobject_matrix,&dp2);
-						dp2.bodyx.f *=0.00390625;
-						dp2.bodyy.f *=0.00390625;
-						dp2.bodyz.f *=0.00390625;
-						dp2.bodyx.f +=object_obj3d->Body.X.f;
-						dp2.bodyy.f +=object_obj3d->Body.Y.f;
-						dp2.bodyz.f +=object_obj3d->Body.Z.f;
-						_matrix.SetClipFlags(dp2);
+						_matrix.body2screen(dp1);
 						_matrix.body2screen(dp2);
-
-						Math_Lib.high_sin_cos((Angles) (theangle+ANGLES_45Deg),sin_ang,cos_ang);
-						xoff = (radius3 * sin_ang) >> 15;
-						yoff = (radius3 * cos_ang) >> 15;
-
-						dp4.bodyx.i = bpx + xoff;
-						dp4.bodyy.i = bpy + yoff;
-						dp4.bodyz.i = (pz<<8);
-						_matrix.transformNC(fpobject_matrix,&dp4);
-						dp4.bodyx.f *=0.00390625;
-						dp4.bodyy.f *=0.00390625;
-						dp4.bodyz.f *=0.00390625;
-						dp4.bodyx.f +=object_obj3d->Body.X.f;
-						dp4.bodyy.f +=object_obj3d->Body.Y.f;
-						dp4.bodyz.f +=object_obj3d->Body.Z.f;
-						_matrix.SetClipFlags(dp4);
+						_matrix.body2screen(dp3);
 						_matrix.body2screen(dp4);
 
-						if (!ptr->imap)
+						if (!ptr->imap)								//RJS 24Mar99
 						{
- 							POLYGON.createpoly(shape::colour);				
+							POLYGON.createpoly(shape::colour);				
+							POLYGON.createvert(dp4);
+							POLYGON.createvert(dp3);
+							POLYGON.createvert(dp2);
  							POLYGON.createvert(dp1);
- 							POLYGON.createvert(dp2);
- 							POLYGON.createvert(dp3);
-	 						POLYGON.createvert(dp4);
 						}
 						else
 						{
-							POLYGON.createpoly((ImageMapNumber)ptr->imap);				
-							POLYGON.createvert(dp1,minix,miniy);
-							POLYGON.createvert(dp2,minix,maxiy);
-							POLYGON.createvert(dp3,maxix,maxiy);
-							POLYGON.createvert(dp4,maxix,miniy);
+							POLYGON.createpoly((ImageMapNumber)ptr->imap);//RJS 24Mar99
+							POLYGON.createvert(dp4,minix,miniy);				//RJS 24Mar99
+							POLYGON.createvert(dp3,minix,maxiy);				//RJS 24Mar99
+							POLYGON.createvert(dp2,maxix,maxiy);				//RJS 24Mar99
+							POLYGON.createvert(dp1,maxix,miniy);				//RJS 24Mar99
 						}
+
 						POLYGON.drawpoly();
-
-						donecnt++;
-					}
-
-					theangle += angstep;
-				}
-
-				//Centre dot...
-				if (donecnt)
-				{
-					if (donecnt > 4)	//most likely we'll not need to clip!
-					{
-						xoff = (ptr->posz<<8)/930;
-
-						dp1.bodyx.i = (px<<8)-xoff;
-						dp1.bodyy.i = (py<<8);
-						dp1.bodyz.i = (pz<<8);
-						_matrix.transformNC(fpobject_matrix,&dp1);
-						dp1.bodyx.f *=0.00390625;
-						dp1.bodyy.f *=0.00390625;
-						dp1.bodyz.f *=0.00390625;
-						dp1.bodyx.f +=object_obj3d->Body.X.f;
-						dp1.bodyy.f +=object_obj3d->Body.Y.f;
-						dp1.bodyz.f +=object_obj3d->Body.Z.f;
-
-						dp2.bodyx.i = (px<<8);
-						dp2.bodyy.i = (py<<8)-xoff;
-						dp2.bodyz.i = (pz<<8);
-						_matrix.transformNC(fpobject_matrix,&dp2);
-						dp2.bodyx.f *=0.00390625;
-						dp2.bodyy.f *=0.00390625;
-						dp2.bodyz.f *=0.00390625;
-						dp2.bodyx.f +=object_obj3d->Body.X.f;
-						dp2.bodyy.f +=object_obj3d->Body.Y.f;
-						dp2.bodyz.f +=object_obj3d->Body.Z.f;
-
-						dp3.bodyx.i = (px<<8)+xoff;
-						dp3.bodyy.i = (py<<8);
-						dp3.bodyz.i = (pz<<8);
-						_matrix.transformNC(fpobject_matrix,&dp3);
-						dp3.bodyx.f *=0.00390625;
-						dp3.bodyy.f *=0.00390625;
-						dp3.bodyz.f *=0.00390625;
-						dp3.bodyx.f +=object_obj3d->Body.X.f;
-						dp3.bodyy.f +=object_obj3d->Body.Y.f;
-						dp3.bodyz.f +=object_obj3d->Body.Z.f;
-
-						dp4.bodyx.i = (px<<8);
-						dp4.bodyy.i = (py<<8)+xoff;
-						dp4.bodyz.i = (pz<<8);
-						_matrix.transformNC(fpobject_matrix,&dp4);
-						dp4.bodyx.f *=0.00390625;
-						dp4.bodyy.f *=0.00390625;
-						dp4.bodyz.f *=0.00390625;
-						dp4.bodyx.f +=object_obj3d->Body.X.f;
-						dp4.bodyy.f +=object_obj3d->Body.Y.f;
-						dp4.bodyz.f +=object_obj3d->Body.Z.f;
-
-						andedFlags=CF3D_ALL;
-
-						// Clip and draw central dot....
-						_matrix.SetClipFlags(dp1);
-						_matrix.SetClipFlags(dp2);
-						_matrix.SetClipFlags(dp3);
-						_matrix.SetClipFlags(dp4);
-
-						andedFlags&=dp1.clipFlags;
-						andedFlags&=dp2.clipFlags;
-						andedFlags&=dp3.clipFlags;
-						andedFlags&=dp4.clipFlags;
-
-						if (andedFlags == 0)
-						{
-							_matrix.body2screen(dp1);
-							_matrix.body2screen(dp2);
-							_matrix.body2screen(dp3);
-							_matrix.body2screen(dp4);
-
-							if (!ptr->imap)								//RJS 24Mar99
-							{
- 								POLYGON.createpoly(shape::colour);				
- 								POLYGON.createvert(dp4);
- 								POLYGON.createvert(dp3);
- 								POLYGON.createvert(dp2);
-	 							POLYGON.createvert(dp1);
-							}
-							else
-							{
-								POLYGON.createpoly((ImageMapNumber)ptr->imap);//RJS 24Mar99
-								POLYGON.createvert(dp4,minix,miniy);				//RJS 24Mar99
-								POLYGON.createvert(dp3,minix,maxiy);				//RJS 24Mar99
-								POLYGON.createvert(dp2,maxix,maxiy);				//RJS 24Mar99
-								POLYGON.createvert(dp1,maxix,miniy);				//RJS 24Mar99
-							}
-
-							POLYGON.drawpoly();
-						}
 					}
 				}
 			}
-//DeadCode DAW 25Jun99 		}
-//DeadCode DAW 25Jun99 		else
-//DeadCode DAW 25Jun99 		{
-//DeadCode DAW 25Jun99 			instr_ptr += sizeof(DOGUNSIGHT);					//RDH 29Nov98
-//DeadCode DAW 25Jun99 			instr_ptr += ptr->nopoints * sizeof(UByte);			//RDH 29Nov98
-//DeadCode DAW 25Jun99 		}														//RDH 29Nov98
-																//RDH 29Nov98
-//DeadCode DAW 25Jun99 		tmpplane->Anim = NULL;									//RJS 29Mov98
-//DeadCode DAW 25Jun99 		delete tmpplane;										//RDH 29Nov98
-//DeadCode DAW 25Jun99 	}
-//DeadCode DAW 25Jun99 	else														//RDH 29Nov98
-//DeadCode DAW 25Jun99 	{															//RDH 29Nov98
-//DeadCode DAW 25Jun99 		instr_ptr += sizeof(DOGUNSIGHT);						//RDH 29Nov98
-//DeadCode DAW 25Jun99 		instr_ptr += ptr->nopoints * sizeof(UByte);				//RDH 29Nov98
-//DeadCode DAW 25Jun99 	}															//RDH 29Nov98
+		}
 }
 
 
@@ -2760,7 +2518,6 @@ void shape::dogunsight(UByte *& instr_ptr)
  void shape::dowheelspray(UByte *& instr_ptr)
 {
 	DOWHEELSPRAY_PTR ptr = (DOWHEELSPRAY_PTR) instr_ptr;
-//DeadCode RJS 21Apr99 	UByteP		adptr = (UByteP) object_obj3d->AnimPtr;
 	UByte		suspension = GlobalAdptr[ptr->animflag];
 
 	if (suspension)
@@ -2782,17 +2539,10 @@ void shape::dogunsight(UByte *& instr_ptr)
 		SLong		outback;
 		DoPointStruc	dp1,dp2,dp3,dp4;
 		totdist = vel >> 3;
-//DeadCode DAW 25Jan99 
-//DeadCode DAW 25Jan99 		char	shite[32];
-//DeadCode DAW 25Jan99 		sprintf(shite,"Dist: %d  ",totdist);
-//DeadCode DAW 25Jan99 		Mono_Text.PrintAt(50,10,(UByteP)shite);
 
 		wxx = ptr->xcoord;
 		wyy = ptr->ycoord;
 		wzz = ptr->zcoord;
-//DeadCode PD 05Oct98 		wxx = ptr->xcoord << shapescale;
-//DeadCode PD 05Oct98 		wyy = ptr->ycoord << shapescale;
-//DeadCode PD 05Oct98 		wzz = ptr->zcoord << shapescale;
 
 		dotinst.vertex = 0;
 		dotinst.colour = 31;
@@ -2802,7 +2552,7 @@ void shape::dogunsight(UByte *& instr_ptr)
 
 		if (totdist)
 		{
-			diststep = totdist<<7;		// <<12 / 32
+			diststep = totdist<<7;
 			angfrac = ANGLES_180Deg >> 5;
 			theangle = 0;
 
@@ -2876,7 +2626,7 @@ void shape::dogunsight(UByte *& instr_ptr)
 	{
 		vert = *tmp_instr_ptr;
 
-		totintensity += (256 - newco[vert].intensity);//RJS 17Feb99
+		totintensity += (256 - newco[vert].intensity);
 		newco[vert].intensity = -1;//0;//-1;
 		newco[vert].specular = -1;
 
@@ -2910,7 +2660,6 @@ void shape::dogunsight(UByte *& instr_ptr)
 //Returns	
 //
 //Externals
-//------------------------------------------------------------------------------
 //------------------------------------------------------------------------------
 void shape::doquikpoly(UByte *& instr_ptr)
 {
@@ -3101,8 +2850,7 @@ void shape::doquikpoly(UByte *& instr_ptr)
 //
 //Externals
 //------------------------------------------------------------------------------
-//------------------------------------------------------------------------------
- void shape::donpoints(UByte *& instr_ptr)
+void shape::donpoints(UByte *& instr_ptr)
 {
 	DONPOINTS_PTR npnt_ptr=(DONPOINTS_PTR )instr_ptr;
 	COORDS_PTR ptr=(COORDS_PTR)(instr_ptr+sizeof(DONPOINTS));
@@ -3120,105 +2868,52 @@ void shape::doquikpoly(UByte *& instr_ptr)
 	far_z_high=*((ULong*)&_matrix.fpMaximumZ+1);
 	far_z_low=*(ULong*)&_matrix.fpMaximumZ;
 
-//	if (doingHW3D)
-//	{
-		while (vertex_count--)
-		{
-			Float f[3];
-			Float* m=(Float*)fpobject_matrix;
-			f[0]=Float(ptr->xcoord);
-			f[1]=Float(ptr->ycoord);
-			f[2]=Float(ptr->zcoord);
-			ptr++;
+	while (vertex_count--)
+	{
+		Float f[3];
+		Float* m=(Float*)fpobject_matrix;
+		f[0]=Float(ptr->xcoord);
+		f[1]=Float(ptr->ycoord);
+		f[2]=Float(ptr->zcoord);
+		ptr++;
 
-			pdp->intensity=pdp->specFlip=pdp->specular=-1;
+		pdp->intensity=pdp->specFlip=pdp->specular=-1;
 
-			pdp->bodyz.f=f[0]*m[6]+f[1]*m[7]+f[2]*m[8]+obz;
+		pdp->bodyz.f=f[0]*m[6]+f[1]*m[7]+f[2]*m[8]+obz;
 
-			UWord clipFlag=CF3D_NULL;
-			ULong abs_z_high=*((ULong*)&pdp->bodyz.f+1);
-			ULong abs_z_low=*((ULong*)&pdp->bodyz.f);
-			ULong sign_z_high=abs_z_high&CF3D_SIGNBITMASK;
-			abs_z_high-=sign_z_high;
+		UWord clipFlag=CF3D_NULL;
+		ULong abs_z_high=*((ULong*)&pdp->bodyz.f+1);
+		ULong abs_z_low=*((ULong*)&pdp->bodyz.f);
+		ULong sign_z_high=abs_z_high&CF3D_SIGNBITMASK;
+		abs_z_high-=sign_z_high;
 
-			if (sign_z_high!=0 || abs_z_high<CF3D_ONE_HIGH)
-					clipFlag=CF3D_BEHINDNEARZ;
-			else if (abs_z_high>far_z_high ||
-					(abs_z_high==far_z_high && abs_z_low>far_z_low))
-					clipFlag=CF3D_PASTFARZ;
+		if (sign_z_high!=0 || abs_z_high<CF3D_ONE_HIGH)
+				clipFlag=CF3D_BEHINDNEARZ;
+		else if (abs_z_high>far_z_high ||
+				(abs_z_high==far_z_high && abs_z_low>far_z_low))
+				clipFlag=CF3D_PASTFARZ;
 
-			pdp->bodyx.f=f[0]*m[0]+f[1]*m[1]+f[2]*m[2]+obx;
+		pdp->bodyx.f=f[0]*m[0]+f[1]*m[1]+f[2]*m[2]+obx;
 
-			ULong abs_high=*((ULong*)&pdp->bodyx.f+1);
-			ULong sign_high=abs_high&CF3D_SIGNBITMASK;
-			abs_high-=sign_high;
-			if (abs_high>abs_z_high ||
-				(abs_high==abs_z_high && *(ULong*)&pdp->bodyx.f>abs_z_low))
-					clipFlag|=(sign_high!=0)?CF3D_OFFLEFT:CF3D_OFFRIGHT;
+		ULong abs_high=*((ULong*)&pdp->bodyx.f+1);
+		ULong sign_high=abs_high&CF3D_SIGNBITMASK;
+		abs_high-=sign_high;
+		if (abs_high>abs_z_high ||
+			(abs_high==abs_z_high && *(ULong*)&pdp->bodyx.f>abs_z_low))
+				clipFlag|=(sign_high!=0)?CF3D_OFFLEFT:CF3D_OFFRIGHT;
 
-			pdp->bodyy.f=f[0]*m[3]+f[1]*m[4]+f[2]*m[5]+oby;
+		pdp->bodyy.f=f[0]*m[3]+f[1]*m[4]+f[2]*m[5]+oby;
 
-			abs_high=*((ULong*)&pdp->bodyy.f+1);
-			sign_high=abs_high&CF3D_SIGNBITMASK;
-			abs_high-=sign_high;
-			if (abs_high>abs_z_high ||
-				(abs_high==abs_z_high && *(ULong*)&pdp->bodyy.f>abs_z_low))
-					clipFlag|=(sign_high!=0)?CF3D_OFFBOTTOM:CF3D_OFFTOP;
+		abs_high=*((ULong*)&pdp->bodyy.f+1);
+		sign_high=abs_high&CF3D_SIGNBITMASK;
+		abs_high-=sign_high;
+		if (abs_high>abs_z_high ||
+			(abs_high==abs_z_high && *(ULong*)&pdp->bodyy.f>abs_z_low))
+				clipFlag|=(sign_high!=0)?CF3D_OFFBOTTOM:CF3D_OFFTOP;
 
-			pdp->clipFlags=clipFlag;
-			pdp++;
-		}
-//	}
-//	else
-//	{
-//		while (vertex_count--)
-//		{
-//			pdp->bodyx.i=ptr->xcoord;
-//			pdp->bodyy.i=ptr->ycoord;
-//			pdp->bodyz.i=ptr->zcoord;
-//			ptr++;
-//			_matrix.transformNC(fpobject_matrix,pdp);
-//			pdp->bodyx.f+=obx;
-//			pdp->bodyy.f+=oby;
-//			pdp->bodyz.f+=obz;
-//			_matrix.SetClipFlags(*pdp);
-//			if (!doingHW3D) _matrix.body2screen(*pdp);
-//			pdp->intensity=-1;
-//			pdp->specFlip=
-//			pdp->specular=-1;
-//			pdp++;
-//		}
-//	}
-
-//Old_Code PD 07Oct98 	UWord	vertex,
-//Old_Code PD 07Oct98 			counter;
-//Old_Code PD 07Oct98 
-//Old_Code PD 07Oct98 	DONPOINTS_PTR npnt_ptr = (DONPOINTS_PTR )instr_ptr;
-//Old_Code PD 07Oct98 
-//Old_Code PD 07Oct98 	COORDS_PTR	ptr = (COORDS_PTR)(instr_ptr+sizeof(DONPOINTS));
-//Old_Code PD 07Oct98 
-//Old_Code PD 07Oct98 	vertex = (UWord )npnt_ptr->start_vertex;					//RJS 10Mar97
-//Old_Code PD 07Oct98 
-//Old_Code PD 07Oct98 	for(counter=0;counter<npnt_ptr->vertex_count;counter++)
-//Old_Code PD 07Oct98 	{
-//Old_Code PD 07Oct98 		DoPointStruc& dp=newco[vertex];
-//Old_Code PD 07Oct98 		dp.bodyx.i = ptr->xcoord;
-//Old_Code PD 07Oct98 		dp.bodyy.i = ptr->ycoord;
-//Old_Code PD 07Oct98 		dp.bodyz.i = ptr->zcoord;
-//Old_Code PD 07Oct98 		_matrix.transformNC(fpobject_matrix,dp);
-//Old_Code PD 07Oct98 		dp.bodyx.f += object_obj3d->Body.X.f;
-//Old_Code PD 07Oct98 		dp.bodyy.f += object_obj3d->Body.Y.f;
-//Old_Code PD 07Oct98 		dp.bodyz.f += object_obj3d->Body.Z.f;
-//Old_Code PD 07Oct98 		_matrix.SetClipFlags(dp);
-//Old_Code PD 07Oct98 		if (!doingHW3D) _matrix.body2screen(dp);				//PD 19Jun98
-//Old_Code PD 07Oct98 		dp.intensity = -1;//0;//-1;										//RJS 20Mar98
-//Old_Code PD 07Oct98 		dp.specFlip=
-//Old_Code PD 07Oct98 		dp.specular=-1;											//PD 24Aug98
-//Old_Code PD 07Oct98 		ptr++;
-//Old_Code PD 07Oct98 		vertex++;
-//Old_Code PD 07Oct98 	}
-//Old_Code PD 07Oct98 
-//Old_Code PD 07Oct98 	instr_ptr += npnt_ptr->vertex_count * sizeof(NNEXT) + sizeof(DONPOINTS);
+		pdp->clipFlags=clipFlag;
+		pdp++;
+	}
 }
 
 //------------------------------------------------------------------------------
@@ -3236,8 +2931,7 @@ void shape::doquikpoly(UByte *& instr_ptr)
 //
 //Externals
 //------------------------------------------------------------------------------
-//------------------------------------------------------------------------------
- void shape::don4cmpnts(UByte *& instr_ptr)
+void shape::don4cmpnts(UByte *& instr_ptr)
 {
 	DON4CMPNTS_PTR npnt_ptr;
 
@@ -3261,110 +2955,11 @@ void shape::doquikpoly(UByte *& instr_ptr)
 //
 //Externals
 //------------------------------------------------------------------------------
-//------------------------------------------------------------------------------
- void shape::do4cmpnt(UByte *& instr_ptr)
+void shape::do4cmpnt(UByte *& instr_ptr)
 {
 	instr_ptr+=sizeof(DO4CMPNT);
 }
 
-//inline double ARCCOS(double x,double pi)
-//{
-//	double temp=(1.-x*x)/(x*x);
-//	bool xneg=x<0?true:false;
-//	_asm{
-//		fld temp;
-//		fsqrt;
-//		fld1;
-//		fpatan;
-//		fstp temp;
-//	}
-//	if (xneg) temp=pi-temp;
-//	return temp;
-//}
-
-
-//------------------------------------------------------------------------------
-//Procedure		calcSpecular
-//Author		Paul.   
-//Date			Tue 25 Aug 1998
-//
-//Description	generates a value to be used for specular lighting
-//				based on the dot product of the light and view vectors
-//				with the vertex normal.
-//
-//Inputs		result of the two dot products
-//
-//Returns	
-//
-//------------------------------------------------------------------------------
-//void calcSpecular(Float& specDot,Float& lightDot,SLong& specular,SLong& specFlip)
-//{
-	//const SLong specMax=95;	//127;
-	//double pi;
-//
-//	_asm
-//	{
-//		fldpi;
-//		fstp pi;
-//	}
-//
-//	double spa=ARCCOS(specDot,pi);
-//	double lia=ARCCOS(lightDot,pi);
-//
-//	if (spa<pi/2. && lia<pi/2.)
-//	{
-//		double delta=spa-lia; delta=delta<0?-delta:delta;
-//
-//		if (delta<pi/4.)
-//		{
-/*			delta=(pi/2.)+2.*delta;
-			_asm{
-				fld delta;
-				fcos;
-//				fmul st(0),st;
-//				fmul st(0),st;
-				fstp delta;
-			}
-			delta=double(specMax)*(delta+1.);
-*/
-//			delta=double(specMax)*(1.-delta/(pi/4.));
-//			specFlip=SLong(delta);
-//			if (specFlip<0)	specFlip=0;
-//			else if (specFlip>specMax) specFlip=specMax;
-//		}
-//		else specFlip=0;
-//	}
-//	else specFlip=0;
-//
-//	spa+=pi; if (spa>pi) spa=2*pi-spa;
-//	lia+=pi; if (lia>pi) lia=2*pi-lia;
-//
-//	if (spa<pi/2. && lia<pi/2.)
-//	{
-//		double delta=spa-lia; delta=delta<0?-delta:delta;
-//
-//		if (delta<pi/4.)
-//		{
-/*
-			delta=(pi/2.)+2.*delta;
-			_asm{
-				fld delta;
-				fcos;
-//				fmul st(0),st;
-//				fmul st(0),st;
-				fstp delta;
-			}
-			delta=double(specMax)*(delta+1.);
-*/
-//			delta=double(specMax)*(1.-delta/(pi/4.));
-//			specular=SLong(delta);
-//			if (specular<0)	specular=0;
-//			else if (specular>specMax) specular=specMax;
-//		}
-//		else specular=0;
-//	}
-//	else specular=0;
-//}
 
 //------------------------------------------------------------------------------
 //Procedure	dondupvec
@@ -3381,8 +2976,7 @@ void shape::doquikpoly(UByte *& instr_ptr)
 //
 //Externals
 //------------------------------------------------------------------------------
-//------------------------------------------------------------------------------
- void shape::dondupvec(UByte *& instr_ptr)
+void shape::dondupvec(UByte *& instr_ptr)
 {
 	DONDUPVEC_PTR	ptr = (DONDUPVEC_PTR) instr_ptr;
 	int				vertex = ptr->vertex;
@@ -3477,9 +3071,6 @@ void shape::doquikpoly(UByte *& instr_ptr)
 		dpPtr->bodyx.i = npoint->xcoord;
 		dpPtr->bodyy.i = npoint->ycoord;
 		dpPtr->bodyz.i = npoint->zcoord;
-//DeadCode PD 05Oct98 		dpPtr->bodyx.i = npoint->xcoord << shapescale;
-//DeadCode PD 05Oct98 		dpPtr->bodyy.i = npoint->ycoord << shapescale;
-//DeadCode PD 05Oct98 		dpPtr->bodyz.i = npoint->zcoord << shapescale;
 		npoint++;
 		dpPtr++;
 	}
@@ -3495,7 +3086,6 @@ void shape::doquikpoly(UByte *& instr_ptr)
 			for (count=0; count < vno; count++)
 			{
 				dpPtr->bodyx.i += (npointdelta->delta*scaleup)>>8;//RJS 24May99
-//DeadCode PD 05Oct98 				dpPtr->bodyx.i += (npointdelta->delta << shapescale);
 				npointdelta++;
 				dpPtr++;
 			}
@@ -3507,7 +3097,6 @@ void shape::doquikpoly(UByte *& instr_ptr)
 			for (count=0; count < vno; count++)
 			{
 				dpPtr->bodyy.i -= (npointdelta->delta*scaleup)>>8;
-//DeadCode PD 05Oct98 				dpPtr->bodyy.i -= (npointdelta->delta << shapescale);
 				npointdelta++;
 				dpPtr++;
 			}

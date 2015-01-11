@@ -422,12 +422,10 @@ void btree::draw_object(Window *screen,ViewPoint* vp)
 	View_Point=vp;
 
 	//Check to see if the binary tree is empty
-
 	if(start_index != NULL)
 	{
 		recurse(start_index);	
 	}
-	//dead POLYGON.SelectPalette(0);
 }
 
 //------------------------------------------------------------------------------
@@ -440,17 +438,14 @@ void btree::nz_draw_object(Window *screen,ViewPoint* vp)
 	current_screen = screen;
 	View_Point=vp;
 
-//DeadCode PD 30Nov98 	Bool oldState=current_screen->DoSetZUpdate(FALSE);
 	bool oldState2=current_screen->DoSetMipMap(false);
 
 	//Check to see if the binary tree is empty
-
 	if(start_index != NULL)
 	{
 		nz_recurse(start_index);	
 	}
 
-//DeadCode PD 30Nov98 	current_screen->DoSetZUpdate(oldState);
 	current_screen->DoSetMipMap(oldState2);
 }
 

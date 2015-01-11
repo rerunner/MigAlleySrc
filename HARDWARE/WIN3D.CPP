@@ -1743,13 +1743,11 @@ CON	direct_draw::direct_draw()
 
 	if (bFullScreenRequested)
 	{
-//		gameSettings.m_bUseSecondary=Save_Data.dddriver!=-1?TRUE:FALSE;
 		gameSettings.m_dwWidth=Save_Data.displayW;
 		gameSettings.m_dwHeight=Save_Data.displayH;
-//DEADCODE JIM 20/07/99  		Mono_Text.Print(Save_Data.displayH,UByteP("gameSettings.m_dwHeight from Save_Data"));
 	}
-	gameSettings.m_dwWidth=1366;
-	gameSettings.m_dwHeight=768;
+	// gameSettings.m_dwWidth=1366; //NHV widescreen test
+	// gameSettings.m_dwHeight=768; //NHV widescreen test
 
 	DWORD dwWidth=gameSettings.m_dwWidth;
 	DWORD dwHeight=gameSettings.m_dwHeight;
@@ -1969,7 +1967,7 @@ Bool direct_draw::ModeSupported(ScreenRez* lpSRez)
 
 	displayWidth = (lpSRez->width>0)?lpSRez->width:-lpSRez->width;
 	displayHeight = displayWidth * 3/4; // NHV this is assuming 4/3 display, but just for reserving memory
-
+	
 	displayBytesPerPixel = lpSRez->colourdepth>>3;
 
 	if (displayBytesPerPixel==1)	return (TRUE);
@@ -3101,7 +3099,7 @@ BOOL direct_3d::SelectDriver(DirectDP lpdirectd)
 			}
 			width = rect.right - rect.left;
 			height = rect.bottom - rect.top;
-
+			
 			ZeroMem (&d3dviewportdata,sizeof(d3dviewportdata));
 
 		    d3dviewportdata.dwSize=sizeof (D3DVIEWPORT);

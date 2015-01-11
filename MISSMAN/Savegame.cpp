@@ -1599,8 +1599,7 @@ void SaveData::InitPreferences(int wh)
 		bis>>Save_Data;
 		if (!Save_Data.successfulLoad)
 		{
-			//NHV not needed for now: MessageBox(hWnd,LoadResString(IDS_CONFIGIGNORED),LoadResString(IDS_CHOOSEPREFS),MB_OK);
-			MessageBox(hWnd, "Info: Savegame from older exe version", "Warning", MB_OK); //NHV
+			MessageBox(hWnd,LoadResString(IDS_CONFIGIGNORED),LoadResString(IDS_CHOOSEPREFS),MB_OK);
 			Configure(true,hWnd);
 		}
 	}

@@ -327,11 +327,11 @@ BOOL FAR PASCAL EnumDrivers(GUID FAR* lpGUID,LPSTR,LPSTR,LPVOID lpContext)
 
 HRESULT WINAPI EnumDisplays(LPDDSURFACEDESC lpDDSurfaceDesc,LPVOID lpContext)
 {
-	if (lpDDSurfaceDesc->dwWidth>=512 &&
 #if 0 //NHV for widescreen
+	if (lpDDSurfaceDesc->dwWidth>=512 &&
 		lpDDSurfaceDesc->dwWidth*3==lpDDSurfaceDesc->dwHeight*4 &&
-#endif
 		lpDDSurfaceDesc->ddpfPixelFormat.dwRGBBitCount==16)
+#endif
 	if (lpDDSurfaceDesc->dwWidth>=512)
 	{
 		SModeEnum *pme=(SModeEnum*)lpContext,&me=*pme;
@@ -355,7 +355,8 @@ HRESULT WINAPI FindDevice(LPGUID lpGuid,LPSTR,LPSTR,LPD3DDEVICEDESC lpHWDesc,LPD
 
 inline bool IsValidMode(SModeFlags* pmf,UWord w,UWord h)
 {
-	//NHV for widescreen  if (w*3!=h*4) return false;
+	return true; //NHV widescreen test
+	if (w*3!=h*4) return false;
 	for (int x=0;x<SModeFlags::Max_Modes;x++) if (pmf->widths[x]==w) return true;
 	return false;
 }
@@ -448,7 +449,7 @@ void Configure(bool fFullConfig,HWND hWnd)
 					{
 						if (modeEnum.widths[j]<max_allowed_sw)
 						{
-							if (pDD2->SetDisplayMode(modeEnum.widths[j],(modeEnum.widths[j]>>2)*3,16,0,0)==DD_OK)
+							//NHV test if (pDD2->SetDisplayMode(modeEnum.widths[j],(modeEnum.widths[j]>>2)*3,16,0,0)==DD_OK)
 							{
 								DDSURFACEDESC ddsd;
 								LPDIRECTDRAWSURFACE pSurf,pZBuf,pBack;
@@ -472,7 +473,8 @@ void Configure(bool fFullConfig,HWND hWnd)
 									ddsd.dwFlags=DDSD_WIDTH|DDSD_HEIGHT|DDSD_CAPS|DDSD_ZBUFFERBITDEPTH;
 							    	ddsd.ddsCaps.dwCaps=DDSCAPS_ZBUFFER|DDSCAPS_VIDEOMEMORY;
 									ddsd.dwWidth=modeEnum.widths[j];
-									ddsd.dwHeight=(modeEnum.widths[j]>>2)*3; //NHV suspect 4/3 code
+									//ddsd.dwHeight=(modeEnum.widths[j]>>2)*3; //NHV suspect 4/3 code
+									ddsd.dwHeight=(modeEnum.widths[j]/16)*9; //NHV test
 							        ddsd.dwZBufferBitDepth=16;
 									if (pDD2->CreateSurface(&ddsd,&pZBuf,NULL)==DD_OK)
 									{
@@ -754,12 +756,17 @@ void Configure(bool fFullConfig,HWND hWnd)
 		GetModes(nm,dm);
 		dddriver=(sd.num_drivers>=2)?1:0;
 
-		max_w=(Save_Data.processorType!=PROC_MAX)?800:1024;
-
+		//NHV test max_w=(Save_Data.processorType!=PROC_MAX)?800:1024;
+		max_w=1366; // NHV hack for 1366 check. But this is not the way...
+		
 		for (i=0,rez=0;i<nm;i++)
+#if 0 //NHV
 			if (dm[i].driverNo==dddriver &&
 				dm[i].displayBPP==16 &&
 				IsValidMode(pdm,dm[i].displayWidth,dm[i].displayHeight))
+#else
+			if (dm[i].driverNo==dddriver)
+#endif
 			{
 				if (dm[i].displayWidth==max_w)
 				{
@@ -806,8 +813,6 @@ void Configure(bool fFullConfig,HWND hWnd)
 						if (!pds->pal8) texture_ram>>=1;
 
 						ULong min_texture_ram=0x200000;
-//TEMP						if (pds->filtering>=2)	min_texture_ram+=(min_texture_ram>>1);
-//TEMP						if (pds->filtering==3)	min_texture_ram+=(!pds->pal8)?49152*2:49152;
 
 						if (texture_ram>=min_texture_ram)
 						{
@@ -841,8 +846,6 @@ void Configure(bool fFullConfig,HWND hWnd)
 							if (!pds->pal8) texture_ram>>=1;
 
 							ULong min_texture_ram=0x200000;
-//TEMP							if (pds->filtering>=2)	min_texture_ram+=(min_texture_ram>>1);
-//TEMP							if (pds->filtering==3)	min_texture_ram+=(!pds->pal8)?49152*2:49152;
 
 							if (texture_ram>=min_texture_ram)
 							{
@@ -850,7 +853,7 @@ void Configure(bool fFullConfig,HWND hWnd)
 								Save_Data.screenresolution=rez;
 								gameSettings.m_dwWidth=Save_Data.displayW=dm[i].displayWidth;
 								gameSettings.m_dwHeight=Save_Data.displayH=dm[i].displayHeight;
-				 		Mono_Text.Print(Save_Data.displayH,UByteP("Save_Data.displayH (3)"));
+						 		Mono_Text.Print(Save_Data.displayH,UByteP("Save_Data.displayH (3)"));
 								Save_Data.textureQuality=(texture_ram>2*min_texture_ram)?4:3;
 								break;
 							}
@@ -883,7 +886,7 @@ void Configure(bool fFullConfig,HWND hWnd)
 									Save_Data.screenresolution=rez;
 									gameSettings.m_dwWidth=Save_Data.displayW=dm[i].displayWidth;
 									gameSettings.m_dwHeight=Save_Data.displayH=dm[i].displayHeight;
-				 		Mono_Text.Print(Save_Data.displayH,UByteP("Save_Data.displayH (4)"));
+							 		Mono_Text.Print(Save_Data.displayH,UByteP("Save_Data.displayH (4)"));
 									Save_Data.textureQuality=(texture_ram>2*min_texture_ram)?4:3;
 									break;
 								}
@@ -916,7 +919,7 @@ void Configure(bool fFullConfig,HWND hWnd)
 									Save_Data.screenresolution=rez;
 									gameSettings.m_dwWidth=Save_Data.displayW=dm[i].displayWidth;
 									gameSettings.m_dwHeight=Save_Data.displayH=dm[i].displayHeight;
-				 		Mono_Text.Print(Save_Data.displayH,UByteP("Save_Data.displayH (S)"));
+				 					Mono_Text.Print(Save_Data.displayH,UByteP("Save_Data.displayH (S)"));
 								}
 								rez++;
 							}

@@ -576,13 +576,13 @@ Bool Display::InitDirectDraw ()
 	//is required
 	DD.DDCurrMode=0xffff;
 
-
 	if (DD.lpDirectDD->isFullScreen())
-		for (int x=0;x<DD.cModes;x++){
+		for (int x=0;x<DD.cModes;x++)
+		{
 			if (DD.DDModes[x].width==gameSettings.m_dwWidth &&
 				DD.DDModes[x].height==gameSettings.m_dwHeight &&
 				DD.DDModes[x].colourdepth==16)
-			{
+			{ //NHV the real screen width / height is set here for the 3d world
 				DD.DDCurrMode=x;
 		Mono_Text.Print(gameSettings.m_dwHeight,UByteP("gameSettingsHeight"));
 		Mono_Text.Print(gameSettings.m_dwWidth,UByteP("gameSettingsWidth"));
@@ -596,6 +596,7 @@ Bool Display::InitDirectDraw ()
 	if (DD.DDCurrMode==0xFFFF)
 		for (int counter=0;counter<DD.cModes;counter++)
 			if (DD.DDModes[counter].width==winmode_w &&
+		
 				DD.DDModes[counter].height==winmode_h &&
 				DD.DDModes[counter].colourdepth==winmode_bpp)
 			{

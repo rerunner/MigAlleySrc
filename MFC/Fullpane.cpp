@@ -98,7 +98,8 @@ RFullPanelDial::GameStates	RFullPanelDial::gamestate=RFullPanelDial::TITLE;
 
 /////////////////////////////////////////////////////////////////////////////
 // RFullPanelDial dialog
-int RFullPanelDial::resolutions[]={640,800,1024,1280};
+//NHV int RFullPanelDial::resolutions[]={640,800,1024,1280};
+int RFullPanelDial::resolutions[]={640,800,1024,1280,1366};
 
 // Initialise sheets here.  This means they are initialised at
 // compile time instead of run time.
@@ -1934,26 +1935,21 @@ int RFullPanelDial::GetCurrentRes()
 	for (res=0;res<6;res++)
 	{
 		if (resolutions[res] &&
-			rect.Height()*4>=resolutions[res]*3 && 
+			rect.Height()*4>=resolutions[res]*3 && // NHV 4/3 check for 2D UI screen purposes.
 			rect.Height()-resolutions[res]<=rect.Width()-resolutions[bestresY])
 			bestresY=res;
 	}
-//	if (resolutions[bestresX]<=resolutions[bestresY]) return bestresX;
-//	return bestresY;
 	if (resolutions[bestresX]<=resolutions[bestresY]) res = bestresX;
 	else res=bestresY;
 	// now check if the artwork for this resolution is available, if not
 	// search downwards until you find one that is there (Note there must be
 	// one at the lowest resolution...
-//	if (!m_currentscreen->resolutions[res].artwork)
-//		return res;
 	if (m_currentscreen)
 		if (!m_currentscreen->resolutions[res].artwork)
 			return res;
 		else{}
 	else
 		return res;
-
 
 	if (m_currentscreen)
 	{

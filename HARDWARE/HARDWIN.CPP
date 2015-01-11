@@ -257,7 +257,7 @@ void	Display::XX_SetGraphicsMode()
 	PhysicalWidth = window_width;		//Width of screen in pixels
 	PhysicalMinY = 0;
 	PhysicalHeight = window_height;		//Height of screen in pixels
-
+	
 	virtualXscale = (FULLW+window_width-1) / window_width;
 	virtualYscale = (FULLH+window_height-1) / window_height;
 
@@ -266,7 +266,6 @@ void	Display::XX_SetGraphicsMode()
 	if (DD.PaletteBuffer==NULL)
 		DD.PaletteBuffer = new MYPALETTEENTRY [256];
 
-//DEADCODE JIM 20/07/99 	UByteP(0xB0000)[4]='D';
 	if (bupLogicalScreenPtr!=NULL && (int)oldscreenaddr!=-1)
 	{
 		Window* window;
@@ -799,8 +798,7 @@ ULong Display::SetDirectDrawMode (InitDisplayDef& Mode)
 	}
 	int	window_width=rect.right-rect.left;
 	int window_height=rect.bottom-rect.top;
-//DEADCODE JIM 20/07/99 	UByteP(0xB0000)[6]='c';
-
+	
 	// Select Single or Double Screens
 	// If hardware is bank switched choose Single screen mode
 

@@ -352,13 +352,6 @@ void CSDetail::PreDestroyPanel()
 		Save_Data.gamedifficulty%=GD_INJURYEFFECTS;
 		Save_Data.gamedifficulty%=GD_WHITEOUT;
 	}
-//	else
-//	{
-//		Save_Data.filtering=1;
-//		Save_Data.detail_3d|=DETAIL3D_GROUNDSHADING;
-//		Save_Data.gamedifficulty|=GD_GEFFECTS;
-//		Save_Data.gamedifficulty|=GD_INJURYEFFECTS;
-//	}
 }
 
 #define SG2C_CLEANUP
@@ -420,9 +413,13 @@ void CSDetail::OnTextChangedCboDisplaydrivers(LPCTSTR text)
 	combo->Clear();
 
 	for (SLong x=0;x<modesCount;x++)
+#if 0 //NHV
 		if (driverModes[x].driverNo-1==selectedDriver &&
 			driverModes[x].displayBPP==16 &&
 			IsValidMode(modeFlags,driverModes[x].displayWidth,driverModes[x].displayHeight))
+#else
+		if (driverModes[x].driverNo-1==selectedDriver)
+#endif
 		{
 			sprintf(modeString,"%d X %d\0",
 					driverModes[x].displayWidth,
