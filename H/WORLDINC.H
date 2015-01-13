@@ -678,7 +678,7 @@ class	shape;
 typedef shape Shape;
 class	mobileitem:public	MovingItem	//o2C
 {
-	friend class WorldStuff; // NHV
+	friend class WorldStuff; // RERUN
 	friend class item;
 	friend class ManualPilot;									//AMM 01Jun98
 	friend class Replay;										//AMM 01Jun98

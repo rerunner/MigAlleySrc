@@ -219,7 +219,7 @@ public:
 
 }
 
-//NHV BOStream& BOStream::operator<<(const CString& s)
-//NHV {
-//NHV 	return operator << ((const char*)s);
-//NHV }
+//RERUN BOStream& BOStream::operator<<(const CString& s)
+//RERUN {
+//RERUN 	return operator << ((const char*)s);
+//RERUN }

@@ -94,7 +94,7 @@ questions about this file may be asked at http://www.simhq.com/
 #include	"hardpasm.h"										//RJS 22Jul96
 #include	"viewsel.h"											//RJS 02Sep96
 #include	"savegame.h"										//RJS 02Sep96
-// NHV #include	<stdio.h>											//RJS 25Nov96
+// RERUN #include	<stdio.h>											//RJS 25Nov96
 #include	"monotxt.h"											//RJS 09Mar98
 #include	"sndfonts.h"										//RJS 03Jul98
 #include	"flymodel.h"
@@ -2221,7 +2221,7 @@ SampleRec*	Miles::LoadSample(FileNum	thefile, Bool inUI)
 						header2 = (FMT*) header1->data;
 		
 						count = 0;											//RJS 24Nov96
-						//NHV while (strnicmp(header2->FMT_string,"fmt ",4))
+						//RERUN while (strnicmp(header2->FMT_string,"fmt ",4))
 						while (_strnicmp(header2->FMT_string, "fmt ", 4))
     					{
     						header2 = (FMT *) ((BYTE *) header2 +
@@ -2238,7 +2238,7 @@ SampleRec*	Miles::LoadSample(FileNum	thefile, Bool inUI)
 							SamplePtr->samplerate = header2->sample_rate;
 
 						header3 = (DATA*) header1->data;
-						//NHV while (strnicmp(header3->DATA_string,"data",4))
+						//RERUN while (strnicmp(header3->DATA_string,"data",4))
 						while (_strnicmp(header3->DATA_string, "data", 4))
 	  					{
     						header3 = (DATA *) ((char *) header3 +
@@ -5861,7 +5861,7 @@ Bool	Miles::PreLoadMusicSamples()
 							header2 = (FMT*) header1->data;
 		
 							count = 0;								
-							//NHV while (strnicmp(header2->FMT_string,"fmt ",4))
+							//RERUN while (strnicmp(header2->FMT_string,"fmt ",4))
 							while (_strnicmp(header2->FMT_string, "fmt ", 4))
     						{
     							header2 = (FMT *) ((BYTE *) header2 +
@@ -5878,7 +5878,7 @@ Bool	Miles::PreLoadMusicSamples()
 								SamplePtr->samplerate = header2->sample_rate;
 
 							header3 = (DATA*) header1->data;
-							//NHV while (strnicmp(header3->DATA_string, "data", 4))
+							//RERUN while (strnicmp(header3->DATA_string, "data", 4))
 							while (_strnicmp(header3->DATA_string, "data", 4))
 	  						{
     							header3 = (DATA *) ((char *) header3 +

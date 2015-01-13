@@ -59,8 +59,8 @@
 
 questions about this file may be asked at http://www.simhq.com/
 */
-#include <Windows.h> //NHV
-#include <atlstr.h> //NHV
+#include <Windows.h> //RERUN
+#include <atlstr.h> //RERUN
 #include "_3D.h"
 #include "..\3D\3dcode.cpp"
 #include "..\3D\3dcom.cpp"

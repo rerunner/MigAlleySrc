@@ -122,7 +122,7 @@ DPlay _DPlay;
 // used to find games. This must be altered by the install program.
 
 #ifndef	MIG_DEMO_VER
-#include <initguid.h> //NHV
+#include <initguid.h> //RERUN
 DEFINE_GUID(MIGALLEY_GUID, 
 0x38305683, 0x1eb, 0x11d2, 0xb1, 0xa4, 0x0, 0x40, 0x5, 0x24, 0x7c, 0x6d);
 #else
@@ -2416,10 +2416,10 @@ Bool DPlay::FinishLobbySetup()
 
 	if (lpDPC->lpPlayerName->lpszShortNameA)
 	{
-		//NHV strncpy (PlayerName,(char*)lpDPC->lpPlayerName->lpszShortNameA,59);
+		//RERUN strncpy (PlayerName,(char*)lpDPC->lpPlayerName->lpszShortNameA,59);
 		//PlayerName[59]=NULL;
-		strncpy(PlayerName, (char*)lpDPC->lpPlayerName->lpszShortNameA, 21); //NHV playername field is 21 chars
-		PlayerName[20] = NULL; //NHV playername field is 21 chars
+		strncpy(PlayerName, (char*)lpDPC->lpPlayerName->lpszShortNameA, 21); //RERUN playername field is 21 chars
+		PlayerName[20] = NULL; //RERUN playername field is 21 chars
 	}
 	else
 	{

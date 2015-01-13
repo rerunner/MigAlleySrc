@@ -162,13 +162,13 @@ void CSQuick1::MakeFlightCombo()
 	{	//find lowest numbered group on this side first, but then that side
 		bool gotone=false;
 		for (int pls=1-quickdef.plside,tries=2;tries--;pls=1-pls)
-			//NHV for (int w=8;w>=0;w--)
-			for (int w = 7; w >= 0; w--) //NHV
+			//RERUN for (int w=8;w>=0;w--)
+			for (int w = 7; w >= 0; w--) //RERUN
 				for (int g=2;g>=0;g--)
 					if (!gotone)
 					{
 						if (quickdef.line[pls][w][g].flights &&
-							!nonplayer[quickdef.line[pls][w][g].Duty()]) //NHV w should never be equal to 8
+							!nonplayer[quickdef.line[pls][w][g].Duty()]) //RERUN w should never be equal to 8
 						{	//if zero flights then not flyable, even if it 'exists'
 							quickdef.plside = pls;
 							quickdef.plwave = w;

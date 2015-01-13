@@ -86,7 +86,7 @@ SLong	item::Range;
 #include	"display.h"
 Bool	Graphic::locked=FALSE;									//AMM 02May97
 UByte	Graphic::locklevel=0;								//AMM 02May97
-//NHV DirectDDP  _DirectDraw::lpDirectDD=NULL;
+//RERUN DirectDDP  _DirectDraw::lpDirectDD=NULL;
 //Direct3DP  _DirectDraw::lpDirect3D=NULL;
 //------------------------------------------------------------------------------
 //Next??

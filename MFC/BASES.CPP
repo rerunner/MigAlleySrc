@@ -241,7 +241,7 @@ BOOL CBases::MoveValid(int& srcline, int& destline)
 		destline--;
 	}
 	if (destline < 0)
-		return FALSE; //NHV moved index check to better place
+		return FALSE; //RERUN moved index check to better place
 	int type = SupplyTree::airfieldinfo[afuses[destline]].type;
 	int actype =afuses[srcline];
 	int test = afuses[destline];

@@ -150,8 +150,8 @@ AirStruc* Persons2::PlayerGhostAC=NULL;
 AirStruc* Persons2::PlayerSeenAC=NULL;
 
 Aggregator	_Agg ; 
-// NHV Replay	_Replay;
-extern Replay	_Replay; // NHV, see replay.h & cpp
+// RERUN Replay	_Replay;
+extern Replay	_Replay; // RERUN, see replay.h & cpp
 
 #ifdef TIMERTIME
 static ULong Qfreq;
@@ -4089,7 +4089,7 @@ Bool	DPlay::InitSyncPhase()
 //DeadCode AMM 12May99 	char	Buffer[MAXCOMMSPACKETSIZE];
 	char* Buffer;
 	DPID	From=0;
-	static bool first=true; // NHV added bool
+	static bool first=true; // RERUN added bool
 	ULong to=myDPlayID;
 
 	if (ResetSync)
@@ -6225,7 +6225,7 @@ SLong	DPlay::GetVal(UByte src,UByte shift)
 #define MAXRNDINCS 64
 void	DPlay::SetRandomListPos()
 {
-	static int x=0; // NHV added int
+	static int x=0; // RERUN added int
 	UWord rndincs;//RJS 04Dec98
 //	rndincs = Math_Lib.MAX_RND - Math_Lib.GetRndCount ();
 

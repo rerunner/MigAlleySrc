@@ -63,7 +63,7 @@ class	Main : public	GetSet
 #endif
 
 
-//NHV long FAR PASCAL DLLExport WndProc (HWND, UINT, UINT, LONG);
+//RERUN long FAR PASCAL DLLExport WndProc (HWND, UINT, UINT, LONG);
 
 VOID MainLoopThread (PVOID pvoid);
 VOID TimerThread (PVOID pvoid);

@@ -854,8 +854,8 @@ direct_3d::VidRamTexture::VidRamTexture(ImageMapDescPtr p)
 		if (Save_Data.textureQuality<=2)
 		{
 			mipMapLevels--;
-			//NHV if (mipMapLevels=-1) mipMapLevels=0;
-			if (mipMapLevels < 0) mipMapLevels = 0; //NHV
+			//RERUN if (mipMapLevels=-1) mipMapLevels=0;
+			if (mipMapLevels < 0) mipMapLevels = 0; //RERUN
 		}
 	}
 	else mipMapLevels=0;
@@ -1746,8 +1746,8 @@ CON	direct_draw::direct_draw()
 		gameSettings.m_dwWidth=Save_Data.displayW;
 		gameSettings.m_dwHeight=Save_Data.displayH;
 	}
-	// gameSettings.m_dwWidth=1366; //NHV widescreen test
-	// gameSettings.m_dwHeight=768; //NHV widescreen test
+	// gameSettings.m_dwWidth=1366; //RERUN widescreen test
+	// gameSettings.m_dwHeight=768; //RERUN widescreen test
 
 	DWORD dwWidth=gameSettings.m_dwWidth;
 	DWORD dwHeight=gameSettings.m_dwHeight;
@@ -1966,7 +1966,7 @@ Bool direct_draw::ModeSupported(ScreenRez* lpSRez)
 	SLong	displayWidth, displayHeight, displayBytesPerPixel;
 
 	displayWidth = (lpSRez->width>0)?lpSRez->width:-lpSRez->width;
-	displayHeight = displayWidth * 3/4; // NHV this is assuming 4/3 display, but just for reserving memory
+	displayHeight = displayWidth * 3/4; // RERUN this is assuming 4/3 display, but just for reserving memory
 	
 	displayBytesPerPixel = lpSRez->colourdepth>>3;
 

@@ -768,7 +768,7 @@ void Surface::Process (AirStrucPtr const ControlledAC)
 	AircraftAnimData*	adptr;
 	adptr = (AircraftAnimData *)ControlledAC->Anim;
 
-	FP fDamage = BS_DEAD; // NHV initializer assumes dead until proven otherwise
+	FP fDamage = BS_DEAD; // RERUN initializer assumes dead until proven otherwise
 	if(Desc == SD_FIN)			fDamage = adptr->FIN;
 	if(Desc == SD_TAILPLANE)	fDamage = adptr->TAIL;
 

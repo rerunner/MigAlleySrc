@@ -529,7 +529,7 @@ void FINDPNTSLNSPLYS(ip)
 			}
 			else pointdec[endcode].alt=0;
 		}
-		int point; // NHV added
+		int point; // RERUN added
 		*LinePtr++ = (UByte)(point = endcode);
 		coordslastpoint=endcode;
 		endcode=STARPLUSPLUS(inptr);

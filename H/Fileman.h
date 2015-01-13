@@ -401,7 +401,7 @@ int	assumefakedir;
 	static	void	translatedirlist(void*	&dataarea,ULong&	datalengthin);
 };
 
-//NHV class	FileMan:protected fileman
+//RERUN class	FileMan:protected fileman
 class	FileMan:public fileman
 {
 	friend	class	dirlist;

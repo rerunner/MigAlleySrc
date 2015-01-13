@@ -23,10 +23,10 @@ public:
 	UINT frag_timer;
 	bool	fragfirsttime;
 
-	//NHV enum	{MaxFragLines=6};
-	//NHV typedef	int OneFragDef[6];
-	enum	{ MaxFragLines = 7 }; // NHV avoids stack buffer overrun
-	typedef	int OneFragDef[7]; //NHV
+	//RERUN enum	{MaxFragLines=6};
+	//RERUN typedef	int OneFragDef[6];
+	enum	{ MaxFragLines = 7 }; // RERUN avoids stack buffer overrun
+	typedef	int OneFragDef[7]; //RERUN
 	
 
 	static	void CFrag::FragInit();

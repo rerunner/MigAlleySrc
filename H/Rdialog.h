@@ -80,7 +80,7 @@ struct	DialMake
 	const	Edges* edges;
 	FileNum	art;
 	enum	ChildType	{NONE,CLUMP,SPLITH,SPLITV,TABT,TABR}	childtype;
-//NHV protected:
+//RERUN protected:
 	DialMake(const Edges *e,FileNum artnum)
 	{	art=artnum;childtype=NONE;edges=e;	}
 	DialMake()	{}
@@ -94,7 +94,7 @@ struct DialBox:DialMake
 	DialBox(FileNum artnum,RDialog*	newdial,const Edges& e=*(Edges*)NULL):
 	DialMake(&e,artnum)
 	{dial=newdial;diallist[0]=NULL;diallist[1]=(DialBox*)0x12345678;}
-// NHV protected:
+// RERUN protected:
 	DialBox(DialBox& d):DialMake(d.edges,d.art){dial=d.dial;}
 	DialBox()	{ dial = NULL; edges = NULL; art = FIL_NULL; }
 };
@@ -124,7 +124,7 @@ struct DialList:DialBox
 		diallist[9]=NULL;
 		childtype=CLUMP;
 	}
-//NHV protected:
+//RERUN protected:
 	DialList(const DialBox& d0,
 			const DialBox& d1,
 			const DialBox& d2,

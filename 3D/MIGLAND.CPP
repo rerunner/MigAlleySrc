@@ -1530,8 +1530,8 @@ void CDecompressData::SkipPointsLinesPolys(UByte*& ip)
 			else if (altData==BYTE_ALT)	inptr+=3;
 			else if (altData==WORD_ALT)	inptr+=5;
 		}
-		int point; //NHV
-		point=(int)endcode; // NHV added int cast
+		int point; //RERUN
+		point=(int)endcode; // RERUN added int cast
 		coordslastpoint=endcode;
 		endcode=*inptr++;
 		int curr=point;
@@ -1749,7 +1749,7 @@ void CDecompressData::copyBody(UByte*& ip,UByte* pdst)
 				*pdst++=*inptr++;
 			}
 		}
-		int point=(int)endcode; //NHV 
+		int point=(int)endcode; //RERUN 
 		coordslastpoint=endcode;
 		endcode=*pdst++=*inptr++;
 		int curr=point;

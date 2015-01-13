@@ -869,7 +869,7 @@ void ThreeDee::add_cockpit(rotitem& viewpoint,PitTypes pittype,ANGLES h,ANGLES p
 		PolyPitAnimData*	ppitanim = (PolyPitAnimData*) adptr;
 		ULong	detailshift = ppitanim->detailmask;
 
-		buffetData.delta.Z = 400; //NHV test, move pilot view a bit back
+		buffetData.delta.Z = 400; //RERUN test, move pilot view a bit back
 		if (buffetData.delta.X==0 && 
 			buffetData.delta.Y==0 &&
 			buffetData.delta.Z==0)
@@ -1628,9 +1628,9 @@ void ThreeDee::do_objects()
 //										do_object(Persons2::PlayerGhostAC);
 //									}
 
-									//if (!isPiloted)
+//									if (!isPiloted)
 										do_object(tempitemptr);
-									/*else
+									/* else
 									{
 										ANGLES oldHdg,oldPitch,oldRoll;
 										COORDS3D oldWorld;
@@ -2035,7 +2035,7 @@ void ThreeDee::do_object_grp(itemptr tempitemptr)
 				if(RoughCone(wx,wy,wz,shpsize))						//RJS 09Jul98
 				{
 //DeadCode RJS 12Feb99 					bzoffset.f = tempgrp->bzoffset << 4;//Shit fix, this isn't entirely accurate...
-					bzoffset.f = 0; // NHV added
+					bzoffset.f = 0; // RERUN added
 					obj3dptr = (Obj3DPtr )bt->Get3DArea(STATIC_OBJECT);	//PD 13Mar96
 					SetObj3D(obj3dptr,tempitemptr,wx,wy,wz,bzoffset);//PD 15Mar96
 
@@ -3234,7 +3234,7 @@ void ThreeDee::add_replay(rotitem& viewpoint)
 
 		wx.f = 0;								
 		wy.f = 0;													
-		wz.f = (sdptr->sx << 4); //NHV overflow possible, cast added 
+		wz.f = (sdptr->sx << 4); //RERUN overflow possible, cast added 
 
 		obj3dptr = (Obj3DPtr )bt->Get3DArea(STATIC_OBJECT);
 

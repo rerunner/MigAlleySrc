@@ -1799,7 +1799,7 @@ void	AirStruc::LagPursuit()
 				if (SubjectOnTargetTail(ANGLES_90Deg))
 					range = METRES200;
 				else
-					ai.manoeuvre = MANOEUVRE_SELECT; //NHV: and the range ??
+					ai.manoeuvre = MANOEUVRE_SELECT; //RERUN: and the range ??
 
 				target.X = unfriendly->World.X + MULSHSIN(s, range, ANGLES_SHIFT);
 				target.Y = unfriendly->World.Y;

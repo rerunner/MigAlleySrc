@@ -135,7 +135,7 @@ Float	AirStruc::CalcSimpleAccel ()
 	
 	MODEL& MOD = *fly.pModel;
 	ACMMODEL& ACM = *fly.pAcmModel;
-//NHV	extern enum ACM_COMMAND;
+//RERUN	extern enum ACM_COMMAND;
 	Float Thrust, Drag, Lift;
 	Float mass;		//kg		
 	Float accel;

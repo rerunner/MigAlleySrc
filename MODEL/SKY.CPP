@@ -206,9 +206,6 @@ void Atmosphere::SetMissionWind (SWord month)
 }
 void Atmosphere::SetMissionPress (SWord month)
 {
-
-
-
 	FP delta;
 	delta = month - 6;
 	if (delta < 0)
@@ -220,13 +217,6 @@ void Atmosphere::SetMissionPress (SWord month)
 	{
 		Press0 = 999 - TempVar;
 	}
-//DeadCode CSB 10/06/99		ContrailBandCentre = FEET2CM(1000 * (40 - delta + Math_Lib.rnd (2)));
-//DeadCode CSB 10/06/99		int band = Math_Lib.rnd (5) + 3;
-//DEADCODE RDH 19/05/99 	if (Math_Lib.rnd (2))
-//DEADCODE RDH 19/05/99 		band = -band;
-
-//DeadCode CSB 10/06/99		ContrailBandWidth = FEET2CM(1000 * band);
-//DEADCODE RDH 19/05/99 screenshots	ContrailBandWidth = FEET2CM(10000 * band);//csb
 
 	ContrailBandCentre = FEET2CM(32000);		//CSB 10/06/99	
 	ContrailBandWidth = FEET2CM(4000);	//CSB 10/06/99	
@@ -234,11 +224,9 @@ void Atmosphere::SetMissionPress (SWord month)
 	FP ChanceBad = 0.5 + 0.5 * FCos(month * 6.2831853 / 12.0);		//CSB 02/07/99	
 	ChanceBad = 819.2 + 8192.0 * ChanceBad;						//CSB 02/07/99	
 	if(Math_Lib.rnd() > ChanceBad)									//CSB 02/07/99	
-//DeadCode CSB 02/07/99		if (Press0 > 1000)
 	{
 		Conditions = 0;
 		Visibility = 4000000;
-
 	}
 	else
 	{
@@ -268,8 +256,6 @@ void Atmosphere::SetMissionTemp (SWord month)
 	FP		delta;
 	FP		hr12 = SECSPERDAY/2;
 
-	
-
 	maxtemp = maxt[month];
 	mintemp = mint[month];
 
@@ -286,7 +272,6 @@ void Atmosphere::SetMissionTemp (SWord month)
 	if (TempVar < -10)
 		TempVar = -10;
 	Temp0 = 273 + Temp0 + TempVar + mintemp;
-
 }
 
 void Atmosphere::SetMissionDensity()	//CSB 27/10/98
@@ -296,18 +281,6 @@ void Atmosphere::SetMissionDensity()	//CSB 27/10/98
 
 void Atmosphere::SetMissionConditions ()
 {
-
-//DeadCode CSB 27/10/98	//temp use of curves
-//DeadCode CSB 27/10/98	//Craig to remove, rdh 8/9/98	
-//DeadCode CSB 27/10/98		pMinTemp = _CurveRsc.FindCurve ("ATMOS", "MinTemp");
-//DeadCode CSB 27/10/98		pMaxTemp = _CurveRsc.FindCurve ("ATMOS", "MaxTemp");
-//DeadCode CSB 27/10/98	
-//DeadCode CSB 27/10/98		pMinPressure = _CurveRsc.FindCurve ("ATMOS", "MinPres");
-//DeadCode CSB 27/10/98		pMaxPressure = _CurveRsc.FindCurve ("ATMOS", "MaxPres");
-//DeadCode CSB 27/10/98	
-//DeadCode CSB 27/10/98	  	SetConditions (.6,.5);
-//DeadCode CSB 27/10/98	
-
 	FCRD wind_at_zero, wind_at_alt;
 
   	SWord	month = 0;
@@ -323,51 +296,6 @@ void Atmosphere::SetMissionConditions ()
 	SWord Latitude = 38;
 	SetMissionDawnDusk(Latitude, MMC.currdate, MMC.dawntime, MMC.dusktime);
 }
-//DeadCode CSB 27/10/98	//------------------------------------------------------------------------------
-//DeadCode CSB 27/10/98	//Procedure		Setup
-//DeadCode CSB 27/10/98	//Author		Andrew McRae
-//DeadCode CSB 27/10/98	//Date			Tue 4 Feb 1997
-//DeadCode CSB 27/10/98	//
-//DeadCode CSB 27/10/98	//Description	Initialise Atmosphere params
-//DeadCode CSB 27/10/98	//
-//DeadCode CSB 27/10/98	//Inputs		
-//DeadCode CSB 27/10/98	//
-//DeadCode CSB 27/10/98	//Returns	
-//DeadCode CSB 27/10/98	//
-//DeadCode CSB 27/10/98	//------------------------------------------------------------------------------
-//DeadCode CSB 27/10/98	void Atmosphere::SetConditions (FP temp0, FP temp1, FP pres0)
-//DeadCode CSB 27/10/98	{
-//DeadCode CSB 27/10/98	//TempCode ARM 10Oct97 	Temp0 = temp0;
-//DeadCode CSB 27/10/98	//TempCode ARM 10Oct97 	Temp1 = temp1;
-//DeadCode CSB 27/10/98	//TempCode ARM 10Oct97 	Pres0 = pres0;
-//DeadCode CSB 27/10/98	//TempCode ARM 10Oct97 
-//DeadCode CSB 27/10/98	//TempCode ARM 10Oct97  	Pres1 = Pres0 * pow ((Temp1 / Temp0),(9.810001 / (6.5 * 0.287)));
-//DeadCode CSB 27/10/98	//TempCode ARM 10Oct97 
-//DeadCode CSB 27/10/98	//TempCode ARM 10Oct97  	a = (Temp1 - Temp0) / 11000;
-//DeadCode CSB 27/10/98	//TempCode ARM 10Oct97 
-//DeadCode CSB 27/10/98	//TempCode ARM 10Oct97  	SeaLevelDensity = (Pres0 / (287 * Temp0)) / 1e4;
-//DeadCode CSB 27/10/98	}
-
-//DeadCode CSB 27/10/98	//------------------------------------------------------------------------------
-//DeadCode CSB 27/10/98	//Procedure		SetConditions
-//DeadCode CSB 27/10/98	//Author		Andrew McRae
-//DeadCode CSB 27/10/98	//Date			Fri 10 Oct 1997
-//DeadCode CSB 27/10/98	//
-//DeadCode CSB 27/10/98	//Description	
-//DeadCode CSB 27/10/98	//
-//DeadCode CSB 27/10/98	//Inputs		
-//DeadCode CSB 27/10/98	//
-//DeadCode CSB 27/10/98	//Returns	
-//DeadCode CSB 27/10/98	//
-//DeadCode CSB 27/10/98	//------------------------------------------------------------------------------
-//DeadCode CSB 27/10/98	void Atmosphere::SetConditions (FP tempfrac, FP presfrac)
-//DeadCode CSB 27/10/98	{
-//DeadCode CSB 27/10/98		TempFrac = tempfrac;
-//DeadCode CSB 27/10/98		PressureFrac = presfrac;
-//DeadCode CSB 27/10/98	
-//DeadCode CSB 27/10/98		FP t,p;
-//DeadCode CSB 27/10/98		Ambient (0, SeaLevelDensity, t, p);
-//DeadCode CSB 27/10/98	}
 
 
 //------------------------------------------------------------------------------
@@ -387,39 +315,6 @@ Bool Atmosphere::Ambient (FP ypos, FP& density, FP& temp, FP& pres)
 {
 	if (ypos < 0) ypos = 0;
 
-//DeadCode CSB 27/10/98		temp = (pMinTemp->GetValue(ypos) * (1 - TempFrac)) + (pMaxTemp->GetValue(ypos) * TempFrac);
-//DeadCode CSB 27/10/98		pres = (pMinPressure->GetValue(ypos) * (1 - PressureFrac)) + (pMaxPressure->GetValue(ypos) * PressureFrac);
-//DeadCode CSB 27/10/98		density = pres / (287 * temp);
-
-//TempCode ARM 10Oct97 	// valid upto 82,000 feet
-//TempCode ARM 10Oct97 
-//TempCode ARM 10Oct97 	// get altitude in metres
-//TempCode ARM 10Oct97 	FP Alt = ypos * 0.01;
-//TempCode ARM 10Oct97 
-//TempCode ARM 10Oct97 	if (Alt < 11000)
-//TempCode ARM 10Oct97 	{
-//TempCode ARM 10Oct97 		temp = Temp0 + (a * Alt);
-//TempCode ARM 10Oct97 		pres = Pres0 * pow ((temp / Temp0),(9.810001 / (6.5 * 0.287)));
-//TempCode ARM 10Oct97 	}
-//TempCode ARM 10Oct97 	else
-//TempCode ARM 10Oct97 	{
-//TempCode ARM 10Oct97 		temp = Temp1;
-//TempCode ARM 10Oct97 		pres = Pres1 * exp ((-9.810001 * (Alt - 11000)) / (287 * Temp1));
-//TempCode ARM 10Oct97 	}
-//TempCode ARM 10Oct97 	
-//TempCode ARM 10Oct97 	density = pres / (287 * temp);
-//TempCode ARM 10Oct97 
-//TempCode ARM 10Oct97 	// Scale into this unit system
-//TempCode ARM 10Oct97 	pres *= 0.0001;
-//TempCode ARM 10Oct97 	density *= 0.0001;
-
-//DeadCode CSB 27/10/98		return TRUE;
-//DeadCode CSB 27/10/98	
-//DeadCode CSB 27/10/98	}
-
-//=======================================================================================
-//Bool Atmosphere::Ambient (FP ypos, FP& density, FP& temp, FP& pres)
-//{
 	FP TempRatio = 1 - 0.00000023064 * ypos;
 	if(ypos < 1100000) 	temp = TempRatio * 288.15;
 	else				temp = 216.61;
@@ -429,13 +324,6 @@ Bool Atmosphere::Ambient (FP ypos, FP& density, FP& temp, FP& pres)
 	density = Density0 * pow((float)TempRatio, (float)4.14);
 
 	pres = density * 287 * temp;
-
-
-//DeadCode CSB 17/11/98		pres	*= 0.0001;
-//DeadCode CSB 17/11/98		density *= 0.0001;
-
-//DeadCode CSB 13/07/99		if(pres <= 0)
-//DeadCode CSB 13/07/99			FP DoNothingForABreakPoint = 0.0;
 
 	return TRUE;
 }
@@ -454,9 +342,6 @@ Bool Atmosphere::Ambient (FP ypos, FP& density, FP& temp, FP& pres)
 //------------------------------------------------------------------------------
 Bool Atmosphere::GetWindDirVel (SLong alt, SWord& hdg, SWord& speed)
 {
-//DeadCode CSB 13/06/99	/* TEST CODE CSB 11/06/99 */	hdg   = SWord(182.04 * 270);	//Fix This !!!!
-//DeadCode CSB 13/06/99	/* TEST CODE CSB 11/06/99 */	speed = 750;					//Fix This !!!!
-//DeadCode CSB 13/06/99	/* TEST CODE CSB 11/06/99 */	return(TRUE);					//Fix This !!!!
 	if(!Save_Data.flightdifficulty [FD_WINDEFFECTS])
 	{
 		hdg = 0;
@@ -509,35 +394,6 @@ Bool Atmosphere::GetWind (SLong height, SLong& x, SLong& y, SLong& z)
 {
 	if (Save_Data.flightdifficulty [FD_WINDEFFECTS])
 	{
-//		x = (SLong)Wind.x;
-//		y = (SLong)Wind.y;
-//		z = (SLong)Wind.z;
-
-//DeadCode CSB 10/06/99			if (height <= (WindAltHeight - FT_10000))
-//DeadCode CSB 10/06/99			{
-//DeadCode CSB 10/06/99				x = (SLong)(Wind0.x * 10.0);							//RJS 30Apr99
-//DeadCode CSB 10/06/99				y = (SLong)(Wind0.y * 10.0);							//RJS 30Apr99
-//DeadCode CSB 10/06/99				z = (SLong)(Wind0.z * 10.0);							//RJS 30Apr99
-//DeadCode CSB 10/06/99			}
-//DeadCode CSB 10/06/99			else if (height > WindAltHeight)
-//DeadCode CSB 10/06/99			{
-//DeadCode CSB 10/06/99				x = (SLong)(WindAlt.x * 10.0);							//RJS 30Apr99
-//DeadCode CSB 10/06/99				y = (SLong)(WindAlt.y * 10.0);							//RJS 30Apr99
-//DeadCode CSB 10/06/99				z = (SLong)(WindAlt.z * 10.0);							//RJS 30Apr99
-//DeadCode CSB 10/06/99	
-//DeadCode CSB 10/06/99			}else
-//DeadCode CSB 10/06/99			{
-//DeadCode CSB 10/06/99	//			FP h = height;
-//DeadCode CSB 10/06/99	//			if (h < 0) h = 0;
-//DeadCode CSB 10/06/99				if (height < 0)	height = 0;
-//DeadCode CSB 10/06/99	
-//DeadCode CSB 10/06/99				FP frac = (height - (WindAltHeight - FT_10000));
-//DeadCode CSB 10/06/99				frac /= FP(FT_10000);
-//DeadCode CSB 10/06/99	
-//DeadCode CSB 10/06/99				x = (SLong)(((frac * (WindAlt.x - Wind0.x)) + Wind0.x) * 10.0);//RJS 30Apr99
-//DeadCode CSB 10/06/99				y = (SLong)(((frac * (WindAlt.y - Wind0.y)) + Wind0.y) * 10.0);//RJS 30Apr99
-//DeadCode CSB 10/06/99				z = (SLong)(((frac * (WindAlt.z - Wind0.z)) + Wind0.z) * 10.0);//RJS 30Apr99
-//DeadCode CSB 10/06/99			}
 		SWord dir, vel;
 		GetWindDirVel(height, dir, vel);
 		if(!vel)
@@ -579,34 +435,6 @@ Bool Atmosphere::GetWind (AirStrucPtr const ControlledAC, FCRD& wind, FP height)
 
 	if (Save_Data.flightdifficulty [FD_WINDEFFECTS])
 	{
-//DeadCode CSB 10/06/99	//		wind.x = Wind.x;
-//DeadCode CSB 10/06/99	//		wind.y = Wind.y;
-//DeadCode CSB 10/06/99	//		wind.z = Wind.z;
-//DeadCode CSB 10/06/99	
-//DeadCode CSB 10/06/99			if (height <= (WindAltHeight - FT_10000))
-//DeadCode CSB 10/06/99			{
-//DeadCode CSB 10/06/99				wind.x = Wind0.x;
-//DeadCode CSB 10/06/99				wind.y = Wind0.y;
-//DeadCode CSB 10/06/99				wind.z = Wind0.z;
-//DeadCode CSB 10/06/99			}
-//DeadCode CSB 10/06/99			else if (height > WindAltHeight)
-//DeadCode CSB 10/06/99			{
-//DeadCode CSB 10/06/99				wind.x = (SLong)WindAlt.x;
-//DeadCode CSB 10/06/99				wind.y = (SLong)WindAlt.y;
-//DeadCode CSB 10/06/99				wind.z = (SLong)WindAlt.z;
-//DeadCode CSB 10/06/99	
-//DeadCode CSB 10/06/99			}else
-//DeadCode CSB 10/06/99	
-//DeadCode CSB 10/06/99			{
-//DeadCode CSB 10/06/99				FP h = height;
-//DeadCode CSB 10/06/99				if (h < 0) h = 0;
-//DeadCode CSB 10/06/99	
-//DeadCode CSB 10/06/99				FP frac = (h - (WindAltHeight - FT_10000)) / FT_10000;
-//DeadCode CSB 10/06/99	
-//DeadCode CSB 10/06/99				wind.x = ((frac * (WindAlt.x - Wind0.x)) + Wind0.x);
-//DeadCode CSB 10/06/99				wind.y = ((frac * (WindAlt.y - Wind0.y)) + Wind0.y);
-//DeadCode CSB 10/06/99				wind.z = ((frac * (WindAlt.z - Wind0.z)) + Wind0.z);
-//DeadCode CSB 10/06/99			}
 		SLong wx, wy ,wz;
 		GetWind(pModel->Pos.y, wx, wy, wz);	//CSB 10/06/99	
 		wind.x = wx * 0.1;
@@ -631,9 +459,6 @@ Bool Atmosphere::GetWind (AirStrucPtr const ControlledAC, FCRD& wind, FP height)
 				pModel->Gust.ACTIVE = FALSE;
 				pModel->Gust.Time = 0;
 				NullVec(pModel->Gust.Vec);
-
-				// Restore default gust...						//RJS 08Apr98
-//??				MMC.Sky.SetGusts (25, 125, 3, 7, 56000);			//RJS 08Apr98
 			}
 		}
 		else
@@ -645,16 +470,7 @@ Bool Atmosphere::GetWind (AirStrucPtr const ControlledAC, FCRD& wind, FP height)
 				// magnitude and direction
 				FP magscale = ((FP)(UWord)Math_Lib.rnd() / 65536);
 				FP mag = MinMagnitude + ((MaxMagnitude - MinMagnitude) * magscale);
-//DeadCode CSB 23/12/98					pModel->Gust.Vec.x = 0;
-//DeadCode CSB 23/12/98					pModel->Gust.Vec.y = 1;
-//DeadCode CSB 23/12/98					pModel->Gust.Vec.z = 0;
-//DeadCode CSB 23/12/98					FP angle = Rowan2Rads ((UWord) Math_Lib.rnd());
-//DeadCode CSB 23/12/98					RotVecXSC (pModel->Gust.Vec, pModel->Gust.Vec, FSin(angle), FCos(angle));
-//DeadCode CSB 23/12/98					angle = Rowan2Rads ((UWord) Math_Lib.rnd());
-//DeadCode CSB 23/12/98					RotVecYSC (pModel->Gust.Vec, pModel->Gust.Vec, FSin(angle), FCos(angle));
-//DeadCode CSB 23/12/98					pModel->Gust.Vec.x *= mag;
-//DeadCode CSB 23/12/98					pModel->Gust.Vec.y *= mag;
-//DeadCode CSB 23/12/98					pModel->Gust.Vec.z *= mag;
+
 				pModel->Gust.Vec.x = mag * ((FP)Math_Lib.rnd() - 32768) / 32768;	//CSB 23/12/98
 				pModel->Gust.Vec.y = mag * ((FP)Math_Lib.rnd() - 32768) / 32768;	//CSB 23/12/98
 				pModel->Gust.Vec.z = mag * ((FP)Math_Lib.rnd() - 32768) / 32768;	//CSB 23/12/98
@@ -670,37 +486,6 @@ Bool Atmosphere::GetWind (AirStrucPtr const ControlledAC, FCRD& wind, FP height)
 	return TRUE;
 }
 
-//DeadCode D 02Apr98 //------------------------------------------------------------------------------
-//DeadCode D 02Apr98 //Procedure		SetWind
-//DeadCode D 02Apr98 //Author		Andrew McRae
-//DeadCode D 02Apr98 //Date			Tue 4 Feb 1997
-//DeadCode D 02Apr98 //
-//DeadCode D 02Apr98 //Description	Initialise atmosphere wind 
-//DeadCode D 02Apr98 //
-//DeadCode D 02Apr98 //Inputs		
-//DeadCode D 02Apr98 //
-//DeadCode D 02Apr98 //Returns	
-//DeadCode D 02Apr98 //
-//DeadCode D 02Apr98 //------------------------------------------------------------------------------
-//DeadCode D 02Apr98 void Atmosphere::SetWind (FP xvel, FP yvel, FP zvel)
-//DeadCode D 02Apr98 {
-//DeadCode D 02Apr98 	Wind.x = xvel;
-//DeadCode D 02Apr98 	Wind.y = yvel;
-//DeadCode D 02Apr98 	Wind.z = zvel;
-//DeadCode D 02Apr98 }
-
-//void Atmosphere::SetWind (FCRD& wind0, FCRD& windalt, FP height)
-//{
-//	Wind0.x = wind0.x;
-//	Wind0.y = wind0.y;
-//	Wind0.z = wind0.z;
-//
-//	WindAlt.x = windalt.x;
-//	WindAlt.y = windalt.y;
-//	WindAlt.z = windalt.z;
-//
-//	WindAltHeight = height;
-//}
 
 //------------------------------------------------------------------------------
 //Procedure		SetGusts
@@ -798,9 +583,6 @@ Bool Atmosphere::Contrails (AirStrucPtr ac, ULong& duration)
 		{
 			FP deviation = (pModel->AmbTemp - 220) * 1500;
 			deviation = 0;	//CSB 11/06/99	
-
-//			FP MinHeight = ContrailBandCentre - (pModel->ContrailBand * 0.5) + deviation;//DAW 28Apr98
-//			FP MaxHeight = ContrailBandCentre + (pModel->ContrailBand * 0.5) - deviation;//DAW 28Apr98
 
 			FP MinHeight = ContrailBandCentre - (ContrailBandWidth * 0.5) + deviation;//DAW 28Apr98
 			FP MaxHeight = ContrailBandCentre + (ContrailBandWidth * 0.5) - deviation;//DAW 28Apr98

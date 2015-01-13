@@ -1748,7 +1748,7 @@ RadioSampleRec*	RadioChatter::LoadSample(	RadioMessageP	MessPtr,
 
 				id[4] = 0;
 
-				//NHV if (stricmp(id,"SWAV") == 0)
+				//RERUN if (stricmp(id,"SWAV") == 0)
 				if (_stricmp(id, "SWAV") == 0)
 				{
 					header1 = (SWAV*) longaddress;

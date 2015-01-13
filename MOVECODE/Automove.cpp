@@ -4317,7 +4317,7 @@ void AirStruc::AutoTakeOff ()
 				ai.ManStep=TO_RUNWAYPOWER;
 				SetManoeuvreTime(SECS100/2);	//how long to 'blast'
 			}
-			if (lead != NULL) // NHV
+			if (lead != NULL) // RERUN
 			{
 				if (lead->ai.ManStep == ai.ManStep)
 				{
@@ -6501,7 +6501,7 @@ void AirStruc::AutoBombFollow()
 		case 0:
 		{
 			SHAPE.BombBayDoors(this,ANIM_GEAR_DOWN);		//RJS 28Jun99
-			if (lf != NULL) //NHV
+			if (lf != NULL) //RERUN
 			{
 				if (lf->ai.ManStep >= 14)
 				{
@@ -6533,7 +6533,7 @@ void AirStruc::AutoBombFollow()
 
 		case 5:
 		{
-			if (lf != NULL) //NHV
+			if (lf != NULL) //RERUN
 			{
 				if (lf->movecode == AUTO_FOLLOWWP)
 					GoToAutoFollowWp = TRUE;
@@ -9166,7 +9166,7 @@ Bool AirStruc::SelectBombTarget(Bool NewTarg)
 			{
 				if (((AnyoneInPhaseN(2)) && (!AnyoneInPhaseN(1))) || (!NewTarg))
 				{
-					if (bomblead != NULL) //NHV
+					if (bomblead != NULL) //RERUN
 					{
 						if (bomblead->ai.unfriendly)
 						{

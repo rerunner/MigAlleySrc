@@ -238,7 +238,7 @@ void	Display::XX_SetGraphicsMode()
 
 	RECT	rect;
 	
-	//NHV if (!DD.lpDirectDD->isFullScreen())
+	//RERUN if (!DD.lpDirectDD->isFullScreen())
 	if (!_DirectDraw::lpDirectDD->isFullScreen())
 	{
 		::GetWindowRect(DD.hWnd,&rect);
@@ -260,6 +260,8 @@ void	Display::XX_SetGraphicsMode()
 	
 	virtualXscale = (FULLW+window_width-1) / window_width;
 	virtualYscale = (FULLH+window_height-1) / window_height;
+	
+	virtualXscale /=0.75; //RERUN, temporary hardcoded x-scale correction for 16/9 instead of 4/3 monitors !
 
 	// Memory for DirectDraw Palette Table
 
@@ -783,7 +785,7 @@ ULong Display::SetDirectDrawMode (InitDisplayDef& Mode)
     HRESULT         ddrval;
     DDSCAPS         ddscaps;
 
-	//NHV bool fullScreen=DD.lpDirectDD->isFullScreen();
+	//RERUN bool fullScreen=DD.lpDirectDD->isFullScreen();
 	bool fullScreen = _DirectDraw::lpDirectDD->isFullScreen();
 	int	curmode=DD.DDCurrMode;
 
@@ -1311,7 +1313,7 @@ void Display::RenderTileToDDSurface(UByte* a,const HTEXT& b)
 {if (DD.lpDirect3D) DD.lpDirect3D->RenderTileToDDSurface(&DD,a,b);}
 
 void Display::GetSurfaceDimensions(SLong& a,SLong& b)
-//NHV {if (DD.lpDirectDD!=NULL) DD.lpDirectDD->GetSurfaceDimensions(&DD,a,b);}
+//RERUN {if (DD.lpDirectDD!=NULL) DD.lpDirectDD->GetSurfaceDimensions(&DD,a,b);}
 {
 	if (_DirectDraw::lpDirectDD != NULL) 
 		_DirectDraw::lpDirectDD->GetSurfaceDimensions(&DD, a, b);
@@ -1431,27 +1433,27 @@ void Display::PushPull(UByte a)
 
 void	Display::MakePaletteFadeTable(UByte* a,UWord* b,UByte c,UByte d,UByte e)
 {
- 	//NHV if (DD.lpDirectDD)	DD.lpDirectDD->MakePaletteFadeTable(&DD,a,b,c,d,e);
+ 	//RERUN if (DD.lpDirectDD)	DD.lpDirectDD->MakePaletteFadeTable(&DD,a,b,c,d,e);
 	if (_DirectDraw::lpDirectDD)	
 		_DirectDraw::lpDirectDD->MakePaletteFadeTable(&DD, a, b, c, d, e);
 }
 
 void Display::MakeColourRangeFadeTable(UWord* a,UByte b,UByte c,UByte d,UByte e,UByte f,UByte g)
 {
-	//NHV if (DD.lpDirectDD) DD.lpDirectDD->MakeColourRangeFadeTable(&DD,a,b,c,d,e,f,g);
+	//RERUN if (DD.lpDirectDD) DD.lpDirectDD->MakeColourRangeFadeTable(&DD,a,b,c,d,e,f,g);
 	if (_DirectDraw::lpDirectDD) 
 		_DirectDraw::lpDirectDD->MakeColourRangeFadeTable(&DD, a, b, c, d, e, f, g);
 }
 
 void Display::LockScr(ROWANSURFACEDESC* a)
 {
-	//NHV if (DD.lpDirectDD) DD.lpDirectDD->LockScr(&DD,a);
+	//RERUN if (DD.lpDirectDD) DD.lpDirectDD->LockScr(&DD,a);
 	if (_DirectDraw::lpDirectDD) 
 		_DirectDraw::lpDirectDD->LockScr(&DD, a);
 }
 void Display::UnlockScr(ROWANSURFACEDESC* a)
 {
-	//NHV if (DD.lpDirectDD) DD.lpDirectDD->UnlockScr(&DD,a);
+	//RERUN if (DD.lpDirectDD) DD.lpDirectDD->UnlockScr(&DD,a);
 	if (_DirectDraw::lpDirectDD)
 		_DirectDraw::lpDirectDD->UnlockScr(&DD, a);
 }
@@ -1460,7 +1462,7 @@ void Display::GetColourInfo(UWord& redMask,SWord& redShift1,SWord& redShift2,
 							UWord& greenMask,SWord& greenShift1,SWord& greenShift2,
 							UWord& blueMask,SWord& blueShift1,SWord& blueShift2)
 {
-	//NHV if (DD.lpDirectDD) DD.lpDirectDD->GetColourInfo(&DD,
+	//RERUN if (DD.lpDirectDD) DD.lpDirectDD->GetColourInfo(&DD,
 	if (_DirectDraw::lpDirectDD) 
 		_DirectDraw::lpDirectDD->GetColourInfo(&DD,
 										redMask,redShift1,redShift2,
@@ -1947,7 +1949,7 @@ void Display::SetFade(Colour tCol,SLong step,TwoDeeEffect tdfx)
 //------------------------------------------------------------------------------
 Bool	Display::ModeSupported(ScreenRez* lpSRez)
 {
-	//NHV return (DD.lpDirectDD->ModeSupported(lpSRez));
+	//RERUN return (DD.lpDirectDD->ModeSupported(lpSRez));
 	return (_DirectDraw::lpDirectDD->ModeSupported(lpSRez));
 }
 
@@ -1965,7 +1967,7 @@ Bool	Display::ModeSupported(ScreenRez* lpSRez)
 //------------------------------------------------------------------------------
 Bool	Display::DriverIsCapable(SWord drvno)
 {
-	//NHV return (DD.lpDirectDD->DriverIsCapable(drvno));
+	//RERUN return (DD.lpDirectDD->DriverIsCapable(drvno));
 	return (_DirectDraw::lpDirectDD->DriverIsCapable(drvno));
 }
 
@@ -1986,7 +1988,7 @@ UByte*	Display::NameNumberedDriver(SWord driverno)
 	if (driverno==-1)	
 		return (NULL);
 	
-	//NHV return (DD.lpDirectDD->NameNumberedDriver(driverno));
+	//RERUN return (DD.lpDirectDD->NameNumberedDriver(driverno));
 	return (_DirectDraw::lpDirectDD->NameNumberedDriver(driverno));
 }
 
@@ -2004,7 +2006,7 @@ UByte*	Display::NameNumberedDriver(SWord driverno)
 //------------------------------------------------------------------------------
 SWord Display::CountDrivers()
 {
- 	//NHV return (DD.lpDirectDD->CountDrivers());
+ 	//RERUN return (DD.lpDirectDD->CountDrivers());
 	return (_DirectDraw::lpDirectDD->CountDrivers());
 }
 

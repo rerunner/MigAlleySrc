@@ -171,7 +171,7 @@ CON	ViewPoint::ViewPoint(Window* win,View3d* v)
 	currwin=win;
 	view3dwin=v;
 	static	View_Key	VieweeList[] =
-	{ // NHV added (InitRtnP)(&ViewPoint::<name>)
+	{ // RERUN added (InitRtnP)(&ViewPoint::<name>)
 		{ RESETVIEW, (InitRtnP)(&ViewPoint::InitFlyingView) },								//PD 03Sep96
 		{ ENEMYVIEW, (InitRtnP)(&ViewPoint::InitEnemy) },
 		{ FRNDVIEW, (InitRtnP)(&ViewPoint::InitFriendly) },
@@ -3093,8 +3093,8 @@ void ViewPoint::PrevGroundTarget()
 			ItemBasePtr lasttarg=currentgndtargitem;
 			if (currentgndtargitem == &GroundTargItem)
 			{
-				//NHV lasttarg == currentgndtargitem->Next;
-				// probably is --> lasttarg = currentgndtargitem->Next; //NHV
+				//RERUN lasttarg == currentgndtargitem->Next;
+				// probably is --> lasttarg = currentgndtargitem->Next; //RERUN
 			}
 			if (lasttarg)
 				skiprangeover=trackeditem->Distance3DSquared(&lasttarg->World);

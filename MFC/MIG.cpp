@@ -386,7 +386,7 @@ BOOL CMIGApp::InitInstance()
 	//  the specific initialization routines you do not need.
 
 #ifdef _AFXDLL
-//NHV	Enable3dControls();			// Call this when using MFC in a shared DLL
+//RERUN	Enable3dControls();			// Call this when using MFC in a shared DLL
 #else
 	Enable3dControlsStatic();	// Call this when linking to MFC statically
 #endif
@@ -545,8 +545,8 @@ BOOL CMIGApp::InitInstance()
 	g_OffScreenDC.CreateCompatibleDC(pdc);
 	g_OffScreenDC.SetMapMode(MM_TEXT);
 	m_pMainWnd->ReleaseDC(pdc);
-	char* curlyfont="?????????"; //NHV
-	char* straightfont="?????????????"; //NHV
+	char* curlyfont="?????????"; //RERUN
+	char* straightfont="?????????????"; //RERUN
 	int	gotfont=false;
 	char*	myfont="Intel";										//DAW 29Oct99
 
@@ -736,16 +736,16 @@ int CMIGApp::Run()
 //DeadCode AMM 28Oct98 
 			break;
 
-			//NHV Start
+			//RERUN Start
 #if     _MSC_VER >= 1300
 #define AFXATTR AfxGetThreadState()->m_msgCur
 #else
 #define AFXATTR m_msgCur
 #endif
-			//NHV end
+			//RERUN end
 
 		case WAIT_OBJECT_0+Mast3d::NUM_EVENTS:
-			//NHV while (::PeekMessage(&m_msgCur, NULL, NULL, NULL, PM_NOREMOVE))
+			//RERUN while (::PeekMessage(&m_msgCur, NULL, NULL, NULL, PM_NOREMOVE))
 			while (::PeekMessage(&AFXATTR, NULL, NULL, NULL, PM_NOREMOVE))
 			{
 				bool fIn3d=Inst3d::InThe3D();

@@ -44,7 +44,7 @@
 #define LOCAL_new(DEBUG_NEW_PARAMS)	new
 #define	DEBUG_NEW_PARAMS (__FILE__, __LINE__)
 
-#if 0 //NHV #ifndef new
+#if 0 //RERUN #ifndef new
 extern void*  operator new(unsigned int nSize);
 
 extern void* __cdecl operator new(unsigned int nSize,const char* FileName, int nLine);
@@ -60,8 +60,8 @@ extern void* __cdecl operator new(unsigned int nSize,const char* FileName, int n
         #endif
 #endif */
 
-#define DEBUG_NEW new //NHV
-//NHV #define	new DEBUG_NEW
+#define DEBUG_NEW new //RERUN
+//RERUN #define	new DEBUG_NEW
 //
 //
 //these 2 are done always to override any sys lib garbage

@@ -128,7 +128,7 @@ BEGIN_EVENTSINK_MAP(CWaveInsert, CDialog)
 END_EVENTSINK_MAP()
 
 
-//NHV start
+//RERUN start
 int localValidateTime(CString* buffer, int packnum, int wavenum)
 {
 	
@@ -181,7 +181,7 @@ int localValidateTime(CString* buffer, int packnum, int wavenum)
 		return(time);
 
 }
-//NHV end
+//RERUN end
 void CWaveInsert::OnOKTitle() 
 {
 //	maxrows++;
@@ -204,7 +204,7 @@ void CWaveInsert::OnOKTitle()
 			edit=GETDLGITEM(IDC_TIME);
 			buffer = edit->GetCaption();
 		}
-		//NHV int time = Profile::ValidateTime(&buffer, packnum, wavenum);
+		//RERUN int time = Profile::ValidateTime(&buffer, packnum, wavenum);
 		int time = localValidateTime(&buffer, packnum, wavenum);
 
 		Todays_Packages[packnum][wavenum].targettime = time * 60;

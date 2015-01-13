@@ -102,7 +102,7 @@ questions about this file may be asked at http://www.simhq.com/
 #include "CString.h"
 #endif
 
-#define _WINBASE_ // NHV position matters
+#define _WINBASE_ // RERUN position matters
 #include "winfile.h"
 #include	"stub3d.h"
 #ifdef __MSVC__

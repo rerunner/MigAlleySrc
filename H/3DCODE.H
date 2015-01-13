@@ -157,8 +157,8 @@ class	ThreeDee
 		{
         	int	i;	//the standard says... you can't access for statement locals outside 
 			for (i=cur_rec-1;i>=0 && posRecTable[i].ip!=ip;i--) {}
-			//NHV if (i==-1) return false;
-			if ((i <= -1) || (i > 32)) return false; //NHV range checking for posRecTable
+			//RERUN if (i==-1) return false;
+			if ((i <= -1) || (i > 32)) return false; //RERUN range checking for posRecTable
 			pos=posRecTable[i].pos;
 			return true;
 		}

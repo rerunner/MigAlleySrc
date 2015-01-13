@@ -163,7 +163,7 @@ static	void	FixPairs(int	usedaxesbefore,int	usedaxes)
 			if (yaxis>=usedaxes || !connectedaxes[yaxis].ytype || connectedaxes[yaxis].pairaxisnum !=-1)
 				for (yaxis=usedaxesbefore;yaxis<usedaxes;yaxis++)
 					breakif(connectedaxes[yaxis].ytype && connectedaxes[yaxis].pairaxisnum ==-1);
-			if ((yaxis<usedaxes) && (yaxis >= 0)) //NHV added yaxis check >= 0
+			if ((yaxis<usedaxes) && (yaxis >= 0)) //RERUN added yaxis check >= 0
 			{
 				connectedaxes[xaxis].pairaxisnum=yaxis;
 				connectedaxes[yaxis].pairaxisnum=xaxis;

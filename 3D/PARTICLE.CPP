@@ -71,7 +71,7 @@ questions about this file may be asked at http://www.simhq.com/
 //------------------------------------------------------------------------------
 //				           INCLUDE FILES
 //------------------------------------------------------------------------------
-#include <atlstr.h> //NHV
+#include <atlstr.h> //RERUN
 
 	#include	"DOSDefs.h"
 	//#include	"MAClib.h"f

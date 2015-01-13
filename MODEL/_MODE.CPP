@@ -60,7 +60,7 @@
 questions about this file may be asked at http://www.simhq.com/
 */
 #include <Windows.h>
-#include <atlstr.h> //NHV
+#include <atlstr.h> //RERUN
 #include "_MODE.h"
 #include "..\MODEL\Acmai.cpp"
 #include "..\MODEL\Acmman.cpp"

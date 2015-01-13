@@ -2479,8 +2479,8 @@ bool Profile::CalcFuel(int wavenum, int group, UniqueID wpuid, int& reqfuel)
 		int dtime;
 
 		int leadgrp = 0;
-		// NHV if (		
-		//NHV 	)
+		// RERUN if (		
+		//RERUN 	)
 			//not escorting
 			leadgrp = group;
 		//leadgroup is used to determine cruise vel and bestclimb data
@@ -2698,7 +2698,7 @@ Profile::WaveSplitting	Profile::Wave::GetRouteSplitting(int groupnum,int acnum)
 	{
 		//ok.. route not split. Does it use primary target or own subtarget?
 		//if it is a patrol then always say primary
-		if (trgwp->target.complex && trgwp->target->type==(Type)(Expr::EXPR_GLOB)) // NHV cast added
+		if (trgwp->target.complex && trgwp->target->type==(Type)(Expr::EXPR_GLOB)) // RERUN cast added
 			if (	trgwp->target.UsesGlobRef()>=SGR_Pack_Targ_F0_E0
 				&&	trgwp->target.UsesGlobRef()<=SGR_Pack_Targ_Fmax_E1
 				)
@@ -2707,7 +2707,7 @@ Profile::WaveSplitting	Profile::Wave::GetRouteSplitting(int groupnum,int acnum)
 		if (patu && patu!=trgu)
 		{
 			trgwp=*Persons2::ConvertPtrUID(patu);
-			if (trgwp->target.complex && trgwp->target->type==(Type)(Expr::EXPR_GLOB))// NHV cast added
+			if (trgwp->target.complex && trgwp->target->type==(Type)(Expr::EXPR_GLOB))// RERUN cast added
 				if (	trgwp->target.UsesGlobRef()>=SGR_Pack_Targ_F0_E0
 					&&	trgwp->target.UsesGlobRef()<=SGR_Pack_Targ_Fmax_E1
 					)
@@ -3108,7 +3108,7 @@ void	Profile::ModifyRoute(int wavenum,int groupnum,int acnum)
 				UniqueID t=wave[wavenum].FindWpBetween(waf,wal,groupnum,0,0);
 				assert(t);
 				info_waypoint* wp=*Persons2::ConvertPtrUID(t);
-				if (wp->target.complex && wp->target->type==(Type)(Expr::EXPR_GLOB))// NHV cast added
+				if (wp->target.complex && wp->target->type==(Type)(Expr::EXPR_GLOB))// RERUN cast added
 					if (	wp->target.UsesGlobRef()>=SGR_Pack_Targ_F0_E0
 						&&	wp->target.UsesGlobRef()<=SGR_Pack_Targ_Fmax_E1
 						)
@@ -3117,7 +3117,7 @@ void	Profile::ModifyRoute(int wavenum,int groupnum,int acnum)
 				if(t)
 				{
 					info_waypoint* wp=*Persons2::ConvertPtrUID(t);
-					if (wp->target.complex && wp->target->type==(Type)(Expr::EXPR_GLOB))// NHV cast added
+					if (wp->target.complex && wp->target->type==(Type)(Expr::EXPR_GLOB))// RERUN cast added
 						if (	wp->target.UsesGlobRef()>=SGR_Pack_Targ_F0_E0
 							&&	wp->target.UsesGlobRef()<=SGR_Pack_Targ_Fmax_E1
 							)
@@ -3135,7 +3135,7 @@ void	Profile::ModifyRoute(int wavenum,int groupnum,int acnum)
 				int assglobref=FindSpareGlobref();
 				wave[wavenum][groupnum][0].globrefind=assglobref;
 				if (wave[wavenum][groupnum][0].primary.Independent())
-					if (wp->target.complex && wp->target->type==(Type)(Expr::EXPR_GLOB))// NHV cast added
+					if (wp->target.complex && wp->target->type==(Type)(Expr::EXPR_GLOB))// RERUN cast added
 						if (wp->target.UsesGlobRef()==SGR_Pack_Target)
 							wp->target.UsesGlobRef()=assglobref;
 				UniqueID p=wave[wavenum].FindWpBetween(wpf,wpl,groupnum,0,0);
@@ -3146,7 +3146,7 @@ void	Profile::ModifyRoute(int wavenum,int groupnum,int acnum)
 						if (wave[wavenum][groupnum][0].secondary.Independent())
 						{
 							info_waypoint* wp=*Persons2::ConvertPtrUID(p);
-							if (wp->target.complex && wp->target->type==(Type)(Expr::EXPR_GLOB)) // NHV cast added
+							if (wp->target.complex && wp->target->type==(Type)(Expr::EXPR_GLOB)) // RERUN cast added
 								if (wp->target.UsesGlobRef()==SGR_Pack_Target)
 									wp->target.UsesGlobRef()=assglobref+1;
 						}
@@ -3156,7 +3156,7 @@ void	Profile::ModifyRoute(int wavenum,int groupnum,int acnum)
 						if (wave[wavenum][groupnum][0].primary.Independent())
 						{
 							info_waypoint* wp=*Persons2::ConvertPtrUID(p);
-							if (wp->target.complex && wp->target->type==(Type)(Expr::EXPR_GLOB))// NHV cast added
+							if (wp->target.complex && wp->target->type==(Type)(Expr::EXPR_GLOB))// RERUN cast added
 								if (wp->target.UsesGlobRef()==SGR_Pack_Target)
 									wp->target.UsesGlobRef()=assglobref;
 						}

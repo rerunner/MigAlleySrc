@@ -67,7 +67,7 @@ questions about this file may be asked at http://www.simhq.com/
 //Date           Wed 15 Jul 1998
 //Description    
 //------------------------------------------------------------------------------
-#include <atlstr.h> //NHV
+#include <atlstr.h> //RERUN
 #define F_GRAFIX
 #define F_SOUNDS
 #define F_BATTLE
@@ -1540,9 +1540,9 @@ void SetInitialLandTextureCoordinates(const SLong x,const SLong z)
 	ULong	update_mask;
 	SLong	maxTextureLevels;
 
-//	maxTextureLevels=Save_Data.detail_3d[DETAIL3D_HORIZONDIST]?
-//						Max_TextureLevelsMAX:Max_TextureLevelsMIN;
-	maxTextureLevels=Max_TextureLevelsMIN;
+	maxTextureLevels=Save_Data.detail_3d[DETAIL3D_HORIZONDIST]?
+						Max_TextureLevelsMAX:Max_TextureLevelsMIN;
+	//RERUN maxTextureLevels=Max_TextureLevelsMIN;
 	
 	update_size=Grid_Width>>3;
 	square_halfsize=Grid_Width>>1;
@@ -1584,9 +1584,9 @@ bool CheckForLandUpdate(const SLong x,const SLong z)
 
 	SLong	maxTextureLevels;
 
-///	maxTextureLevels=Save_Data.detail_3d[DETAIL3D_HORIZONDIST]?
-//						Max_TextureLevelsMAX:Max_TextureLevelsMIN;
-	maxTextureLevels=Max_TextureLevelsMIN;
+	maxTextureLevels=Save_Data.detail_3d[DETAIL3D_HORIZONDIST]?
+						Max_TextureLevelsMAX:Max_TextureLevelsMIN;
+	//RERUN maxTextureLevels=Max_TextureLevelsMIN;
 
 	update_size=Grid_Width>>3;
 	square_halfsize=Grid_Width>>1;
@@ -1677,10 +1677,11 @@ inline void SetTargetClip(const Box& b) {targetBox=b;}
 //------------------------------------------------------------------------------
 inline SLong MakeDataGridIndex(const SLong x,const SLong z)
 {
-//	SLong dataGridSize=Save_Data.detail_3d[DETAIL3D_HORIZONDIST]?
-//						DataGridSizeMAX:DataGridSizeMIN;
-	SLong dataGridSize=DataGridSizeMIN;
- 	SLong xi=(x-gridRecordBase_x)/Grid_Width;
+	SLong dataGridSize=Save_Data.detail_3d[DETAIL3D_HORIZONDIST]?
+						DataGridSizeMAX:DataGridSizeMIN;
+ 	//RERUN SLong dataGridSize=DataGridSizeMIN;
+
+	SLong xi=(x-gridRecordBase_x)/Grid_Width;
 	if (xi<0 || xi>dataGridSize-1) return -1;
 	SLong zi=(z-gridRecordBase_z)/Grid_Width;
 	if (zi<0 || zi>dataGridSize-1) return -1;
@@ -2538,9 +2539,9 @@ void InitGridRecords(const SLong x,const SLong z)
 	DataRecord* pdr;
 	ShadowStruc* psr=shadowRecords;
 
-//	dataGridSize=Save_Data.detail_3d[DETAIL3D_HORIZONDIST]?
-//					DataGridSizeMAX:DataGridSizeMIN;
-	dataGridSize=DataGridSizeMIN;
+	dataGridSize=Save_Data.detail_3d[DETAIL3D_HORIZONDIST]?
+					DataGridSizeMAX:DataGridSizeMIN;
+	//RERUN dataGridSize=DataGridSizeMIN;
 
 	pdr=gridRecords;
 	ox=(x&Grid_Mask)-((dataGridSize>>1)*Grid_Width);
@@ -2576,9 +2577,9 @@ void ProcessLandUpdateRequests(const SLong x,const SLong z,bool firstTime=false)
 	ULong	update_mask;
 	SLong	maxTextureLevels;
 
-//	maxTextureLevels=Save_Data.detail_3d[DETAIL3D_HORIZONDIST]?
-//					Max_TextureLevelsMAX:Max_TextureLevelsMIN;
-	maxTextureLevels=Max_TextureLevelsMIN;
+	maxTextureLevels=Save_Data.detail_3d[DETAIL3D_HORIZONDIST]?
+					Max_TextureLevelsMAX:Max_TextureLevelsMIN;
+	//RERUN maxTextureLevels=Max_TextureLevelsMIN;
 
 	update_size=(Grid_Width>>3)<<detail_min;
 	square_halfsize=(Grid_Width>>1)<<detail_min;
@@ -2612,8 +2613,9 @@ void ProcessLandUpdateRequests(const SLong x,const SLong z,bool firstTime=false)
 //------------------------------------------------------------------------------
 inline DataRecord GetBlock(const SLong x,const SLong z)
 {
-//	SLong dataGridSize=Save_Data.detail_3d[DETAIL3D_HORIZONDIST]?DataGridSizeMAX:DataGridSizeMIN;
-	SLong dataGridSize=DataGridSizeMIN;
+	SLong dataGridSize=Save_Data.detail_3d[DETAIL3D_HORIZONDIST]?DataGridSizeMAX:DataGridSizeMIN;
+	//RERUN SLong dataGridSize=DataGridSizeMIN;
+
 	SLong ix=(x&Grid_Mask)-gridRecordBase_x;
 	SLong iz=(z&Grid_Mask)-gridRecordBase_z;
 	ix/=Grid_Width;
@@ -2630,8 +2632,9 @@ void GetSquares(Rect* squares)
 {
 	SLong square_size=131072;
 	SLong maxTextureLevels;
-//	maxTextureLevels=Save_Data.detail_3d[DETAIL3D_HORIZONDIST]?Max_TextureLevelsMAX:Max_TextureLevelsMIN;
-	maxTextureLevels=Max_TextureLevelsMIN;
+	maxTextureLevels=Save_Data.detail_3d[DETAIL3D_HORIZONDIST]?Max_TextureLevelsMAX:Max_TextureLevelsMIN;
+	//RERUN maxTextureLevels=Max_TextureLevelsMIN;
+
 	for (int i=0;i<maxTextureLevels;i++)
 	{
 		Rect& r=squares[i];
@@ -2650,10 +2653,9 @@ void GetSquares(Rect* squares)
 //------------------------------------------------------------------------------
 void MakeClipRects()
 {
-//	Rect squares[Max_TextureLevels];
-//	SLong maxTextureLevels=Save_Data.detail_3d[DETAIL3D_HORIZONDIST]?
-//							Max_TextureLevelsMAX:Max_TextureLevelsMIN;
-	SLong maxTextureLevels=Max_TextureLevelsMIN;
+	SLong maxTextureLevels=Save_Data.detail_3d[DETAIL3D_HORIZONDIST]?
+							Max_TextureLevelsMAX:Max_TextureLevelsMIN;
+	//RERUN SLong maxTextureLevels=Max_TextureLevelsMIN;
 
 	Rect* squares=new Rect[maxTextureLevels];
 
@@ -2767,9 +2769,9 @@ void clip_recurse(SLong* xvals,SLong* zvals,SLong level,SquareClips* psqc)
 	UWord oredFlags;
 	int t, s;
 
-//	maxTextureLevels=Save_Data.detail_3d[DETAIL3D_HORIZONDIST]?
-//						Max_TextureLevelsMAX:Max_TextureLevelsMIN;
-	maxTextureLevels=Max_TextureLevelsMIN;
+	maxTextureLevels=Save_Data.detail_3d[DETAIL3D_HORIZONDIST]?
+						Max_TextureLevelsMAX:Max_TextureLevelsMIN;
+	//RERUN maxTextureLevels=Max_TextureLevelsMIN;
 
 	Rect& out=clipRects[levelBase];
 
@@ -2969,13 +2971,13 @@ void TileClipCone(const SLong wx,const SLong wz)
 	SLong dataGridSize;
 	SLong wholeAreaSize;
 
-//	dataGridSize=Save_Data.detail_3d[DETAIL3D_HORIZONDIST]?
-//					DataGridSizeMAX:DataGridSizeMIN;
+	dataGridSize=Save_Data.detail_3d[DETAIL3D_HORIZONDIST]?
+					DataGridSizeMAX:DataGridSizeMIN;
 
-//	wholeAreaSize=Save_Data.detail_3d[DETAIL3D_HORIZONDIST]?
-//					_wholeAreaSizeMAX:_wholeAreaSizeMIN;
-	dataGridSize=DataGridSizeMIN;
-	wholeAreaSize=_wholeAreaSizeMIN;
+	wholeAreaSize=Save_Data.detail_3d[DETAIL3D_HORIZONDIST]?
+					_wholeAreaSizeMAX:_wholeAreaSizeMIN;
+	//RERUN dataGridSize=DataGridSizeMIN;
+	//RERUN wholeAreaSize=_wholeAreaSizeMIN;
 
 	ox=(wx&Grid_Mask)-((dataGridSize>>1)*Grid_Width);
 	oz=(wz&Grid_Mask)-((dataGridSize>>1)*Grid_Width);
@@ -3633,20 +3635,21 @@ void PolyOutline(UByte* p)
 //------------------------------------------------------------------------------
 void AllocateBuffers()
 {
-//	if (Save_Data.detail_3d[DETAIL3D_HORIZONDIST])
-//	{
+	if (Save_Data.detail_3d[DETAIL3D_HORIZONDIST])
+    //RERUN activated
+	{
 		//full horizon
 
-//		land_x=new SLong[Max_TextureLevelsMAX];
-//		land_z=new SLong[Max_TextureLevelsMAX];
-//		update_req=new bool[Max_TextureLevelsMAX];
- //		gridRecords=new DataRecord[DataGridSizeMAX*DataGridSizeMAX];
-//		shadowRecords=new ShadowStruc[DataGridSizeMAX*DataGridSizeMAX];
-//		clipRects=new Rect[5*(Max_TextureLevelsMAX-1)+1];
-//		gridClipper=new UByte[_areaBufferSizeMAX];
-//		wholeAreaClips=new SquareClips[_areaBufferSizeMAX];
-//	}
-//	else
+		land_x=new SLong[Max_TextureLevelsMAX];
+		land_z=new SLong[Max_TextureLevelsMAX];
+		update_req=new bool[Max_TextureLevelsMAX];
+		gridRecords=new DataRecord[DataGridSizeMAX*DataGridSizeMAX];
+		shadowRecords=new ShadowStruc[DataGridSizeMAX*DataGridSizeMAX];
+		clipRects=new Rect[5*(Max_TextureLevelsMAX-1)+1];
+		gridClipper=new UByte[_areaBufferSizeMAX];
+		wholeAreaClips=new SquareClips[_areaBufferSizeMAX];
+	}
+	else
 	{
 		//reduced horizon
 
@@ -4776,8 +4779,9 @@ void GetMinMaxAlt(const SLong x,const SLong z,const SWord dir,SLong& min,SLong& 
 //------------------------------------------------------------------------------
 void GetMinMaxAlt(const SLong x,const SLong z,SLong& min,SLong& max)
 {
-//	SLong dataGridSize=Save_Data.detail_3d[DETAIL3D_HORIZONDIST]?DataGridSizeMAX:DataGridSizeMIN;
-	SLong dataGridSize=DataGridSizeMIN;
+	SLong dataGridSize=Save_Data.detail_3d[DETAIL3D_HORIZONDIST]?DataGridSizeMAX:DataGridSizeMIN;
+	//RERUN SLong dataGridSize=DataGridSizeMIN;
+
 	SLong ix=(x&Grid_Mask)-gridRecordBase_x;
 	SLong iz=(z&Grid_Mask)-gridRecordBase_z;
 	ix/=Grid_Width;

@@ -176,7 +176,7 @@ void MIG15_Setup (AirStrucPtr const ControlledAC, ULong Version)
 								  _CurveRsc.FindCurve ("F86E", "JetWindMillDrag"),
 								  _CurveRsc.FindCurve ("F86E", "JetWindMillRpm"));
 			break;
-		default: //NHV added, like case 1
+		default: //RERUN added, like case 1
 			pEngine = new ENGINE(pModel, ET_JET, 22269, 11500, 0.00000005,
 				_CurveRsc.FindCurve("MIG15", "JetMachFact"),
 				_CurveRsc.FindCurve("F86E", "JetThrustRpm"),

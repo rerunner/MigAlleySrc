@@ -59,9 +59,9 @@
 
 questions about this file may be asked at http://www.simhq.com/
 */
-#include <Windows.h> //NHV
-#include <atlstr.h> //NHV
-//#define DIRECTINPUT_VERSION 0x700 // NHV
+#include <Windows.h> //RERUN
+#include <atlstr.h> //RERUN
+//#define DIRECTINPUT_VERSION 0x700 // RERUN
 //#ifdef _AFXDLL
 // #include <afxwin.h>
 //#else

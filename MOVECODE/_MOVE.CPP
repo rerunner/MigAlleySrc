@@ -60,7 +60,7 @@
 questions about this file may be asked at http://www.simhq.com/
 */
 #include <Windows.h>
-#include <atlstr.h> //NHV
+#include <atlstr.h> //RERUN
 #include "_MOVE.h"
 #include "..\MOVECODE\Automove.cpp"
 #include "..\MOVECODE\Flyinit.cpp"

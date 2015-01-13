@@ -70,13 +70,13 @@ questions about this file may be asked at http://www.simhq.com/
 #include "MIGView.h"
 #include "CntrItem.h"
 
-//NHV #ifdef _DEBUG
-//NHV #define new DEBUG_NEW
-//NHV #ifndef THIS_FILE_DEFINED
-//NHV #undef THIS_FILE
-//NHV static char THIS_FILE[] = __FILE__;
-//NHV #endif
-//NHV #endif
+//RERUN #ifdef _DEBUG
+//RERUN #define new DEBUG_NEW
+//RERUN #ifndef THIS_FILE_DEFINED
+//RERUN #undef THIS_FILE
+//RERUN static char THIS_FILE[] = __FILE__;
+//RERUN #endif
+//RERUN #endif
 /////////////////////////////////////////////////////////////////////////////
 // CMIGCntrItem implementation
 

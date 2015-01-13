@@ -19,8 +19,8 @@
 
 #define	DEFAULT_BSTREAM 0
 
-#include	<iostream> // NHV removed .h
-#include	<fstream> // NHV removed .h
+#include	<iostream> // RERUN removed .h
+#include	<fstream> // RERUN removed .h
 #include	<stdio.h>
 #include	<string.h>
 
@@ -58,23 +58,23 @@ CON	BIStream(char* fname): ifstream()	{open(fname,ios::in+ios::binary);}
 	BIStream &read(  unsigned long * __b ,int times=1)	{return (BIStream&)(istream::read((char*)__b,times*sizeof(unsigned long)));}
 };
 
-//NHV class	CString;
+//RERUN class	CString;
 class	BOStream:public ofstream
 {
 public:
 
 #ifndef __WATCOMC__
 CON	BOStream(char* fname,Bool blockoverwrite=FALSE):ofstream()
-//NHV	{	open(fname,ios::out+ios::binary+
-//NHV			(blockoverwrite?ios::noreplace:ios::trunc));	}
-	{	open(fname,ios::out+ios::binary);	} // NHV, like bob
+//RERUN	{	open(fname,ios::out+ios::binary+
+//RERUN			(blockoverwrite?ios::noreplace:ios::trunc));	}
+	{	open(fname,ios::out+ios::binary);	} // RERUN, like bob
 #else
 CON	BOStream(char* fname,Bool blockoverwrite=FALSE):ofstream()
 	{	open(fname,ios::out+ios::binary+
 			(blockoverwrite?ios::noreplace:ios::truncate));	}
 #endif
 
-    //NHV BOStream &operator << (const    CString& __b );//	{return (write(__b,strlen(__b)));}
+    //RERUN BOStream &operator << (const    CString& __b );//	{return (write(__b,strlen(__b)));}
     BOStream &operator << (const           char * __b )	{return (write(__b,strlen(__b)));}
     BOStream &operator << (const           char & __b )	{return (write(&__b));}
     BOStream &operator << (const    signed char & __b )	{return (write(&__b));}

@@ -68,7 +68,7 @@ questions about this file may be asked at http://www.simhq.com/
 //Description    Smacker interface for migalley
 // getfreediskspace
 //------------------------------------------------------------------------------
-#include <atlstr.h> //NHV
+#include <atlstr.h> //RERUN
 
 #include	"DosDefs.h"
 #include	"Display.h"

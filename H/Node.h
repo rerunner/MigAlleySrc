@@ -18,7 +18,7 @@
 #include	"movement.h"
 #include	"flyinit.h"
 
-//NHV class CString;
+//RERUN class CString;
 #include "batnode.h"
 #include "package.h"
 //TempCode JIM 17Mar99 #include "debrief.h"

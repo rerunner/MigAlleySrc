@@ -164,17 +164,17 @@ class	ViewPoint : public mobileitem							//PD 08Mar96
 	Window* currwin;
 	friend class	InfoPanelSheet;								//JIM 11Oct96
 	friend class	DPlay;										//AMM 16Mar99
-	//NHV typedef void(__cdecl ViewPoint::*InitRtnP) (void );
-	typedef void(__thiscall ViewPoint::*InitRtnP) (void ); //NHV
+	//RERUN typedef void(__cdecl ViewPoint::*InitRtnP) (void );
+	typedef void(__thiscall ViewPoint::*InitRtnP) (void ); //RERUN
 	typedef void(ViewPoint::InitRtn) (void );
 
-	typedef void(__thiscall ViewPoint::*ZmRtRtnP) (ZmRtFlags ); //NHV, was __cdecl
+	typedef void(__thiscall ViewPoint::*ZmRtRtnP) (ZmRtFlags ); //RERUN, was __cdecl
 	typedef void(ViewPoint::ZmRtRtn) (ZmRtFlags );
 
-	typedef void(__thiscall ViewPoint::*DrawRtnP) (void );//NHV, was __cdecl
+	typedef void(__thiscall ViewPoint::*DrawRtnP) (void );//RERUN, was __cdecl
 	typedef void(ViewPoint::DrawRtn) (void );
 
-	typedef void(__thiscall ViewPoint::*QVRtnP) (QuickView );//NHV, was __cdecl
+	typedef void(__thiscall ViewPoint::*QVRtnP) (QuickView );//RERUN, was __cdecl
 	typedef void(ViewPoint::QVRtn) (QuickView );				//PD 28Jan97
 
 	typedef struct	ViewRec

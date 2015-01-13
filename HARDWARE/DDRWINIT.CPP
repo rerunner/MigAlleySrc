@@ -71,15 +71,15 @@ questions about this file may be asked at http://www.simhq.com/
 #define INITGUID
 #define WIN32_LEAN_AND_MEAN
 #undef LPDDCAPS
-//#include <windows.h> // NHV
+//#include <windows.h> // RERUN
 #include <dos.h>
 
 #define	F_GRAFIX
 #include "DosDefs.H"
 #include <ddraw.h>
 #include "Display.H"
-//NHV #undef LPDDCAPS
-//NHV #include <windows.h>
+//RERUN #undef LPDDCAPS
+//RERUN #include <windows.h>
 
 #include "Palette.H"
 #define	F_BATTLE
@@ -582,12 +582,14 @@ Bool Display::InitDirectDraw ()
 			if (DD.DDModes[x].width==gameSettings.m_dwWidth &&
 				DD.DDModes[x].height==gameSettings.m_dwHeight &&
 				DD.DDModes[x].colourdepth==16)
-			{ //NHV the real screen width / height is set here for the 3d world
+			{ //RERUN the real screen width / height is set here for the 3d world
 				DD.DDCurrMode=x;
 		Mono_Text.Print(gameSettings.m_dwHeight,UByteP("gameSettingsHeight"));
 		Mono_Text.Print(gameSettings.m_dwWidth,UByteP("gameSettingsWidth"));
 		Mono_Text.Print(DD.DDCurrMode,UByteP("Mode num"));
 
+				DD.DDModes[x].width=1366; //RERUN hack
+				DD.DDModes[x].height=768; //RERUN hack
 
 				break;
 			}

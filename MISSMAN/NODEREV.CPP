@@ -147,7 +147,7 @@ questions about this file may be asked at http://www.simhq.com/
 //			to help defence
 //			to help attack
 //
-#include <atlstr.h> //NHV
+#include <atlstr.h> //RERUN
 #include	"dosdefs.h"											//RJS 30Aug96
 //#include	"stdafx.h"
 #include	"myerror.h"												  //DAW 26/04/99
@@ -2532,7 +2532,7 @@ bool	BattleStruct::NextAttackDecisions()
 			if (teamdif)
 				teamlist[i-teamdif]=teamlist[i];
 	usedteams-=teamdif;
-	if (usedteams < 0) //NHV added safety check
+	if (usedteams < 0) //RERUN added safety check
 		usedteams = 0;
 	for (i=usedteams;i<MAXTEAMS;i++)
 		teamlist[i].strength=0;
@@ -2557,7 +2557,7 @@ bool	BattleStruct::PostAttackDecisions()
 			if (teamdif)
 				teamlist[i-teamdif]=teamlist[i];
 	usedteams-=teamdif;
-	if (usedteams < 0) //NHV added safety check
+	if (usedteams < 0) //RERUN added safety check
 		usedteams = 0;
 	for (i=usedteams;i<MAXTEAMS;i++)
 		teamlist[i].strength=0;

@@ -67,9 +67,9 @@ questions about this file may be asked at http://www.simhq.com/
 //Date           Wed 29 Apr 1998
 //Description    
 //------------------------------------------------------------------------------
-//#include "afx.h" //NHV
+//#include "afx.h" //RERUN
 #include	"aggrgtor.h"
-//NHV#include	"stdio.h"
+//RERUN#include	"stdio.h"
 #include	"comms.h"
 #include	"stub3d.h"
 
@@ -763,8 +763,8 @@ bool Aggregator::MakeAndSendPacket(LPAGGSENDPACKET packet, Bool buffer)
 
 	res=_DPlay.lpDP4->SendEx(_DPlay.aggID,_DPlay.playergroupID,DPSEND_ASYNC|DPSEND_NOSENDCOMPLETEMSG ,&p,PacketSize,0,0,NULL,NULL);
 
-	//NHV if (!res || res==DPERR_PENDING)
-	if ((res == 0) || res == DPERR_PENDING) //NHV
+	//RERUN if (!res || res==DPERR_PENDING)
+	if ((res == 0) || res == DPERR_PENDING) //RERUN
 		ok=true;
 	else
 		ok=false;
@@ -803,8 +803,8 @@ bool Aggregator::ResendAggPacket()
 
 	res=_DPlay.lpDP4->SendEx(_DPlay.aggID,_DPlay.playergroupID,DPSEND_ASYNC|DPSEND_NOSENDCOMPLETEMSG ,&((AggBuffer.GetCurr())->aggpack),PacketSize,0,0,NULL,NULL);
 
-	//NHV if (!res || res==DPERR_PENDING)
-	if ((res == 0) || res == DPERR_PENDING) //NHV
+	//RERUN if (!res || res==DPERR_PENDING)
+	if ((res == 0) || res == DPERR_PENDING) //RERUN
 		ok=true;
 	else
 		ok=false;

@@ -323,8 +323,8 @@ void	PackageList::LoadGame(BIStream& bis)
 		pack[packnum].CountWaypoints();
 		packnum++;
 	}
-	//NHV delete buffer;
-	delete[]buffer; //NHV
+	//RERUN delete buffer;
+	delete[]buffer; //RERUN
 }
 
 //------------------------------------------------------------------------------

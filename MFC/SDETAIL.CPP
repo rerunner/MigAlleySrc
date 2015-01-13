@@ -413,7 +413,7 @@ void CSDetail::OnTextChangedCboDisplaydrivers(LPCTSTR text)
 	combo->Clear();
 
 	for (SLong x=0;x<modesCount;x++)
-#if 0 //NHV
+#if 0 //RERUN
 		if (driverModes[x].driverNo-1==selectedDriver &&
 			driverModes[x].displayBPP==16 &&
 			IsValidMode(modeFlags,driverModes[x].displayWidth,driverModes[x].displayHeight))

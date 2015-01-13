@@ -299,7 +299,7 @@ BOOL CGeneral::OnInitDialog()
 				int migact = 0;
 				if (af->nationality==NAT_RED)
 					migact=af->activeac;
-				//NHV code with no side effect: migact/5;
+				//RERUN code with no side effect: migact/5;
 				if (migact > 4)
 					migact = 4;
 

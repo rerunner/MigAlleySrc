@@ -344,7 +344,7 @@ Persons3::GearState	Persons3::setpositionMIG(AirStrucPtr currac,EventVal* pos,Ta
 				case 2:		
 					leader=currac->fly.leadelt()->Follower();	
 					break;
-				default: // NHV added default case
+				default: // RERUN added default case
 					leader = currac->Leader();
 					break;
 				}

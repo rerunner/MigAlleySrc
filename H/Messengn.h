@@ -14,7 +14,7 @@
 
 
 class	MESSAGE_STRUC;
-//NHV class	CString;
+//RERUN class	CString;
 struct	PhraseBuffer;
 
 

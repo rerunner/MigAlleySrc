@@ -1,11 +1,11 @@
 #pragma optimize( "g", off )
-//NHV #ifdef _DEBUG
-//NHV #define new DEBUG_NEW
-//NHV #undef THIS_FILE
-//NHV #define THIS_FILE __FILE__
-//NHV #define	THIS_FILE_DEFINED
+//RERUN #ifdef _DEBUG
+//RERUN #define new DEBUG_NEW
+//RERUN #undef THIS_FILE
+//RERUN #define THIS_FILE __FILE__
+//RERUN #define	THIS_FILE_DEFINED
 
-//NHV #endif
+//RERUN #endif
 #define F_SOUNDS
 #include "dosdefs.h"
 #include "files.g"

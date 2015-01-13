@@ -1447,14 +1447,14 @@ struct	WeightScheme
 //Description: 
 //
 //////////////////////////////////////////////////////////////////////
-MAKEFIELD(UniqueID, UID_NULL, IllegalSepID); //NHV moved here
+MAKEFIELD(UniqueID, UID_NULL, IllegalSepID); //RERUN moved here
 void	DeadStream::ScoreSGKills()
 {
 	if (_Replay.Playback)										//AMM 11Mar99
 		return;													//AMM 11Mar99
 
 ////	SupplyTree::ClearAllStatuses();
-//NHV	MAKEFIELD(UniqueID,UID_NULL,IllegalSepID);
+//RERUN	MAKEFIELD(UniqueID,UID_NULL,IllegalSepID);
 	UniqueIDField	callssgt,mainsgt;
 	callssgt=0;
 	{	//first, find all the SGTs

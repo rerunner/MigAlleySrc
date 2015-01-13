@@ -64,21 +64,22 @@ questions about this file may be asked at http://www.simhq.com/
 // This module writes the key mapping to a binary file...
 //	
 //
+#include <windows.h>
 #include	<dos.h>
 #include <stdio.h>
 //#include	"stdafx.h"
-#include	"DosDefs.h"
+#include	"..\H\DosDefs.h"
 
-#include	"Files.g"
-#include	"fileman.h"
+#include	"..\H\Files.g"
+#include	"..\H\fileman.h"
 
-#include	"hardpasm.h"										//ARM 04Jun96
+#include	"..\H\hardpasm.h"										//ARM 04Jun96
 
 #define	SPECIAL_KEYMAPS	1
-#include	"keytest.h"
+#include	"..\H\keytest.h"
 ;
 
-main(int argc,char** argv)
+int main(int argc,char** argv)
 {
 	FILE* f=fopen(argv[1],"wb");
 	if (f)

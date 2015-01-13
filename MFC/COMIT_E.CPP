@@ -514,7 +514,7 @@ void DirControl::SaveDirectiveChanges()
 
 void DirControl::AddMission(int d, int j, SupplyNode*  currnode)
 {
-	char i; //NHV better change to byte
+	char i; //RERUN better change to byte
 	for (i = (MAXMISSIONS - 1); i > j ; i--)
 	{
 		directives[d].missions[i] = directives[d].missions[i - 1];

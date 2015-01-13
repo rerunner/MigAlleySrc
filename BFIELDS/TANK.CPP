@@ -466,20 +466,20 @@ FileNum	Persons2::FindNextBf (BattlefieldType &nextbftype)
 			case	REDTAKEOFFAFBF:
 			{
 				int afindex=5;//UID_AfRdAntung
-				//NHV rv=SupplyTree.airfieldinfo[afindex].EmptyPopulateBF;
+				//RERUN rv=SupplyTree.airfieldinfo[afindex].EmptyPopulateBF;
 				rv = SupplyTree::airfieldinfo[afindex].EmptyPopulateBF;
-				//NHV GR_MainObjective=SupplyTree.airfieldinfo[afindex].airfield;
-				GR_MainObjective = SupplyTree::airfieldinfo[afindex].airfield; //NHV
+				//RERUN GR_MainObjective=SupplyTree.airfieldinfo[afindex].airfield;
+				GR_MainObjective = SupplyTree::airfieldinfo[afindex].airfield; //RERUN
 				GR_AAALevel64K=0;
 			}
 			break;
 			case	REDTAKEOFFREDAFBF:
 			{
 				int afindex=5;//UID_AfRdAntung
-				//NHV rv=SupplyTree.airfieldinfo[afindex].RedPopulateBF;
-				rv = SupplyTree::airfieldinfo[afindex].RedPopulateBF;//NHV
-				//NHV GR_MainObjective=SupplyTree.airfieldinfo[afindex].airfield;
-				GR_MainObjective = SupplyTree::airfieldinfo[afindex].airfield; //NHV
+				//RERUN rv=SupplyTree.airfieldinfo[afindex].RedPopulateBF;
+				rv = SupplyTree::airfieldinfo[afindex].RedPopulateBF;//RERUN
+				//RERUN GR_MainObjective=SupplyTree.airfieldinfo[afindex].airfield;
+				GR_MainObjective = SupplyTree::airfieldinfo[afindex].airfield; //RERUN
 				GR_AAALevel64K=0;
 			}
 
@@ -493,10 +493,10 @@ FileNum	Persons2::FindNextBf (BattlefieldType &nextbftype)
 					afindex=MMC.squad[MMC.playersquadron].airfieldindex;
 				else
 					afindex=25;//UID_Kunsan
-				//NHV rv=SupplyTree.airfieldinfo[afindex].EmptyPopulateBF;
-				//NHV GR_MainObjective=SupplyTree.airfieldinfo[afindex].airfield;
-				rv = SupplyTree::airfieldinfo[afindex].EmptyPopulateBF; //NHV
-				GR_MainObjective=SupplyTree::airfieldinfo[afindex].airfield; // NHV
+				//RERUN rv=SupplyTree.airfieldinfo[afindex].EmptyPopulateBF;
+				//RERUN GR_MainObjective=SupplyTree.airfieldinfo[afindex].airfield;
+				rv = SupplyTree::airfieldinfo[afindex].EmptyPopulateBF; //RERUN
+				GR_MainObjective=SupplyTree::airfieldinfo[afindex].airfield; // RERUN
 				GR_AAALevel64K=0;
 			}
 

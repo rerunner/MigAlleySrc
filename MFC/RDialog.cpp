@@ -2751,6 +2751,6 @@ LRESULT RDialog::WindowProc(UINT message, WPARAM wParam, LPARAM lParam)
 }
 LRESULT RDialog::OnRegisteredMouseWheel( WPARAM wParam, LPARAM lParam )
 {
-//NHV	return CDialog::OnRegisteredMouseWheel(wParam,lParam );
+//RERUN	return CDialog::OnRegisteredMouseWheel(wParam,lParam );
 	return 0;
 }

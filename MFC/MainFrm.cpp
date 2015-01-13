@@ -254,7 +254,7 @@ void CMainFrame::OnGoBig()
 void CMainFrame::OnGoNormal() 
 {
 //TEMPCODE DAW 08/05/99 	if (IsZoomed())
-//NHV		ModifyStyle(NULL,WS_THICKFRAME); // Come back border!
+//RERUN		ModifyStyle(NULL,WS_THICKFRAME); // Come back border!
 //DeadCode DAW 17Jun99 	ModifyStyleEx(WS_EX_TOPMOST,0);
 	ShowWindow(SW_SHOWNORMAL);
 #if !defined(NOT_TOPMOST)
@@ -304,7 +304,7 @@ void CMainFrame::Initialise()
 		typedef	HideEdgeControl	EDGE;
 		RDialog::MakeTopDialog(CRect(850,650,0,0),
 			DialBox(FIL_NULL,m_wndSystemBox=new CSystemBox(this),Edges(EDGE::OCCLUDE_EXACT+EDGE::ALIGN_MIN,EDGE::ALIGN_MIN,EDGE::ALIGN_MAX + EDGE::OCCLUDE_INSIDE,EDGE::ALIGN_MAX + EDGE::OCCLUDE_INSIDE)));
-#endif //NHV #ifndef	MIG_DEMO_VER
+#endif //RERUN #ifndef	MIG_DEMO_VER
 
 //		m_wndSystemBox-.Init(CSystemBox::IDD,this);
 //		m_wndSystemBox.ShowWindow(SW_SHOW);

@@ -1437,8 +1437,8 @@ void shape::dopolygon(UByte *& instr_ptr)
 			startVertex.bx.f*=xyDiv;
 			startVertex.by.f*=xyDiv;
 		}
-		//NHV no effect:  startVertex.clipFlags&~CF3D_PASTFARZ;
-		startVertex.clipFlags &= ~CF3D_PASTFARZ; // NHV guess that this was the idea
+		//RERUN no effect:  startVertex.clipFlags&~CF3D_PASTFARZ;
+		startVertex.clipFlags &= ~CF3D_PASTFARZ; // RERUN guess that this was the idea
 		ptPointType.ptType	= PointType::PT_PlainColour;
 		ptPointType.colour	= shape::colour;
 		current_screen->DoHardPoint(&ptPointType);
@@ -9927,7 +9927,7 @@ void shape::dodigitdial(UByte *& instr_ptr)
 
 	digits = new UByte[nodigits];
 	for (i = 0; i < nodigits; i++)
-		digits[i] = 0; //NHV safety initializer, just for code analyzer
+		digits[i] = 0; //RERUN safety initializer, just for code analyzer
 
 	dcnt = nodigits-1;
 
@@ -10010,8 +10010,8 @@ void shape::dodigitdial(UByte *& instr_ptr)
 		POLYGON.drawpoly();
 	}
 
-	//NHV delete digits; //do not delete with scalar delete
-	delete[]digits; //NHV
+	//RERUN delete digits; //do not delete with scalar delete
+	delete[]digits; //RERUN
 
 	instr_ptr += sizeof(DODIGITDIAL);
 }
@@ -10578,7 +10578,7 @@ void shape::domorphnsphrsimapd(UByte *& instr_ptr)
 
 //DeadCode DAW 07May99 		IsSubShape = oldsubstat;
  
-		//NHV delete subco; // NHV do not delete with scalar delete
+		//RERUN delete subco; // RERUN do not delete with scalar delete
 		delete[]subco;
 	}
 	light_matrix=bupMatrix;						//PD 8May98
@@ -16109,7 +16109,7 @@ void shape::imapsphereQuad(	UWord vertex,
 {
  	DoPointStruc dopoint0,dopoint1,dopoint2,dopoint3,dopoint4;
 	Float	scaleradius = radius;
-	Float	scaleradius2 = (radius << 1); //NHV cast added
+	Float	scaleradius2 = (radius << 1); //RERUN cast added
 
 	dopoint0 = dopoint1 = dopoint2 = dopoint3 = dopoint4 = newco[vertex];
 
@@ -18957,9 +18957,9 @@ void	shape::AddSmokeCloud(TrailRecord* trailptr, ShapeNum	cloudshape, int index)
 	Coords3DList*	*lpointptr = &trailptr->thelist;
 	COORDS3D		World;
 
-	World.X = 0; //NHV added for safety
-	World.Y = 0; //NHV added for safety
-	World.Z = 0; //NHV added for safety
+	World.X = 0; //RERUN added for safety
+	World.Y = 0; //RERUN added for safety
+	World.Z = 0; //RERUN added for safety
 
 	while (apoint)
 	{
@@ -18983,7 +18983,7 @@ void	shape::AddSmokeCloud(TrailRecord* trailptr, ShapeNum	cloudshape, int index)
 		}
 	}
 
-	if (trailptr != NULL) // NHV added
+	if (trailptr != NULL) // RERUN added
 	{
 		if (cloudshape && (trailptr->cloudlaunched == FALSE))
 		{

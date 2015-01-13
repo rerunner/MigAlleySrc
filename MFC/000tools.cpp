@@ -67,7 +67,7 @@ questions about this file may be asked at http://www.simhq.com/
 //currently not using precompiled headers!
 //#include    "stdafx.h"
 
-//NHV #include	"000tools.h"
+//RERUN #include	"000tools.h"
 #ifdef _DEBUG														  //JIM 13/05/99
 	char* compiledate=__DATE__ " Debug!";
 #else

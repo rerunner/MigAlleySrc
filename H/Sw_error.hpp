@@ -27,10 +27,10 @@
 #include <mmsystem.h>
 
 
-//NHV typedef struct _SF_ERROR {
-//NHV 	HRESULT	HCode;			// HRESULT code
-//NHV 	ULONG	ulDriverCode;	// Error code from device driver
-//NHV } SF_ERROR, *PSF_ERROR;
+//RERUN typedef struct _SF_ERROR {
+//RERUN 	HRESULT	HCode;			// HRESULT code
+//RERUN 	ULONG	ulDriverCode;	// Error code from device driver
+//RERUN } SF_ERROR, *PSF_ERROR;
 
 
 //---------------------------------------------------------------------------

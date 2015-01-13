@@ -1548,7 +1548,7 @@ UINT AFX_CDECL Inst3d::moveloop(LPVOID x)
 
 	forever
 	{
-		if (inst != NULL) // NHV
+		if (inst != NULL) // RERUN
 		{
 			if (!inst->semaphore)
 				_Error.EmitSysErr("Semaphore null");
@@ -1576,8 +1576,8 @@ UINT AFX_CDECL Inst3d::moveloop(LPVOID x)
 			if (!inst->mutex)	_Error.EmitSysErr("mutex null");
 			ReleaseMutex(inst->mutex);								//AMM 13Jan00
 		}
-		else //NHV
-			return 0; //NHV: error and break out
+		else //RERUN
+			return 0; //RERUN: error and break out
 	}
 }
  

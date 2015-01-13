@@ -60,8 +60,8 @@ struct	SuperBattleNode
 	SuperBattleNode	*innode,*firstoutnode;//filled at loadtime
 };
 
-//NHV BITABLE(SuperBattleNode::FlankLink::NonLinks);
-//NHV BITABLE(SuperBattleNode::IntraLink::TerrainType);
+//RERUN BITABLE(SuperBattleNode::FlankLink::NonLinks);
+//RERUN BITABLE(SuperBattleNode::IntraLink::TerrainType);
 
 
 struct	TeamDef

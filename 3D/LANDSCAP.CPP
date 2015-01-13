@@ -246,7 +246,7 @@ void LandScape::RenderLandscape(Window *screen,					//JIM 12Dec95
 		if (View_Point->drawmap == FALSE)
 		{
 			InfiniteStrip();
- 			DoCloudLayer();
+			DoCloudLayer();
 		}
 		lowestgroundpoint=0x7FFFFFFF;								//PD 12Dec96
 		otherfade=(!Three_Dee.IsPaused())?BadVision():FALSE;
@@ -730,8 +730,8 @@ void LandScape::ManageHighLandTextures(SLong px,SLong pz)
 				if (!Save_Data.fSoftware)	currscreen->DoFreeTexture(droppedTextures->hText[i]);
 				else						Three_Dee.pTMake->DoFreeTexture(droppedTextures->hText[i]);
 			}
- 			//NHV delete[]droppedTextures;
-			delete droppedTextures; //NHV scalar new and delete
+ 			//RERUN delete[]droppedTextures;
+			delete droppedTextures; //RERUN scalar new and delete
  		}
  		lastPx=px;
  		lastPz=pz;
@@ -2332,8 +2332,8 @@ void LandScape::PerspectivePoly(SWord pc,DoPointStruc* pdp,const HTEXT& hT)
 			_matrix.transform(fpviewer_matrix,dp[2]);
 			if ((	dp[0].clipFlags&
 					dp[1].clipFlags&
-					//NHV dp[3].clipFlags)==CF3D_NULL)
-					dp[2].clipFlags) == CF3D_NULL) //NHV dp index range is from 0 to 2
+					//RERUN dp[3].clipFlags)==CF3D_NULL)
+					dp[2].clipFlags) == CF3D_NULL) //RERUN dp index range is from 0 to 2
 			{
 				Land_Obj *loptr=
 					(Land_Obj*)Three_Dee.bt->Get3DArea(SPECIAL_TILE_OBJECT);
@@ -4581,8 +4581,6 @@ LandScape::~LandScape()
 //------------------------------------------------------------------------------
 void	LandScape::DoRain(ViewPoint	*vp,SLong	gheight)
 {
-
-
 	// if it is raining and below cloud layer....
 	if (Save_Data.gamedifficulty[GD_WEATHEREFFECTS] &&
 		vp->World.Y < cloud_base &&
@@ -4794,16 +4792,6 @@ void	LandScape::DoRain(ViewPoint	*vp,SLong	gheight)
 
 static UByte scaledToCeil=0;
 static int hStep;
-//DeadCode PD 18Jan99 static Colour topColour=HORIZON;
-//DeadCode PD 18Jan99 static Colour midColour=HORIZON;
-//DeadCode PD 18Jan99 static Colour botColour=HORIZON;
-//DeadCode PD 18Jan99 static UByte topR=0;
-//DeadCode PD 18Jan99 static UByte topG=0;
-//DeadCode PD 18Jan99 static UByte topB=0;
-//DeadCode PD 18Jan99 static UByte midR=0;
-//DeadCode PD 18Jan99 static UByte midG=0;
-//DeadCode PD 18Jan99 static UByte midB=0;
-//DeadCode PD 18Jan99 static int imageVTile=3;
 
 #include "hdata2.h"
 
@@ -5257,28 +5245,6 @@ void LandScape::InfiniteStrip()
 	(p1).specular=UByte(vg);\
 	(p1).specFlip=UByte(vb);\
 	}
-//Old_Code PD 28Apr99 	vr=(p1).intensity;\
-//Old_Code PD 28Apr99 	vg=(p1).specular;\
-//Old_Code PD 28Apr99 	vb=(p1).specFlip;\
-//Old_Code PD 28Apr99 	currscreen->DoGammaCorr(vr,vg,vb);\
-//Old_Code PD 28Apr99 	GreyPalette(&vr,&vg,&vb);\
-//Old_Code PD 28Apr99 	(p1).intensity=\
-//Old_Code PD 28Apr99 	(p1).specular=\
-//Old_Code PD 28Apr99 	(p1).specFlip=-1;\
-//Old_Code PD 28Apr99 	POLYGON.createvert((p1),vr,vg,vb,0xFF);\
-//Old_Code PD 28Apr99 	(p1).intensity=UByte(vr);\
-//Old_Code PD 28Apr99 	(p1).specular=UByte(vg);\
-//Old_Code PD 28Apr99 	(p1).specFlip=UByte(vb);
-//Old_Code PD 28Apr99 
-//Old_Code PD 28Apr99 #define CREATEVERTB(p1)\
-//Old_Code PD 28Apr99 	(p1).intensity=\
-//Old_Code PD 28Apr99 	(p1).specular=\
-//Old_Code PD 28Apr99 	(p1).specFlip=-1;\
-//Old_Code PD 28Apr99 	POLYGON.createvert((p1),vr,vg,vb,0xFF);\
-//Old_Code PD 28Apr99 	(p1).intensity=UByte(vr);\
-//Old_Code PD 28Apr99 	(p1).specular=UByte(vg);\
-//Old_Code PD 28Apr99 	(p1).specFlip=UByte(vb);
-
 
 	if (!Save_Data.fSoftware)
 	{
@@ -5354,12 +5320,15 @@ void LandScape::InfiniteStrip()
 	fstp frsq;
 	}
 
-	if (frsq>MMC.Sky.Visibility) frsq=MMC.Sky.Visibility;
+	if (frsq>MMC.Sky.Visibility) 
+		frsq=MMC.Sky.Visibility;
 
-	fogdist=SLong(frsq);
+	fogdist=SLong(frsq); //RERUN the real fog distance
 
-	if (!Save_Data.detail_3d[DETAIL3D_HORIZONFADE])	fogbegin=fogdist>>1;
-	else											fogbegin=fogdist-(fogdist>>3);
+	if (!Save_Data.detail_3d[DETAIL3D_HORIZONFADE])	
+		fogbegin=fogdist>>1;
+	else											
+		fogbegin=fogdist-(fogdist>>3);
 	groundFogBegin=fogbegin;
 	groundFogEnd=fogdist;
 	SetFogMode(fogbegin,fogdist);
@@ -5624,8 +5593,10 @@ void LandScape::StripHorizon()
 
 	fogdist=SLong(frsq);
 
-	if (!Save_Data.detail_3d[DETAIL3D_HORIZONFADE])	fogbegin=fogdist>>1;
-	else											fogbegin=fogdist-(fogdist>>2);
+	if (!Save_Data.detail_3d[DETAIL3D_HORIZONFADE])	
+		fogbegin=fogdist>>1;
+	else
+		fogbegin=fogdist-(fogdist>>2);
 
 	groundFogBegin=fogbegin;
 	groundFogEnd=fogdist;
@@ -5781,41 +5752,33 @@ SWord LandScape::IntensFromRange(SLong range)
 //------------------------------------------------------------------------------
 SLong LandScape::SetViewDetail()
 {
-//DeadCode PD 24Nov98 	//rdh need to change to MiG Alley wind
-//DeadCode PD 24Nov98 //	switch (MMC.weathernum){
-//DeadCode PD 24Nov98 //		case 0:	case 2:	default:
-//DeadCode PD 24Nov98 		cloud_base=Cloud_Layer_Height=CloudsAt5000ft;
-//DeadCode PD 24Nov98 //		break;
-//DeadCode PD 24Nov98 //		case 1: case 3:
-//DeadCode PD 24Nov98 //		cloud_base=Cloud_Layer_Height=CloudsAt10000ft;
-//DeadCode PD 24Nov98 //		break;
-//DeadCode PD 24Nov98 //	}
-
-//DEAD	cloud_base=Cloud_Layer_Height=CloudsAt5000ft;
 	bDoingHardware3D=currscreen->DoingHardware3D();
 
 	//Height is the actual height above the current piece of ground data
 	SLong height;
 	height=viewer_y-GetGroundLevel(*View_Point);				//PD 20Aug98
-//DeadCode PD 20Aug98 	if (viewer_y<cloud_base)	height=viewer_y-GetGroundLevel(*View_Point);		//PD 05Jul96
-//DeadCode PD 20Aug98 	else						height=viewer_y-cloud_base;
-
 	SLong viewer_range;
 	
-//	if (Save_Data.detail_3d[DETAIL3D_HORIZONDIST])	viewer_range=0x1F1CDA;
-//	else									viewer_range=(0x1F1CDA>>1);
-	viewer_range=(0x1F1CDA>>1);
+	if (Save_Data.detail_3d[DETAIL3D_HORIZONDIST])	
+		viewer_range=0x1F1CDA; //RERUN: 2km ?
+	else
+		viewer_range=(0x1F1CDA>>1); //RERUN: 1km ?
+	
+	viewer_range=(0x1F1CDA>>1); //RERUN: original "final" value, as far horizon probably did not work.
 
 	gnd_band_start=0x160000;//0x5A828;
+			
+	if (Key_Tests.KeyPress3d(DETAILUP)) 
+		IncDetailLevel();
+	else 
+		if (Key_Tests.KeyPress3d(DETAILDN)) 
+			DecDetailLevel();
 
-	if (Key_Tests.KeyPress3d(DETAILUP)) IncDetailLevel();
-	else if (Key_Tests.KeyPress3d(DETAILDN)) DecDetailLevel();
-
-	shape_band_start=viewer_range-(viewer_range>>2);
+	shape_band_start= viewer_range -(viewer_range>>2);
 
 	view_range=viewer_range;
 	CalcVisibleRanges(view_range,viewer_y);
-//DeadCode PD 01Oct98 	_matrix.SetViewParams(currscreen,ANGLES_90Deg,gvisrange);
+
 	_matrix.SetViewParams(currscreen,Save_Data.fieldOfView,gvisrange);
 
 	gnd_band_end 	= gvisrange;
@@ -5823,12 +5786,12 @@ SLong LandScape::SetViewDetail()
 	fade_band_start = gnd_band_start;
 	fade_band_end 	= gnd_band_end;
 
-	if (bDoingHardware3D){
+	if (bDoingHardware3D)
+	{
 		SLong fogstart=gnd_band_start;
 		SLong fogend=gvisrange;
 		gnd_band_end=sky_band_end=viewer_range;
 		currscreen->DoSetFogState(TRUE);
-//DeadCode PD 11Aug98 		SetFogMode(gnd_band_start, gnd_band_end);
 		currscreen->DoSetMatrices(gvisrange,viewconeangle);
 		currscreen->HCls(FALSE);
 	}
@@ -5877,7 +5840,7 @@ void LandScape::CalcVisibleRanges(SLong flatd,SLong alt)
 	dy = (Cloud_Layer_Height - alt);
 
 	dy = (dy>=0)?dy:-dy;
-
+	
 	if (dy>dx)	{int tmp=dx;dx=dy;dy=tmp;}						//PD 02Oct97
 
 	cvisrange = dx;
@@ -5895,6 +5858,7 @@ void LandScape::CalcVisibleRanges(SLong flatd,SLong alt)
 	{
 		dx = gnd_band_start;
 		dy = (alt<0)?-alt:alt;
+
 		if (dy>dx) {int tmp=dx;dx=dy;dy=tmp;}
 		dy>>=2;
 		dx+= dy;
@@ -6579,17 +6543,17 @@ void LandScape::Init()
 	if (Save_Data.fSoftware)	land_min_detail=4;
 	else						land_min_detail=2;
 
-//	SLong cornerBufferSize=Save_Data.detail_3d[DETAIL3D_HORIZONDIST]?
-//							_cornerBufferSizeMAX:_cornerBufferSizeMIN;
+	SLong cornerBufferSize=Save_Data.detail_3d[DETAIL3D_HORIZONDIST]?
+							_cornerBufferSizeMAX:_cornerBufferSizeMIN;
 
-//	SLong wholeAreaSize=Save_Data.detail_3d[DETAIL3D_HORIZONDIST]?
-//							_wholeAreaSizeMAX:_wholeAreaSizeMIN;
+	SLong wholeAreaSize=Save_Data.detail_3d[DETAIL3D_HORIZONDIST]?
+							_wholeAreaSizeMAX:_wholeAreaSizeMIN;
 
-//	SLong halfAreaSize=Save_Data.detail_3d[DETAIL3D_HORIZONDIST]?
-//							_halfAreaSizeMAX:_halfAreaSizeMIN;
-	SLong cornerBufferSize=_cornerBufferSizeMIN;
-	SLong wholeAreaSize=_wholeAreaSizeMIN;
-	SLong halfAreaSize=_halfAreaSizeMIN;
+	SLong halfAreaSize=Save_Data.detail_3d[DETAIL3D_HORIZONDIST]?
+							_halfAreaSizeMAX:_halfAreaSizeMIN;
+	//RERUN SLong cornerBufferSize=_cornerBufferSizeMIN;
+	//RERUN SLong wholeAreaSize=_wholeAreaSizeMIN;
+	//RERUN SLong halfAreaSize=_halfAreaSizeMIN;
 
 	if (!gridCorners) gridCorners=new UByte[cornerBufferSize];
 	if (!softGrid) softGrid=new UByte[wholeAreaSize*wholeAreaSize];
@@ -7728,8 +7692,8 @@ void LandScape::ProcessLights(SLong ox,SLong oz)
 
 	for (int i=0;i<_wholeAreaSizeMAX;lightTable[i++].numLights=0){}
 
-//	wholeAreaSize=Save_Data.detail_3d[DETAIL3D_HORIZONDIST]?_wholeAreaSizeMAX:_wholeAreaSizeMIN;
-	wholeAreaSize=_wholeAreaSizeMIN;
+	wholeAreaSize=Save_Data.detail_3d[DETAIL3D_HORIZONDIST]?_wholeAreaSizeMAX:_wholeAreaSizeMIN;
+	//RERUN wholeAreaSize=_wholeAreaSizeMIN;
 
 	pGridCone=gridCone;
 	pLightCone=lightCone;

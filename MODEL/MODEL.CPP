@@ -2641,7 +2641,7 @@ void Model::TransInt (ITERATION_MASK mask, FP TimeFactor)
 //DeadCode CSB 04/03/99				FCRD Vel1;
 //DeadCode CSB 04/03/99				TnsAxs(Vel, Vel1, Ori);
 
-/* TEST CODE CSB 18/06/99 */			//NHV FCRDlong OldPos = Pos;
+/* TEST CODE CSB 18/06/99 */			//RERUN FCRDlong OldPos = Pos;
 			
 			Pos.x += Vel.x * dT;
 			Pos.y += Vel.y * dT;

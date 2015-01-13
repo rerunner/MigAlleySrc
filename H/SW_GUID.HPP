@@ -23,9 +23,9 @@
 #ifndef _SWD_GUID_SEEN
 #define _SWD_GUID_SEEN
 
-//NHV #ifdef INITGUIDS
+//RERUN #ifdef INITGUIDS
 #include <initguid.h>
-//NHV #endif //INITGUIDS
+//RERUN #endif //INITGUIDS
 
 
 /*

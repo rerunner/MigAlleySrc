@@ -1104,8 +1104,8 @@ SLong MathLib::hightan(ANGLES ang)
 		tan0 = -tan_table[255-angmod];							//DAW 27Sep00 from bob
 		if (angmod > 0)
 			angmod++;
-		//NHV tan0 = -tan_table[255-angmod];							//DAW 27Sep00 from bob
-		tan1 = -tan_table[255 - angmod]; //NHV: I think that tan1 was intended
+		//RERUN tan0 = -tan_table[255-angmod];							//DAW 27Sep00 from bob
+		tan1 = -tan_table[255 - angmod]; //RERUN: I think that tan1 was intended
 //DeadCode DAW 27Sep00 		tan1 = -tan_table[256 - angmod];
 	}
 

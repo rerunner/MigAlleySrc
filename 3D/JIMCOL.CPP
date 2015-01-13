@@ -59,8 +59,8 @@
 
 questions about this file may be asked at http://www.simhq.com/
 */
-#include <Windows.h> //NHV
-#include <atlstr.h> //NHV
+#include <Windows.h> //RERUN
+#include <atlstr.h> //RERUN
 //------------------------------------------------------------------------------
 //Filename       jimcol.cpp
 //System         

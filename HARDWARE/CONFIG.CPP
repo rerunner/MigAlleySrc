@@ -327,12 +327,9 @@ BOOL FAR PASCAL EnumDrivers(GUID FAR* lpGUID,LPSTR,LPSTR,LPVOID lpContext)
 
 HRESULT WINAPI EnumDisplays(LPDDSURFACEDESC lpDDSurfaceDesc,LPVOID lpContext)
 {
-#if 0 //NHV for widescreen
 	if (lpDDSurfaceDesc->dwWidth>=512 &&
 		lpDDSurfaceDesc->dwWidth*3==lpDDSurfaceDesc->dwHeight*4 &&
 		lpDDSurfaceDesc->ddpfPixelFormat.dwRGBBitCount==16)
-#endif
-	if (lpDDSurfaceDesc->dwWidth>=512)
 	{
 		SModeEnum *pme=(SModeEnum*)lpContext,&me=*pme;
 		me.widths[me.num_modes]=lpDDSurfaceDesc->dwWidth;
@@ -355,8 +352,7 @@ HRESULT WINAPI FindDevice(LPGUID lpGuid,LPSTR,LPSTR,LPD3DDEVICEDESC lpHWDesc,LPD
 
 inline bool IsValidMode(SModeFlags* pmf,UWord w,UWord h)
 {
-	return true; //NHV widescreen test
-	if (w*3!=h*4) return false;
+	//RERUN widescreen test	if (w*3!=h*4) return false;
 	for (int x=0;x<SModeFlags::Max_Modes;x++) if (pmf->widths[x]==w) return true;
 	return false;
 }
@@ -449,7 +445,7 @@ void Configure(bool fFullConfig,HWND hWnd)
 					{
 						if (modeEnum.widths[j]<max_allowed_sw)
 						{
-							//NHV test if (pDD2->SetDisplayMode(modeEnum.widths[j],(modeEnum.widths[j]>>2)*3,16,0,0)==DD_OK)
+							//RERUN test if (pDD2->SetDisplayMode(modeEnum.widths[j],(modeEnum.widths[j]>>2)*3,16,0,0)==DD_OK)
 							{
 								DDSURFACEDESC ddsd;
 								LPDIRECTDRAWSURFACE pSurf,pZBuf,pBack;
@@ -473,8 +469,9 @@ void Configure(bool fFullConfig,HWND hWnd)
 									ddsd.dwFlags=DDSD_WIDTH|DDSD_HEIGHT|DDSD_CAPS|DDSD_ZBUFFERBITDEPTH;
 							    	ddsd.ddsCaps.dwCaps=DDSCAPS_ZBUFFER|DDSCAPS_VIDEOMEMORY;
 									ddsd.dwWidth=modeEnum.widths[j];
-									//ddsd.dwHeight=(modeEnum.widths[j]>>2)*3; //NHV suspect 4/3 code
-									ddsd.dwHeight=(modeEnum.widths[j]/16)*9; //NHV test
+									ddsd.dwHeight=(modeEnum.widths[j]>>2)*3; //RERUN suspect 4/3 code
+									if (ddsd.dwWidth == 1366) //RERUN hack
+										ddsd.dwHeight = 768; //RERUN hack
 							        ddsd.dwZBufferBitDepth=16;
 									if (pDD2->CreateSurface(&ddsd,&pZBuf,NULL)==DD_OK)
 									{
@@ -668,8 +665,9 @@ void Configure(bool fFullConfig,HWND hWnd)
 	Save_Data.detail_3d|=DETAIL3D_ROUTES;
 	Save_Data.detail_3d|=DETAIL3D_AIRCRAFTSHADOWS;
 	Save_Data.detail_3d|=DETAIL3D_ITEMSHADOWS;
-	Save_Data.detail_3d|=DETAIL3D_HORIZONDIST;
-	Save_Data.detail_3d%=DETAIL3D_HORIZONFADE;
+	//RERUN Save_Data.detail_3d|=DETAIL3D_HORIZONDIST;
+	Save_Data.detail_3d%=DETAIL3D_HORIZONDIST; //RERUN
+    Save_Data.detail_3d%=DETAIL3D_HORIZONFADE; //RERUN maybe part of disabling far horizon ?
 	Save_Data.detail_3d|=DETAIL3D_CONTOURDETAIL;
 	Save_Data.cockpit3Ddetail|=COCK3D_SKYIMAGES;
 	Save_Data.gamedifficulty|=GD_WEATHEREFFECTS;
@@ -756,17 +754,13 @@ void Configure(bool fFullConfig,HWND hWnd)
 		GetModes(nm,dm);
 		dddriver=(sd.num_drivers>=2)?1:0;
 
-		//NHV test max_w=(Save_Data.processorType!=PROC_MAX)?800:1024;
-		max_w=1366; // NHV hack for 1366 check. But this is not the way...
+		//RERUN test max_w=(Save_Data.processorType!=PROC_MAX)?800:1024;
+		max_w=1366; // RERUN hack for 1366 check. But this is not the way...
 		
 		for (i=0,rez=0;i<nm;i++)
-#if 0 //NHV
 			if (dm[i].driverNo==dddriver &&
 				dm[i].displayBPP==16 &&
 				IsValidMode(pdm,dm[i].displayWidth,dm[i].displayHeight))
-#else
-			if (dm[i].driverNo==dddriver)
-#endif
 			{
 				if (dm[i].displayWidth==max_w)
 				{

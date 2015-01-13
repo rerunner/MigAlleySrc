@@ -100,7 +100,7 @@ class MonoText Mono_Text;
 //------------------------------------------------------------------------------
 void MonoText::ClsMono()
 {
-#if 0 //NHV #ifndef NDEBUG													//DAW 13Nov96
+#if 0 //RERUN #ifndef NDEBUG													//DAW 13Nov96
 
 	HANDLE screen = GetStdHandle(STD_OUTPUT_HANDLE);
 COORD pos = {0, 0};
@@ -151,7 +151,7 @@ void MonoText::SetCursor(SLong rx,SLong ry)
 //------------------------------------------------------------------------------
 void MonoText::Print(UByte* text,SLong length)
 {
-//NHV TRACING(text);
+//RERUN TRACING(text);
 	printf((char*)text);
 /*
 #ifndef NDEBUG													//DAW 13Nov96
@@ -210,7 +210,7 @@ void MonoText::Print(UByte* text,SLong length)
 //------------------------------------------------------------------------------
 void MonoText::TextOutMono(UByte* str)
 {
-	printf((char*)str); //NHV
+	printf((char*)str); //RERUN
 /*
 #ifndef NDEBUG													//DAW 13Nov96
 

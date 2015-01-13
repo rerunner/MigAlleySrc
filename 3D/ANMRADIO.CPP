@@ -926,7 +926,7 @@ void	DamageChat::OtherSideBlewUp(AirStrucPtr	ac,AirStrucPtr	acDead,bool	migdead)
 		}
 	}
 
-	if (acDead != NULL) // NHV safety check
+	if (acDead != NULL) // RERUN safety check
 	{
 		if (!acDead->uniqueID.commsmove)								  //AMM 07/07/99
 			acDead->ai.radiosilent = TRUE;			//RJS 09Jun99
@@ -985,7 +985,7 @@ void	DamageChat::PlayerSidePiledIn(AirStrucPtr	ac)
 		}
 	}
 
-	if (ac != NULL) //NHV safety check
+	if (ac != NULL) //RERUN safety check
 	{
 		if (!ac->uniqueID.commsmove)									  //AMM 07/07/99
 			ac->ai.radiosilent = TRUE;			//RJS 09Jun99

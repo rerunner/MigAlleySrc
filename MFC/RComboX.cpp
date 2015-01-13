@@ -308,7 +308,7 @@ CString		GetShapeName(ShapeNum s)
 
 CString		GetElementName(ShapeNum s,int elt)
 {
-	return GetShapeName(s)+" "+CString((char)('a'+elt)); //NHV added cast to char
+	return GetShapeName(s)+" "+CString((char)('a'+elt)); //RERUN added cast to char
 
 }
 //			C		Dn	|	En		F

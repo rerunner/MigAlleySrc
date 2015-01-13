@@ -206,7 +206,7 @@ BIStream& operator	>>	(BIStream& bis,SaveData& savedata)
 {
 //	Mono_Text.Print(0,UByteP("Save_Data loading!"));
 	bis>>date;
-	if (strcmp(date,date2)==0) //NHV: This seems to check if you do not try to load savedata from an older gamebuild
+	if (strcmp(date,date2)==0) //RERUN: This seems to check if you do not try to load savedata from an older gamebuild
 	{
 		int i;
 		bis.read((char*)&savedata,sizeof(SaveDataLoad));
@@ -714,7 +714,7 @@ bool	DeadStream::MainWorldBand(UniqueID u)
 
 void	DeadStream::SetWorldDead(WorldStuff* world)
 {
-//NHV	MAKEFIELD( UniqueID, UID_NULL, IllegalSepID);
+//RERUN	MAKEFIELD( UniqueID, UID_NULL, IllegalSepID);
 	UniqueIDField	issgt;
 	issgt=0;
 	ClearForSGT(UID_NULL);

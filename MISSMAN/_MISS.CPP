@@ -60,7 +60,7 @@
 questions about this file may be asked at http://www.simhq.com/
 */
 
-#include <atlstr.h> //NHV
+#include <atlstr.h> //RERUN
 #include "_MISS.h"
 
 #include "..\MISSMAN\Formatn.cpp"

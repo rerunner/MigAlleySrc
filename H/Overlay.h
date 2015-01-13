@@ -195,7 +195,7 @@ struct MapScr
 #define MSPauseLine(p1) {0,0xFF,SEL_PAUSE,(p1)}
 class	DecisionAI;
 
-//NHV class CString;
+//RERUN class CString;
 class COverlay
 {
 	public:

@@ -572,7 +572,7 @@ void COverlay::DrawInfoBar()
 		if (fTwoLines) active_lines++;
 		break;
 		case 1:
-		DrawTopText(); // NHV this function takes time
+		DrawTopText(); // RERUN this function takes time
 		break;
 	}
 	delete[]longDistUnitStr;

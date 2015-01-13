@@ -199,8 +199,8 @@ BOOL TitleBar::OnEraseBkgnd(CDC* pDC)
 			if (yoffset>0)
 				pDC->FillSolidRect(0,0,rect.Width(),yoffset,rgb);
 			if (pInfo->bmiHeader.biHeight+yoffset<rect.Height())
-				//NHV if (pInfo->bmiHeader.biHeight+yoffset<<0)
-				if ((pInfo->bmiHeader.biHeight+yoffset) < 0) //NHV, assuming this is the correct fix
+				//RERUN if (pInfo->bmiHeader.biHeight+yoffset<<0)
+				if ((pInfo->bmiHeader.biHeight+yoffset) < 0) //RERUN, assuming this is the correct fix
 					pDC->FillSolidRect(0,0,rect.Width(),rect.Height(),rgb);
 				else
 					pDC->FillSolidRect(0,pInfo->bmiHeader.biHeight+yoffset,rect.Width(),rect.Height(),rgb);

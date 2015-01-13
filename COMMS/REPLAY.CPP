@@ -114,9 +114,9 @@ questions about this file may be asked at http://www.simhq.com/
 //#define	FRAMESINBLOCK 1000
 // for fuel in setflightparam purposes need multiple of 256
 #define	FRAMESINBLOCK 1024
-extern int BAD_RV; // NHV value located in GLOBREFS.CPP. 
+extern int BAD_RV; // RERUN value located in GLOBREFS.CPP. 
 
-Replay	_Replay; // NHV added
+Replay	_Replay; // RERUN added
 
 //------------------------------------------------------------------------------
 //Procedure		OpenRecordLog
@@ -5980,8 +5980,8 @@ bool	Replay::LoadSaveGame()
 	else 
 		retval=FALSE;
 
-	//NHV delete savedata;
-	delete[]savedata; //NHV
+	//RERUN delete savedata;
+	delete[]savedata; //RERUN
 
 	return retval;
 }
