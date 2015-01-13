@@ -6607,7 +6607,7 @@ Float AbsRoot(Float f)
 //Author		Paul.   
 //Date			Fri 26 Mar 1999
 //------------------------------------------------------------------------------
-void COverlay::DoThreat()
+void COverlay::DoThreat() //RERUN
 {
 	//display threat indicator in the top left corner of the screen
 	const SWord THREAT_X=10;
@@ -6627,7 +6627,7 @@ void COverlay::DoThreat()
 	const Float scx=Float(physicalWidth)/640.;
 	const Float scy=Float(physicalHeight)/480.;
 	const Float scaled_x=scx*Float(THREAT_X);
-	const Float scaled_w=scx*Float(THREAT_W);
+	const Float scaled_w=scx*Float(THREAT_W) * 0.75; //RERUN added 16/9 scaling correction
 	const Float scaled_threat_radx=scx*Float(THREAT_RAD);
 	const Float scaled_threat_disc_hx=scx*Float(THREAT_DISC_H);
 	const Float scaled_y=scy*Float(THREAT_Y);
@@ -6886,7 +6886,7 @@ void COverlay::DoArtHoriz()
 	const Float scx=Float(physicalWidth)/640.;
 	const Float scy=Float(physicalHeight)/480.;
 	const Float scaled_x=scx*Float(THREAT_X);
-	const Float scaled_w=scx*Float(THREAT_W);
+	const Float scaled_w=scx*Float(THREAT_W) * 0.75; //RERUN added 16/9 scaling correction
 	const Float scaled_threat_radx=scx*Float(THREAT_RAD);
 	const Float scaled_threat_disc_hx=scx*Float(THREAT_DISC_H);
 	const Float scaled_y=scy*Float(THREAT_Y);

@@ -1713,20 +1713,15 @@ bool	ArtInt::OkToAccel()
 	}
 	for (int i=0;i<ACARRAYSIZE;i++)
 	{
-		if (tmp=ACArray[i],
-				tmp!=0
-			&&	tmp->movecode==AUTO_COMBAT
-			&&	tmp->ai.unfriendly
-			&&	Manual_Pilot.ControlledAC2!=tmp
-			&&	(Manual_Pilot.ControlledAC2->InterceptandRange (tmp),tmp->Range</*METRES*/4000000)
-			)
+		tmp = ACArray[i];
+		if(		(tmp != 0)
+			&&	(tmp->movecode == AUTO_COMBAT)
+			&&	(tmp->ai.unfriendly)
+			&&	(Manual_Pilot.ControlledAC2 != tmp)	)
 		{
-//DeadCode RDH 23Oct96 			Persons_2.AddMessage(UserMsg::TIME,TEXT_GM_ENEMYACNEAR,ACArray[i]);//JIM 25Jul96
-//TEMP			if (tmp->nationality==Manual_Pilot.ControlledAC2->nationality)
-//TEMP				Persons_2.AddMessage(UserMsg::TIME,//TEMP,ACArray[i]->ai.unfriendly);//JIM 25Jul96
-//TEMP			else
-//TEMP				Persons_2.AddMessage(UserMsg::TIME,TEXT_NULL,ACArray[i]);//JIM 25Jul96
-			return(false);
+			tmp->Range = tmp->Distance3D(&Manual_Pilot.ControlledAC2->World);
+			if(tmp->Range < 4000000)
+				return(false);
 		}
 	}
 	return(true);
