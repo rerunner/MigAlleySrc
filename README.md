@@ -42,3 +42,6 @@ implications to the course of the ground battle in a cause-and-effect style.
 
 # Building the source
 Due to dependencies on MFC (Microsoft Foundation Class), a professional version of Visual Studio is needed.
+
+# Note
+A native Linux port using Vulkan and SDL can be found here: https://github.com/rerunner/migalley
